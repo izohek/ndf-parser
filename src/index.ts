@@ -1,52 +1,8 @@
 import jsTokens from "js-tokens";
 import { ParserArray, ParserChildValue, ParserGuid, ParserObject, ParserObjectChild, ParserStringLiteral } from "./types"
+import * as Constants from "./constants"
 
-export const token = Array.from(jsTokens("hello, !world"))
-
-export const LineTerminatorSequence = "LineTerminatorSequence"
-export const IgnoredTypes = [
-    LineTerminatorSequence,
-    "WhiteSpace",
-    "SingleLineComment"
-]
-
-export const IdentifierType = "IdentifierName"
-export const AssignmentToken = '='
-
-export const ValueTypes = [
-    IdentifierType,
-    "NumericLiteral",
-    ""
-]
-
-export const AccessLevels = [
-    "export",
-    "private"
-]
-
-export const TypeDefinitionDelimeter = "is"
-
-export const GuidDelimeter = {
-    start: "{",
-    end: "}"
-}
-
-export const ObjectDelimeter = {
-    start: "(",
-    end: ")"
-}
-
-export const ArrayDelimeter = {
-    start: "[",
-    end: "]"
-}
-
-export const GuidToken = "GUID"
-export const GuidTokenColon = ":"
-
-export const ExportToken = "export"
-
-export const StringLiteralType = "StringLiteral"
+export { NdfParser } from "./NdfParser"
 
 export function parseNdf(str: string) {
     const tokens = tokenize(str)
@@ -67,12 +23,12 @@ export function groupTokens(tokens: any) {
     for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i]
         // console.log(token)
-        if (IgnoredTypes.includes(token.type)) {
+        if (Constants.IgnoredTypes.includes(token.type)) {
             continue
         // }
         } else {
             // filteredTokens.push(token)
-            if (AccessLevels.includes(token.value)) {
+            if (Constants.AccessLevels.includes(token.value)) {
                 filteredTokens.push(token)
                 const obj = parseObject(tokens, i + 1)
 
@@ -96,7 +52,7 @@ function parseObject(tokens: any, position: number): [ParserObject, number] {
 
     const obj = new ParserObject()
 
-    if (tokens[currentPos].type == IdentifierType) {
+    if (tokens[currentPos].type == Constants.IdentifierType) {
         obj.name = tokens[currentPos].value
         currentPos += 1
     } else {
@@ -104,7 +60,7 @@ function parseObject(tokens: any, position: number): [ParserObject, number] {
     }
 
     currentPos = ffWhiteSpace(tokens, currentPos)
-    if (tokens[currentPos].value == TypeDefinitionDelimeter) {
+    if (tokens[currentPos].value == Constants.TypeDefinitionDelimeter) {
         currentPos += 1
         currentPos = ffWhiteSpace(tokens, currentPos)
         obj.type = tokens[currentPos].value
@@ -123,15 +79,15 @@ function parseObjectBody(tokens: any, position: number): [ParserObjectChild[], n
     let currentPos = ffWhiteSpace(tokens, position)
     let children: ParserObjectChild[] = []
 
-    if (tokens[currentPos].value != ObjectDelimeter.start) {
+    if (tokens[currentPos].value != Constants.ObjectDelimeter.start) {
         throw new Error("Syntax error: expecting object starting delimeter")
     }
     currentPos += 1
 
-    while (tokens[currentPos].value != ObjectDelimeter.end) {
+    while (tokens[currentPos].value != Constants.ObjectDelimeter.end) {
         currentPos = ffWhiteSpace(tokens, currentPos)
 
-        if (tokens[currentPos].type != IdentifierType) {
+        if (tokens[currentPos].type != Constants.IdentifierType) {
             console.log(tokens[currentPos].type, tokens[currentPos].value)
             throw new Error("Syntax error: expecting object child name")
         }
@@ -141,7 +97,7 @@ function parseObjectBody(tokens: any, position: number): [ParserObjectChild[], n
         currentPos += 1
         currentPos = ffWhiteSpace(tokens, currentPos)
 
-        if (tokens[currentPos].value != AssignmentToken) {
+        if (tokens[currentPos].value != Constants.AssignmentToken) {
             console.log(tokens[currentPos], currentPos)
             throw new Error("Syntax error: expecting object child assignment")
         }
@@ -162,24 +118,24 @@ function parseObjectBody(tokens: any, position: number): [ParserObjectChild[], n
 }
 
 function parseObjectChildValue(tokens: any, position: number): [ParserChildValue, number] {
-    if (tokens[position].value == GuidToken) {
+    if (tokens[position].value == Constants.GuidToken) {
         // parse guid
         let guidStr = tokens[position].value
         let currentPos = position + 1
-        if (tokens[currentPos].value != GuidTokenColon) {
+        if (tokens[currentPos].value != Constants.GuidTokenColon) {
             throw new Error("Syntax error: malformed guid, needs colon")
         }
         guidStr += tokens[currentPos].value
         currentPos += 1
 
-        if (tokens[currentPos].value != GuidDelimeter.start) {
+        if (tokens[currentPos].value != Constants.GuidDelimeter.start) {
             console.log(tokens[currentPos].value)
             throw new Error("Syntax error: guid expected guid delimiter start")
         }
         guidStr += tokens[currentPos].value
         currentPos += 1
 
-        while (tokens[currentPos].value != GuidDelimeter.end) {
+        while (tokens[currentPos].value != Constants.GuidDelimeter.end) {
             guidStr += tokens[currentPos].value
             currentPos += 1
         }
@@ -192,7 +148,7 @@ function parseObjectChildValue(tokens: any, position: number): [ParserChildValue
             guidStr as ParserGuid,
             currentPos
         ]
-    } else if (tokens[position].type == StringLiteralType) {
+    } else if (tokens[position].type == Constants.StringLiteralType) {
         const value = tokens[position].value
         return [
             value as ParserStringLiteral,
@@ -202,7 +158,7 @@ function parseObjectChildValue(tokens: any, position: number): [ParserChildValue
         let currentPos = position
         let value = ""
 
-        while (tokens[currentPos].type != LineTerminatorSequence) {
+        while (tokens[currentPos].type != Constants.LineTerminatorSequence) {
             value += tokens[currentPos].value
             currentPos += 1
         }
@@ -221,10 +177,10 @@ function parseObjectChildValue(tokens: any, position: number): [ParserChildValue
             arrayValue += tokens[currentPos].value
             
             switch (tokens[currentPos].value) {
-                case ArrayDelimeter.start:
+                case Constants.ArrayDelimeter.start:
                     stack.push(tokens[currentPos].value)
                     break
-                case ArrayDelimeter.end:
+                case Constants.ArrayDelimeter.end:
                     stack.pop()
                     break
                 }
@@ -244,7 +200,7 @@ function parseObjectChildValue(tokens: any, position: number): [ParserChildValue
 
 function ffWhiteSpace(tokens: any, position: number): number {
     let currentPos = position
-    while (IgnoredTypes.includes(tokens[currentPos].type) && currentPos < tokens.length) {
+    while (Constants.IgnoredTypes.includes(tokens[currentPos].type) && currentPos < tokens.length) {
         currentPos += 1
     }
     return currentPos
@@ -259,7 +215,7 @@ export function groupTokens2(tokens: any) {
     let exportObj = null
 
     for (const token of tokens) {
-        if (IgnoredTypes.includes(token.type)) {
+        if (Constants.IgnoredTypes.includes(token.type)) {
             continue
         } else {
             filteredTokens.push(token)
@@ -279,15 +235,15 @@ export function groupTokens2(tokens: any) {
         }
 
         switch (token.value) {
-            case ExportToken:
+            case Constants.ExportToken:
                 console.log("Export token")
                 exportObj = new ParserObject()
                 break
-            case ObjectDelimeter.start:
+            case Constants.ObjectDelimeter.start:
                 console.log("Object start")
                 stack.push(new ParserObject())
                 break
-            case ObjectDelimeter.end:
+            case Constants.ObjectDelimeter.end:
                 console.log("Object end")
                 if (lastElement instanceof ParserObject) {
                     const obj = stack.pop()
@@ -296,11 +252,11 @@ export function groupTokens2(tokens: any) {
                     throw new Error("Syntax error - expected closing object delimiter")
                 }
                 break
-            case ArrayDelimeter.start:
+            case Constants.ArrayDelimeter.start:
                 console.log("Array start")
                 stack.push(new ParserArray())
                 break
-            case ArrayDelimeter.end:
+            case Constants.ArrayDelimeter.end:
                 console.log("Array end")
                 if (lastElement instanceof ParserArray) {
                     const arr = stack.pop()
