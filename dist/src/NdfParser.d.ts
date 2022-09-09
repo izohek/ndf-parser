@@ -1,15 +1,12 @@
+import { NdfAttribute, NdfObject } from "./types";
+import { TokenType } from "./NdfTokenizer";
 export declare class NdfParser {
     data: string;
-    tokens: any;
-    parserPosition: number;
     constructor(data: string);
-    parse(): any[];
-    private tokenize;
-    private parseTokens;
-    private parseObject;
-    private parseObjectBody;
-    private parseObjectChildValue;
-    private ffWhiteSpace;
-    private currentToken;
-    private incrementPosition;
+    parse(): (TokenType[] | NdfObject[])[];
+    decipherTokens(tokens: TokenType[]): NdfObject[];
+    decipherAttributes(tokens: [{
+        name: string;
+        value: any;
+    }]): NdfAttribute[];
 }

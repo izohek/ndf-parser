@@ -12,6 +12,7 @@ export const GuidToken = "GUID"
 export const GuidTokenColon = ":"
 export const ExportToken = "export"
 export const StringLiteralType = "StringLiteral"
+export const ObjectToken = "Object"
 
 export const ValueTypes = [
     IdentifierType,
