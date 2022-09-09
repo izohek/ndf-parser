@@ -7,12 +7,12 @@ export interface ParserObjectChild {
     name: string;
     value: ParserChildValue;
 }
-export declare class ParserArray {
-    values: string[];
-}
-export declare type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral;
+export declare type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral | ParserObject;
 export declare type ParserGuid = string;
 export declare type ParserStringLiteral = string;
+export declare class ParserArray {
+    values: ParserChildValue[];
+}
 export interface NdfObject {
     name: string;
     type: string;

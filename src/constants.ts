@@ -1,18 +1,26 @@
-
+// Token Type Literals
 export const LineTerminatorSequence = "LineTerminatorSequence"
+export const IdentifierType = "IdentifierName"
+export const StringLiteralType = "StringLiteral"
+export const NumberLiteralType = "NumericLiteral"
+export const PunctuatorType = "Punctuator"
+
+// Character and string literals
+export const AssignmentToken = '='
+export const TildeToken = '~'
+export const CommaToken = ','
+export const GuidToken = "GUID"
+export const GuidTokenColon = ":"
+export const ExportToken = "export"
+export const ObjectToken = "Object"
+export const TypeDefinitionDelimeter = "is"
+
+// Parser Behavior
 export const IgnoredTypes = [
     LineTerminatorSequence,
     "WhiteSpace",
     "SingleLineComment"
 ]
-
-export const IdentifierType = "IdentifierName"
-export const AssignmentToken = '='
-export const GuidToken = "GUID"
-export const GuidTokenColon = ":"
-export const ExportToken = "export"
-export const StringLiteralType = "StringLiteral"
-export const ObjectToken = "Object"
 
 export const ValueTypes = [
     IdentifierType,
@@ -25,7 +33,7 @@ export const AccessLevels = [
     "private"
 ]
 
-export const TypeDefinitionDelimeter = "is"
+// Grouped delimeters
 
 export const GuidDelimeter = {
     start: "{",

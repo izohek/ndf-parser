@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParserArray = exports.ParserObject = void 0;
+// Parser Types
 class ParserObject {
     constructor() {
         this.name = "";

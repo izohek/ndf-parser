@@ -1,3 +1,4 @@
+// Parser Types
 export class ParserObject {
     name: string = ""
     type: string = ""
@@ -9,14 +10,15 @@ export interface ParserObjectChild {
     value: ParserChildValue
 }
 
-export class ParserArray {
-    values: string[] = []
-}
- 
-export type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral
+export type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral | ParserObject
+
 export type ParserGuid = string
 export type ParserStringLiteral = string
-
+export class ParserArray {
+    values: ParserChildValue[] = []
+}
+ 
+// More formal NDF types for outputing
 export interface NdfObject {
     name: string
     type: string

@@ -30,11 +30,29 @@ exports.NdfTokenizer = void 0;
 const js_tokens_1 = __importDefault(require("js-tokens"));
 const types_1 = require("./types");
 const Constants = __importStar(require("./constants"));
+/**
+ * Converts an NDF string into a set of logical tokens.
+ */
 class NdfTokenizer {
+    /**
+     * Tokenize an ndf file into understandable, logical tokens.
+     *
+     * Logical tokens, not syntax tokens.
+     *
+     * @param str
+     * @returns
+     */
     tokenize(str) {
         let tokens = Array.from((0, js_tokens_1.default)(str));
         return this.parseTokens(tokens);
     }
+    /**
+     * Parse a set of logical tokens from a set of syntax tokens from an
+     * ndf file.
+     *
+     * @param tokens
+     * @returns parser results array
+     */
     parseTokens(tokens) {
         var _a;
         const filteredTokens = [];
@@ -61,6 +79,13 @@ class NdfTokenizer {
         }
         return Array.from(filteredTokens);
     }
+    /**
+     * Parse NDF object
+     *
+     * @param tokens
+     * @param position
+     * @returns [parsed object, new parser position]
+     */
     parseObject(tokens, position) {
         let currentPos = this.ffWhiteSpace(tokens, position);
         const obj = new types_1.ParserObject();
@@ -81,8 +106,20 @@ class NdfTokenizer {
             obj.children.push(...children);
             currentPos = index;
         }
+        else if (tokens[currentPos].value == Constants.ObjectDelimeter.start) {
+            let [children, index] = this.parseObjectBody(tokens, currentPos);
+            obj.children.push(...children);
+            currentPos = index;
+        }
         return [obj, currentPos];
     }
+    /**
+     * Parse the body of an NDF object
+     *
+     * @param tokens
+     * @param position
+     * @returns [object attributes, new parser position]
+     */
     parseObjectBody(tokens, position) {
         let currentPos = this.ffWhiteSpace(tokens, position);
         let children = [];
@@ -90,10 +127,11 @@ class NdfTokenizer {
             throw new Error("Syntax error: expecting object starting delimeter");
         }
         currentPos += 1;
+        currentPos = this.ffWhiteSpace(tokens, currentPos);
         while (tokens[currentPos].value != Constants.ObjectDelimeter.end) {
-            currentPos = this.ffWhiteSpace(tokens, currentPos);
+            console.log(tokens[currentPos].value);
             if (tokens[currentPos].type != Constants.IdentifierType) {
-                console.log(tokens[currentPos].type, tokens[currentPos].value);
+                console.log(tokens[currentPos].type, tokens[currentPos].value, currentPos);
                 throw new Error("Syntax error: expecting object child name");
             }
             let name = tokens[currentPos].value;
@@ -111,9 +149,17 @@ class NdfTokenizer {
                 value: parsedValue
             });
             currentPos = index;
+            currentPos = this.ffWhiteSpace(tokens, currentPos);
         }
         return [children, currentPos];
     }
+    /**
+     * Parse attribute definitions found in the body of an object
+     *
+     * @param tokens
+     * @param position
+     * @returns [parser results, new parser position]
+     */
     parseObjectChildValue(tokens, position) {
         if (tokens[position].value == Constants.GuidToken) {
             // parse guid
@@ -136,7 +182,6 @@ class NdfTokenizer {
             }
             guidStr += tokens[currentPos].value;
             currentPos += 1;
-            console.log("GUID ", guidStr);
             return [
                 guidStr,
                 currentPos
@@ -149,14 +194,15 @@ class NdfTokenizer {
                 position + 1
             ];
         }
-        else if (tokens[position].value == "~") {
-            let currentPos = position;
-            let value = "";
-            while (tokens[currentPos].type != Constants.LineTerminatorSequence) {
-                value += tokens[currentPos].value;
-                currentPos += 1;
-            }
-            console.log("Tilde case end", value);
+        else if (tokens[position].type == Constants.NumberLiteralType) {
+            const value = tokens[position].value;
+            return [
+                value,
+                position + 1
+            ];
+        }
+        else if (tokens[position].value == Constants.TildeToken) {
+            let [value, currentPos] = this.parseTildeValue(tokens, position);
             return [
                 value,
                 currentPos
@@ -180,13 +226,109 @@ class NdfTokenizer {
                 currentPos += 1;
             }
             currentPos += 1;
-            console.log("array", arrayValue);
             return [
-                arrayValue,
+                this.parseArray(arrayValue),
                 currentPos
             ];
         }
     }
+    /**
+     * Parse an NDF Array
+     *
+     * This method supports arrays with included values of Objects or Tilde string/path
+     * values.
+     *
+     * @param arrayString
+     * @returns ParserArray
+     */
+    parseArray(arrayString) {
+        let outArray = new types_1.ParserArray();
+        //
+        // Setup and sanity checks
+        //
+        // Remove white space and other ignored tokens
+        let arrayTokens = Array.from((0, js_tokens_1.default)(arrayString));
+        // Make sure we have data
+        if (arrayTokens.length < 1) {
+            return outArray;
+        }
+        let stack = []; // delimiter stack
+        let index = 0; // parser position
+        // Syntax should start with array delimiter start => [
+        if (arrayTokens[index].value == Constants.ArrayDelimeter.start) {
+            stack.push(arrayTokens[index].value);
+            index++;
+        }
+        else {
+            throw new Error("Expecting array start delimiter as first token.");
+        }
+        //
+        // Parse tokens representing array
+        //
+        // parse loop
+        for (let i = 0; i < arrayTokens.length; i++) {
+            // Skip whitespace
+            i = this.ffWhiteSpace(arrayTokens, i);
+            const token = arrayTokens[i];
+            // Check for empty array
+            if (token.value == Constants.ArrayDelimeter.end) {
+                stack.pop();
+                break;
+            }
+            switch (token.type) {
+                // Parse: Object
+                case Constants.IdentifierType:
+                    let [object, newIndex] = this.parseObject(arrayTokens, i);
+                    console.log(object);
+                    outArray.values.push(object);
+                    i = newIndex;
+                    break;
+                // Parse: Path/tilde leading value
+                case Constants.PunctuatorType:
+                    if (token.value == Constants.TildeToken) {
+                        let [tildeValue, position] = this.parseTildeValue(arrayTokens, i);
+                        outArray.values.push(tildeValue);
+                        i = position;
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+        if (stack.length > 0) {
+            throw new Error("Missing array delimiter end character");
+        }
+        return outArray;
+    }
+    /**
+     * Parse a value in the form of : "~:str:" where ":str:" is an arbitrary string.
+     * Values with trailing commas will have their trailing comma trimmed.
+     *
+     * @param tokens
+     * @param position
+     * @returns [parsed value, new parser position]
+     */
+    parseTildeValue(tokens, position) {
+        let currentPos = position;
+        let value = "";
+        while (tokens[currentPos].type != Constants.LineTerminatorSequence) {
+            value += tokens[currentPos].value;
+            currentPos += 1;
+        }
+        if (value.endsWith(Constants.CommaToken)) {
+            value = value.slice(0, -1);
+        }
+        return [value, currentPos];
+    }
+    /**
+     * Fast forward parser through ignored types including white space and comments.
+     *
+     * See Constants.IgnoredTypes
+     *
+     * @param tokens
+     * @param position
+     * @returns new parser position
+     */
     ffWhiteSpace(tokens, position) {
         let currentPos = position;
         while (Constants.IgnoredTypes.includes(tokens[currentPos].type) && currentPos < tokens.length) {
