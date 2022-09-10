@@ -1,5 +1,5 @@
 import jsTokens from "js-tokens";
-import { NdfAttribute, NdfObject, ParserArray, ParserChildValue, ParserGuid, ParserObject, ParserObjectChild, ParserStringLiteral } from "./types"
+import { NdfToken, NdfAttribute, NdfObject, ParserArray, ParserChildValue, ParserGuid, ParserObject, ParserObjectChild, ParserStringLiteral } from "./types"
 import * as Constants from "./constants"
 import { NdfTokenizer, TokenType } from "./NdfTokenizer";
 
@@ -21,7 +21,7 @@ export class NdfParser {
         let deciphered = []
 
         let accessLevel = ""
-        let object: NdfObject | null = null
+        let object: NdfToken | null = null
 
         for (let i = 0; i < tokens.length; i++) {
             const token = tokens[i]
@@ -42,6 +42,17 @@ export class NdfParser {
                     accessLevel = ""
 
                     object.attributes = this.decipherAttributes(token.value.children)
+
+                    deciphered.push(object)
+
+                    break
+                
+                case Constants.ConstantToken:
+                    object = {
+                        name: token.value.name,
+                        type: Constants.ConstantToken,
+                        value: token.value.children[0].value
+                    }
 
                     deciphered.push(object)
 

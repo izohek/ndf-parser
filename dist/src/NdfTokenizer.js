@@ -65,15 +65,18 @@ class NdfTokenizer {
                 const obj = this.parseObject(tokens, i + 1);
                 i = obj[1];
                 filteredTokens.push({
-                    type: "Object",
+                    type: Constants.ObjectToken,
                     value: obj[0]
                 });
             }
             else if (token.type == Constants.IdentifierType) {
                 const obj = this.parseObject(tokens, i);
                 i = obj[1];
+                const type = obj[0].type == Constants.ConstantToken
+                    ? Constants.ConstantToken
+                    : Constants.ObjectToken;
                 filteredTokens.push({
-                    type: "Object",
+                    type: type,
                     value: obj[0]
                 });
             }
@@ -104,11 +107,24 @@ class NdfTokenizer {
         if (tokens[currentPos].value == Constants.TypeDefinitionDelimeter) {
             currentPos += 1;
             currentPos = this.ffWhiteSpace(tokens, currentPos);
-            obj.type = tokens[currentPos].value;
-            currentPos += 1;
-            let [children, index] = this.parseObjectBody(tokens, currentPos);
-            obj.children.push(...children);
-            currentPos = index;
+            if (tokens[currentPos].type == Constants.NumberLiteralType) {
+                // Parse object constant
+                // example: Flag_Artillerie is 0
+                obj.type = "Constant";
+                obj.children.push({
+                    name: "value",
+                    value: tokens[currentPos].value
+                });
+                currentPos += 1;
+            }
+            else {
+                obj.type = tokens[currentPos].value;
+                currentPos += 1;
+                currentPos = this.ffWhiteSpace(tokens, currentPos);
+                let [children, index] = this.parseObjectBody(tokens, currentPos);
+                obj.children.push(...children);
+                currentPos = index;
+            }
         }
         else if (tokens[currentPos].value == Constants.ObjectDelimeter.start) {
             let [children, index] = this.parseObjectBody(tokens, currentPos);
@@ -128,6 +144,7 @@ class NdfTokenizer {
         let currentPos = this.ffWhiteSpace(tokens, position);
         let children = [];
         if (tokens[currentPos].value != Constants.ObjectDelimeter.start) {
+            console.log(tokens[currentPos].value);
             throw new Error("Syntax error: expecting object starting delimeter");
         }
         currentPos += 1;

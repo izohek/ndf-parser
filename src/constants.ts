@@ -11,6 +11,7 @@ export const TildeToken = '~'
 export const CommaToken = ','
 export const GuidToken = "GUID"
 export const GuidTokenColon = ":"
+export const ConstantToken = "Constant"
 export const ExportToken = "export"
 export const ObjectToken = "Object"
 export const MapToken = "MAP"

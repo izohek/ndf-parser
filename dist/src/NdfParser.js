@@ -56,6 +56,14 @@ class NdfParser {
                     object.attributes = this.decipherAttributes(token.value.children);
                     deciphered.push(object);
                     break;
+                case Constants.ConstantToken:
+                    object = {
+                        name: token.value.name,
+                        type: Constants.ConstantToken,
+                        value: token.value.children[0].value
+                    };
+                    deciphered.push(object);
+                    break;
                 default:
                     break;
             }

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ArrayDelimeter = exports.TupleDelimiter = exports.ObjectDelimeter = exports.GuidDelimeter = exports.AccessLevels = exports.ValueTypes = exports.IgnoredTypes = exports.TypeDefinitionDelimeter = exports.MapToken = exports.ObjectToken = exports.ExportToken = exports.GuidTokenColon = exports.GuidToken = exports.CommaToken = exports.TildeToken = exports.AssignmentToken = exports.PunctuatorType = exports.NumberLiteralType = exports.StringLiteralType = exports.IdentifierType = exports.LineTerminatorSequence = void 0;
+exports.ArrayDelimeter = exports.TupleDelimiter = exports.ObjectDelimeter = exports.GuidDelimeter = exports.AccessLevels = exports.ValueTypes = exports.IgnoredTypes = exports.TypeDefinitionDelimeter = exports.MapToken = exports.ObjectToken = exports.ExportToken = exports.ConstantToken = exports.GuidTokenColon = exports.GuidToken = exports.CommaToken = exports.TildeToken = exports.AssignmentToken = exports.PunctuatorType = exports.NumberLiteralType = exports.StringLiteralType = exports.IdentifierType = exports.LineTerminatorSequence = void 0;
 // Token Type Literals
 exports.LineTerminatorSequence = "LineTerminatorSequence";
 exports.IdentifierType = "IdentifierName";
@@ -13,6 +13,7 @@ exports.TildeToken = '~';
 exports.CommaToken = ',';
 exports.GuidToken = "GUID";
 exports.GuidTokenColon = ":";
+exports.ConstantToken = "Constant";
 exports.ExportToken = "export";
 exports.ObjectToken = "Object";
 exports.MapToken = "MAP";

@@ -3,8 +3,8 @@ import { TokenType } from "./NdfTokenizer";
 export declare class NdfParser {
     data: string;
     constructor(data: string);
-    parse(): (TokenType[] | NdfObject[])[];
-    decipherTokens(tokens: TokenType[]): NdfObject[];
+    parse(): (TokenType[] | (NdfObject | import("./types").NdfConstant)[])[];
+    decipherTokens(tokens: TokenType[]): (NdfObject | import("./types").NdfConstant)[];
     decipherAttributes(tokens: [{
         name: string;
         value: any;

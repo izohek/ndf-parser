@@ -8,6 +8,7 @@ export declare const TildeToken = "~";
 export declare const CommaToken = ",";
 export declare const GuidToken = "GUID";
 export declare const GuidTokenColon = ":";
+export declare const ConstantToken = "Constant";
 export declare const ExportToken = "export";
 export declare const ObjectToken = "Object";
 export declare const MapToken = "MAP";

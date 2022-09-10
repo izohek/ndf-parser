@@ -15,11 +15,17 @@ export declare type ParserTuple = ParserChildValue[];
 export declare class ParserArray {
     values: ParserChildValue[];
 }
+export declare type NdfToken = NdfObject | NdfConstant;
 export interface NdfObject {
     name: string;
     type: string;
     accessLevel: string;
     attributes: NdfAttribute[];
+}
+export interface NdfConstant {
+    name: string;
+    type: string;
+    value: string;
 }
 export interface NdfAttribute {
     name: string;

@@ -21,11 +21,18 @@ export class ParserArray {
 }
  
 // More formal NDF types for outputing
+export type NdfToken = NdfObject | NdfConstant
 export interface NdfObject {
     name: string
     type: string
     accessLevel: string
     attributes: NdfAttribute[]
+}
+
+export interface NdfConstant {
+    name: string
+    type: string
+    value: string
 }
 
 export interface NdfAttribute {
