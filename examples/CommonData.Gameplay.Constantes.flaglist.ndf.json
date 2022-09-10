@@ -1,0 +1,177 @@
+[
+    {
+        "name": "Flag_Artillerie",
+        "type": "Constant",
+        "value": "0"
+    },
+    {
+        "name": "Flag_Avion",
+        "type": "Constant",
+        "value": "1"
+    },
+    {
+        "name": "Flag_Batiment",
+        "type": "Constant",
+        "value": "2"
+    },
+    {
+        "name": "Flag_Blessable",
+        "type": "Constant",
+        "value": "3"
+    },
+    {
+        "name": "Flag_CannotBeShootReflex",
+        "type": "Constant",
+        "value": "4"
+    },
+    {
+        "name": "Flag_Combattant",
+        "type": "Constant",
+        "value": "5"
+    },
+    {
+        "name": "Flag_Detectable",
+        "type": "Constant",
+        "value": "6"
+    },
+    {
+        "name": "Flag_EnCombat",
+        "type": "Constant",
+        "value": "7"
+    },
+    {
+        "name": "Flag_Highlightable",
+        "type": "Constant",
+        "value": "8"
+    },
+    {
+        "name": "Flag_Infanterie",
+        "type": "Constant",
+        "value": "9"
+    },
+    {
+        "name": "Flag_LdDetectable",
+        "type": "Constant",
+        "value": "10"
+    },
+    {
+        "name": "Flag_Selectionnable",
+        "type": "Constant",
+        "value": "11"
+    },
+    {
+        "name": "Flag_Tank",
+        "type": "Constant",
+        "value": "12"
+    },
+    {
+        "name": "Flag_Target",
+        "type": "Constant",
+        "value": "13"
+    },
+    {
+        "name": "Flag_VehiculeVolant",
+        "type": "Constant",
+        "value": "15"
+    },
+    {
+        "name": "Flag_IsAttacked",
+        "type": "Constant",
+        "value": "16"
+    },
+    {
+        "name": "Flag_CannotAttackEnReflex",
+        "type": "Constant",
+        "value": "17"
+    },
+    {
+        "name": "Flag_CannotBeTargeted",
+        "type": "Constant",
+        "value": "18"
+    },
+    {
+        "name": "Flag_AlreadyModifiePorteeDuTirUnitGroup",
+        "type": "Constant",
+        "value": "19"
+    },
+    {
+        "name": "Flag_AlreadyGroupDesarme",
+        "type": "Constant",
+        "value": "20"
+    },
+    {
+        "name": "Flag_AlreadyUnitGroupIncontrolable",
+        "type": "Constant",
+        "value": "21"
+    },
+    {
+        "name": "Flag_LowAltitudeFlying",
+        "type": "Constant",
+        "value": "22"
+    },
+    {
+        "name": "Flag_NearGroundFlying",
+        "type": "Constant",
+        "value": "23"
+    },
+    {
+        "name": "Flag_DetectableLowAltitude",
+        "type": "Constant",
+        "value": "24"
+    },
+    {
+        "name": "Flag_HighAltitudeFlying",
+        "type": "Constant",
+        "value": "25"
+    },
+    {
+        "name": "Flag_FakeTarget",
+        "type": "Constant",
+        "value": "26"
+    },
+    {
+        "name": "Flag_FakeTargetInGeoDB",
+        "type": "Constant",
+        "value": "27"
+    },
+    {
+        "name": "Flag_ProjectileFlying",
+        "type": "Constant",
+        "value": "28"
+    },
+    {
+        "name": "Flag_CannotShootReflexWhileStealth",
+        "type": "Constant",
+        "value": "30"
+    },
+    {
+        "name": "Flag_AllowReflexTargetOutOfVisionRange",
+        "type": "Constant",
+        "value": "31"
+    },
+    {
+        "name": "Flag_AllowReflexTargetOutOfVisionRange_EvenIfNotShootable",
+        "type": "Constant",
+        "value": "32"
+    },
+    {
+        "name": "Flag_SousTirArtillerie",
+        "type": "Constant",
+        "value": "33"
+    },
+    {
+        "name": "Flag_CannotBeCaptured",
+        "type": "Constant",
+        "value": "34"
+    },
+    {
+        "name": "Flag_DEPRECATED_NePasUtiliser_OnlyForBriquePython_Helico",
+        "type": "Constant",
+        "value": "35"
+    },
+    {
+        "name": "Flag_DEPRECATED_NePasUtiliser_OnlyForBriquePython_UniteDeCommandement",
+        "type": "Constant",
+        "value": "36"
+    }
+]
