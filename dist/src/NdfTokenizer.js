@@ -320,7 +320,7 @@ class NdfTokenizer {
         // Parse tokens representing array
         //
         // parse loop
-        for (let i = 0; i < arrayTokens.length; i++) {
+        for (let i = 1; i < arrayTokens.length; i++) {
             // Skip whitespace
             i = this.ffWhiteSpace(arrayTokens, i);
             const token = arrayTokens[i];
@@ -335,6 +335,10 @@ class NdfTokenizer {
                     let [object, newIndex] = this.parseObject(arrayTokens, i);
                     outArray.values.push(object);
                     i = newIndex;
+                    break;
+                case Constants.StringLiteralType:
+                case Constants.NumberLiteralType:
+                    outArray.values.push(arrayTokens[i].value);
                     break;
                 // Parse: Path/tilde leading value
                 case Constants.PunctuatorType:
