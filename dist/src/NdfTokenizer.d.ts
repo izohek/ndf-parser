@@ -67,7 +67,7 @@ export declare class NdfTokenizer {
      * @param position
      * @returns [parsed value, new parser position]
      */
-    parseTildeValue(tokens: any, position: number): [string, number];
+    parseTildeValue(tokens: any, position: number, delimeter?: string[]): [string, number];
     /**
      * Parse an NDF MAP
      *
@@ -83,6 +83,14 @@ export declare class NdfTokenizer {
      * @returns
      */
     parseTuple(tokens: any, position: number): [ParserTuple, number];
+    /**
+     * Parse string token until end of the line
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseUntilEol(tokens: any, position: number): any[];
     /**
      * Fast forward parser through ignored types including white space and comments.
      *

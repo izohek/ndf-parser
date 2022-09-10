@@ -4,6 +4,7 @@ export const IdentifierType = "IdentifierName"
 export const StringLiteralType = "StringLiteral"
 export const NumberLiteralType = "NumericLiteral"
 export const PunctuatorType = "Punctuator"
+export const RegularExpressionType = "RegularExpressionLiteral"
 
 // Character and string literals
 export const AssignmentToken = '='

@@ -274,8 +274,15 @@ class NdfTokenizer {
                 newPosition
             ];
         }
+        else if (tokens[position].type == Constants.IdentifierType) {
+            const [str, newPosition] = this.parseUntilEol(tokens, position);
+            return [
+                str,
+                newPosition
+            ];
+        }
         else {
-            console.log("Unknown value");
+            console.log("Unknown value", tokens[position]);
             throw new Error("Unknown Child Value");
         }
     }
@@ -354,10 +361,11 @@ class NdfTokenizer {
      * @param position
      * @returns [parsed value, new parser position]
      */
-    parseTildeValue(tokens, position) {
+    parseTildeValue(tokens, position, delimeter = [Constants.LineTerminatorSequence]) {
         let currentPos = position;
         let value = "";
-        while (tokens[currentPos].type != Constants.LineTerminatorSequence) {
+        while (!delimeter.includes(tokens[currentPos].type)) {
+            console.log(tokens[currentPos].value);
             value += tokens[currentPos].value;
             currentPos += 1;
         }
@@ -399,6 +407,7 @@ class NdfTokenizer {
                     currentPos = newPos;
                 }
                 else {
+                    console.log(tokens[currentPos], mapValue);
                     throw new Error("Unknown Map value token");
                 }
             }
@@ -445,7 +454,34 @@ class NdfTokenizer {
                 valueStack = [];
                 tuple.push(value);
             }
+            else if (tokens[currentPos].value == Constants.TildeToken) {
+                // if next is reg ex we have to do some cleanup
+                // currentPos++
+                if (tokens[currentPos + 1].type = Constants.RegularExpressionType) {
+                    const regexTokens = tokens[currentPos + 1].value.split(",");
+                    let newTupleValue = Constants.TildeToken;
+                    for (let j = 0; j < regexTokens.length; j++) {
+                        const newRegTkn = regexTokens[j].split(")");
+                        for (let t = 0; t < newRegTkn.length; t++) {
+                            newTupleValue += newRegTkn[t];
+                            if (newTupleValue) {
+                                tuple.push(newTupleValue.trim());
+                                newTupleValue = "";
+                            }
+                            if (t > 0) {
+                                stack.pop();
+                            }
+                        }
+                    }
+                }
+                else {
+                    let tildeResults = this.parseTildeValue(tokens, currentPos, [Constants.LineTerminatorSequence, Constants.CommaToken]);
+                    tuple.push(tildeResults[0]);
+                    currentPos = tildeResults[1];
+                }
+            }
             else {
+                console.log(tokens[currentPos].value, tokens[currentPos].type);
                 throw new Error("Unknown tuple inner value");
             }
             currentPos++;
@@ -455,6 +491,25 @@ class NdfTokenizer {
             }
         }
         return [tuple, currentPos];
+    }
+    /**
+     * Parse string token until end of the line
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseUntilEol(tokens, position) {
+        let currentPos = position;
+        let values = [];
+        while (tokens[currentPos].type != Constants.LineTerminatorSequence) {
+            values.push(tokens[currentPos]);
+            currentPos++;
+        }
+        return [
+            values.reduce((prev, next) => prev + next.value, ""),
+            currentPos
+        ];
     }
     /**
      * Fast forward parser through ignored types including white space and comments.
