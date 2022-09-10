@@ -7,9 +7,11 @@ export interface ParserObjectChild {
     name: string;
     value: ParserChildValue;
 }
-export declare type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral | ParserObject;
+export declare type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral | ParserObject | ParserMap;
 export declare type ParserGuid = string;
 export declare type ParserStringLiteral = string;
+export declare type ParserMap = ParserChildValue[];
+export declare type ParserTuple = ParserChildValue[];
 export declare class ParserArray {
     values: ParserChildValue[];
 }

@@ -13,6 +13,7 @@ export const GuidToken = "GUID"
 export const GuidTokenColon = ":"
 export const ExportToken = "export"
 export const ObjectToken = "Object"
+export const MapToken = "MAP"
 export const TypeDefinitionDelimeter = "is"
 
 // Parser Behavior
@@ -44,6 +45,8 @@ export const ObjectDelimeter = {
     start: "(",
     end: ")"
 }
+
+export const TupleDelimiter = ObjectDelimeter
 
 export const ArrayDelimeter = {
     start: "[",

@@ -54,27 +54,31 @@ class NdfTokenizer {
      * @returns parser results array
      */
     parseTokens(tokens) {
-        var _a;
         const filteredTokens = [];
         for (let i = 0; i < tokens.length; i++) {
             const token = tokens[i];
             if (Constants.IgnoredTypes.includes(token.type)) {
                 continue;
             }
+            if (Constants.AccessLevels.includes(token.value)) {
+                filteredTokens.push(token);
+                const obj = this.parseObject(tokens, i + 1);
+                i = obj[1];
+                filteredTokens.push({
+                    type: "Object",
+                    value: obj[0]
+                });
+            }
+            else if (token.type == Constants.IdentifierType) {
+                const obj = this.parseObject(tokens, i);
+                i = obj[1];
+                filteredTokens.push({
+                    type: "Object",
+                    value: obj[0]
+                });
+            }
             else {
-                // filteredTokens.push(token)
-                if (Constants.AccessLevels.includes(token.value)) {
-                    filteredTokens.push(token);
-                    const obj = this.parseObject(tokens, i + 1);
-                    i = obj[1];
-                    console.log((_a = obj[0].name) !== null && _a !== void 0 ? _a : "no-name");
-                    filteredTokens.push({
-                        type: "Object",
-                        value: obj[0]
-                    });
-                }
-                else {
-                }
+                console.log("Unknown root element", token.type, token.value);
             }
         }
         return Array.from(filteredTokens);
@@ -129,7 +133,6 @@ class NdfTokenizer {
         currentPos += 1;
         currentPos = this.ffWhiteSpace(tokens, currentPos);
         while (tokens[currentPos].value != Constants.ObjectDelimeter.end) {
-            console.log(tokens[currentPos].value);
             if (tokens[currentPos].type != Constants.IdentifierType) {
                 console.log(tokens[currentPos].type, tokens[currentPos].value, currentPos);
                 throw new Error("Syntax error: expecting object child name");
@@ -162,7 +165,8 @@ class NdfTokenizer {
      */
     parseObjectChildValue(tokens, position) {
         if (tokens[position].value == Constants.GuidToken) {
-            // parse guid
+            // GUID string
+            // example: DescriptorId = GUID:{2943c3ae-bf4f-4f01-9897-be36555b3118}
             let guidStr = tokens[position].value;
             let currentPos = position + 1;
             if (tokens[currentPos].value != Constants.GuidTokenColon) {
@@ -188,6 +192,8 @@ class NdfTokenizer {
             ];
         }
         else if (tokens[position].type == Constants.StringLiteralType) {
+            // String literal
+            // example: DeckName = 'SJEUHLLSUW'
             const value = tokens[position].value;
             return [
                 value,
@@ -195,6 +201,8 @@ class NdfTokenizer {
             ];
         }
         else if (tokens[position].type == Constants.NumberLiteralType) {
+            // Number literal
+            // example: ExperienceLevel = 2
             const value = tokens[position].value;
             return [
                 value,
@@ -202,13 +210,20 @@ class NdfTokenizer {
             ];
         }
         else if (tokens[position].value == Constants.TildeToken) {
+            // Tilde path value
+            // example: Transport = ~/Descriptor_Unit_M113A1G_RFA
             let [value, currentPos] = this.parseTildeValue(tokens, position);
             return [
                 value,
                 currentPos
             ];
         }
-        else {
+        else if (tokens[position].value == Constants.ArrayDelimeter.start) {
+            // Arrays
+            // DeckCombatGroupList =
+            // [
+            //   ... 
+            // ]
             let arrayValue = "";
             arrayValue += tokens[position].value;
             let stack = [tokens[position].value];
@@ -230,6 +245,21 @@ class NdfTokenizer {
                 this.parseArray(arrayValue),
                 currentPos
             ];
+        }
+        else if (tokens[position].value == Constants.MapToken) {
+            // Maps
+            // example: DivisionIds = MAP [
+            //   (Descriptor_Deck_Division_RDA_7_Panzer_multi, 9),
+            // ]  
+            const [map, newPosition] = this.parseMap(tokens, position);
+            return [
+                map,
+                newPosition
+            ];
+        }
+        else {
+            console.log("Unknown value");
+            throw new Error("Unknown Child Value");
         }
     }
     /**
@@ -279,7 +309,6 @@ class NdfTokenizer {
                 // Parse: Object
                 case Constants.IdentifierType:
                     let [object, newIndex] = this.parseObject(arrayTokens, i);
-                    console.log(object);
                     outArray.values.push(object);
                     i = newIndex;
                     break;
@@ -319,6 +348,96 @@ class NdfTokenizer {
             value = value.slice(0, -1);
         }
         return [value, currentPos];
+    }
+    /**
+     * Parse an NDF MAP
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseMap(tokens, position) {
+        let currentPos = position;
+        let mapValue = [];
+        if (tokens[currentPos].value != Constants.MapToken) {
+            throw new Error("Expected 'MAP' starting token.");
+        }
+        currentPos++;
+        currentPos = this.ffWhiteSpace(tokens, currentPos);
+        if (tokens[currentPos].value != Constants.ArrayDelimeter.start) {
+            throw new Error("Expected array starting delimeter");
+        }
+        currentPos++;
+        currentPos = this.ffWhiteSpace(tokens, currentPos);
+        const stack = [Constants.ArrayDelimeter.start];
+        while (stack.length > 0) {
+            if (tokens[currentPos].value == Constants.ArrayDelimeter.end) {
+                stack.pop();
+            }
+            else {
+                // Parse tuple
+                if (tokens[currentPos].value == Constants.TupleDelimiter.start) {
+                    let [tuple, newPos] = this.parseTuple(tokens, currentPos);
+                    mapValue.push(tuple);
+                    currentPos = newPos;
+                }
+                else {
+                    throw new Error("Unknown Map value token");
+                }
+            }
+            currentPos++;
+            currentPos = this.ffWhiteSpace(tokens, currentPos);
+            if (currentPos >= tokens.length) {
+                throw new Error("Unbound MAP object missing ending delimeter");
+            }
+        }
+        // throw new Error("Unimplemented: MAP")
+        return [
+            mapValue,
+            currentPos
+        ];
+    }
+    /**
+     * Parse a tuple value like "(Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AH1F_Cobra_US, 365)"
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseTuple(tokens, position) {
+        let currentPos = position;
+        let stack = [];
+        let tuple = [];
+        if (tokens[currentPos].value != Constants.TupleDelimiter.start) {
+            throw new Error("Expecting token start delimeter");
+        }
+        stack.push(tokens[currentPos]);
+        currentPos++;
+        let valueStack = [];
+        while (stack.length > 0) {
+            if (tokens[currentPos].value == Constants.TupleDelimiter.end) {
+                let value = valueStack.reduce((prev, cur) => prev + cur.value, "");
+                valueStack = [];
+                tuple.push(value);
+                stack.pop();
+            }
+            else if (Constants.ValueTypes.includes(tokens[currentPos].type)) {
+                valueStack.push(tokens[currentPos]);
+            }
+            else if (tokens[currentPos].value == Constants.CommaToken) {
+                let value = valueStack.reduce((prev, cur) => prev + cur.value, "");
+                valueStack = [];
+                tuple.push(value);
+            }
+            else {
+                throw new Error("Unknown tuple inner value");
+            }
+            currentPos++;
+            currentPos = this.ffWhiteSpace(tokens, currentPos);
+            if (currentPos >= tokens[currentPos].length) {
+                throw new Error("Unbound tuple object missing ending delimeter");
+            }
+        }
+        return [tuple, currentPos];
     }
     /**
      * Fast forward parser through ignored types including white space and comments.

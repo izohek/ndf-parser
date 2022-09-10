@@ -10,10 +10,12 @@ export interface ParserObjectChild {
     value: ParserChildValue
 }
 
-export type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral | ParserObject
+export type ParserChildValue = ParserArray | ParserGuid | ParserStringLiteral | ParserObject | ParserMap
 
 export type ParserGuid = string
 export type ParserStringLiteral = string
+export type ParserMap = ParserChildValue[]
+export type ParserTuple = ParserChildValue[]
 export class ParserArray {
     values: ParserChildValue[] = []
 }

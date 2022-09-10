@@ -1,5 +1,5 @@
 import { Token } from "js-tokens";
-import { ParserArray, ParserChildValue, ParserObject, ParserObjectChild } from "./types";
+import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild } from "./types";
 export interface TokenType {
     type: string;
     value: any;
@@ -68,6 +68,21 @@ export declare class NdfTokenizer {
      * @returns [parsed value, new parser position]
      */
     parseTildeValue(tokens: any, position: number): [string, number];
+    /**
+     * Parse an NDF MAP
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseMap(tokens: any, position: number): [ParserMap, number];
+    /**
+     * Parse a tuple value like "(Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AH1F_Cobra_US, 365)"
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseTuple(tokens: any, position: number): [ParserTuple, number];
     /**
      * Fast forward parser through ignored types including white space and comments.
      *

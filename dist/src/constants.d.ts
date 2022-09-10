@@ -10,6 +10,7 @@ export declare const GuidToken = "GUID";
 export declare const GuidTokenColon = ":";
 export declare const ExportToken = "export";
 export declare const ObjectToken = "Object";
+export declare const MapToken = "MAP";
 export declare const TypeDefinitionDelimeter = "is";
 export declare const IgnoredTypes: string[];
 export declare const ValueTypes: string[];
@@ -19,6 +20,10 @@ export declare const GuidDelimeter: {
     end: string;
 };
 export declare const ObjectDelimeter: {
+    start: string;
+    end: string;
+};
+export declare const TupleDelimiter: {
     start: string;
     end: string;
 };
