@@ -1,5 +1,5 @@
 import { Token } from "js-tokens";
-import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild } from "./types";
+import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral } from "./types";
 export interface TokenType {
     type: string;
     value: any;
@@ -17,6 +17,13 @@ export declare class NdfTokenizer {
      * @returns
      */
     tokenize(str: string): TokenType[];
+    /**
+     * Perform pref and sanitation on the jsTokens result.
+     *
+     * @param tokens
+     * @returns
+     */
+    private santizeTokens;
     /**
      * Parse a set of logical tokens from a set of syntax tokens from an
      * ndf file.
@@ -83,6 +90,14 @@ export declare class NdfTokenizer {
      * @returns
      */
     parseTuple(tokens: any, position: number): [ParserTuple, number];
+    /**
+     * Parse a (probable) math expression usually when assigned as a child value.
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseExpressionValue(tokens: any, position: number): [ParserStringLiteral, number];
     /**
      * Parse string token until end of the line
      *

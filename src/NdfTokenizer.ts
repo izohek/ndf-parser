@@ -22,8 +22,45 @@ export class NdfTokenizer {
      * @returns 
      */
     public tokenize(str: string): TokenType[] {
-        let tokens = Array.from(jsTokens(str))
+        let tokens = this.santizeTokens(Array.from(jsTokens(str)))
         return this.parseTokens(tokens)
+    }
+    
+    /**
+     * Perform pref and sanitation on the jsTokens result.
+     * 
+     * @param tokens 
+     * @returns 
+     */
+    private santizeTokens(tokens: Token[]): Token[] {
+        const sanitizedTokens: Token[] = []
+        for(let i = 0; i < tokens.length; i++ ) {
+            if (tokens[i].type == Constants.RegularExpressionType) {
+                if (tokens[i].value.endsWith(Constants.ObjectDelimeter.end + "" + Constants.CommaToken)) {
+                    const newTokens: Token[] = [
+                        {
+                            type: Constants.RegularExpressionType,
+                            value: tokens[i].value.slice(0, -2),
+                            closed: false
+                        },
+                        {
+                            type: Constants.PunctuatorType,
+                            value: Constants.ObjectDelimeter.end,
+                        }, {
+                            type: Constants.PunctuatorType,
+                            value: Constants.CommaToken
+                        }
+                    ]
+
+                    sanitizedTokens.push(...newTokens)
+                    
+                    continue
+                }
+            }
+            
+            sanitizedTokens.push(tokens[i]);
+        }
+        return sanitizedTokens
     }
 
     /**
@@ -306,6 +343,9 @@ export class NdfTokenizer {
                 str as ParserStringLiteral,
                 newPosition
             ]
+        } else if (tokens[position].value == Constants.ObjectDelimeter.start) {
+            const [exprVal, newPosition] = this.parseExpressionValue(tokens, position)
+            return [exprVal, newPosition + 1]
         } else {
             console.log("Unknown value", tokens[position])
             throw new Error("Unknown Child Value")
@@ -329,7 +369,7 @@ export class NdfTokenizer {
         //
 
         // Remove white space and other ignored tokens
-        let arrayTokens = Array.from(jsTokens(arrayString))
+        let arrayTokens = this.santizeTokens(Array.from(jsTokens(arrayString)))
 
         // Make sure we have data
         if (arrayTokens.length < 1) { 
@@ -410,8 +450,7 @@ export class NdfTokenizer {
         let currentPos = position
         let value = ""
 
-        while (!delimeter.includes(tokens[currentPos].type)) {
-            console.log(tokens[currentPos].value)
+        while (!delimeter.includes(tokens[currentPos].type) && tokens[currentPos].value != Constants.ObjectDelimeter.end) {
             value += tokens[currentPos].value
             currentPos += 1
         }
@@ -553,6 +592,45 @@ export class NdfTokenizer {
         }
 
         return [tuple, currentPos]
+    }
+
+    /**
+     * Parse a (probable) math expression usually when assigned as a child value.
+     * 
+     * @param tokens 
+     * @param position 
+     * @returns 
+     */
+    public parseExpressionValue(tokens: any, position: number): [ParserStringLiteral, number] {
+        let currentPosition = position
+        let value = "("
+
+        if (tokens[currentPosition].value != Constants.ObjectDelimeter.start) {
+            throw new Error("Incorrect expression starting character: ")
+        }
+
+        let stack = [Constants.ObjectDelimeter.start]
+        currentPosition++
+        while (stack.length > 0 && currentPosition <= tokens.length) {
+
+            switch (tokens[currentPosition].value) {
+                case Constants.ObjectDelimeter.start:
+                    stack.push(tokens[currentPosition].value)
+                    break
+                case Constants.ObjectDelimeter.end:
+                    stack.pop()
+                    break
+            }
+            
+            value += tokens[currentPosition].value
+
+            currentPosition++
+        }
+
+        return [
+            value,
+            currentPosition
+        ]
     }
 
     /**
