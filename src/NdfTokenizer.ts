@@ -93,6 +93,8 @@ export class NdfTokenizer {
         
         currentPos = this.ffWhiteSpace(tokens, currentPos)
         if (tokens[currentPos].value == Constants.TypeDefinitionDelimeter) {
+            // Object definition
+            // example: Descriptor_Unit_2K12_KUB_DDR is TEntityDescriptor
             currentPos += 1
             currentPos = this.ffWhiteSpace(tokens, currentPos)
             
@@ -106,16 +108,18 @@ export class NdfTokenizer {
                 })
                 currentPos += 1
             } else {
+                // Parse object type name
+                // example: Descriptor_Unit_2K12_KUB_DDR is TEntityDescriptor
                 obj.type = tokens[currentPos].value
-             
+                
                 currentPos += 1
                 currentPos = this.ffWhiteSpace(tokens, currentPos)
-             
+                
                 let [children, index] = this.parseObjectBody(tokens, currentPos)
                 obj.children.push(...children)
                 currentPos = index
             }
-
+            
         } else if (tokens[currentPos].value == Constants.ObjectDelimeter.start) {
             let [children, index] = this.parseObjectBody(tokens, currentPos)
             obj.children.push(...children)
@@ -284,6 +288,20 @@ export class NdfTokenizer {
             ]
         } else if (tokens[position].type == Constants.IdentifierType) {
             const [str, newPosition] = this.parseUntilEol(tokens, position)
+            // Look ahead to see if identifier or object definition
+            const lookaheadPos = this.ffWhiteSpace(tokens, newPosition)
+
+            if (tokens[lookaheadPos].value == Constants.ObjectDelimeter.start) {
+                let [objectChildren, newLAPosition] = this.parseObjectBody(tokens, lookaheadPos) 
+                let newObject = new ParserObject()
+                newObject.name = str
+                newObject.children.push(...objectChildren)
+                return [
+                    newObject,
+                    newLAPosition + 1
+                ]
+            }
+
             return [
                 str as ParserStringLiteral,
                 newPosition

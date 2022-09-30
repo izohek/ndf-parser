@@ -105,6 +105,8 @@ class NdfTokenizer {
         }
         currentPos = this.ffWhiteSpace(tokens, currentPos);
         if (tokens[currentPos].value == Constants.TypeDefinitionDelimeter) {
+            // Object definition
+            // example: Descriptor_Unit_2K12_KUB_DDR is TEntityDescriptor
             currentPos += 1;
             currentPos = this.ffWhiteSpace(tokens, currentPos);
             if (tokens[currentPos].type == Constants.NumberLiteralType) {
@@ -118,6 +120,8 @@ class NdfTokenizer {
                 currentPos += 1;
             }
             else {
+                // Parse object type name
+                // example: Descriptor_Unit_2K12_KUB_DDR is TEntityDescriptor
                 obj.type = tokens[currentPos].value;
                 currentPos += 1;
                 currentPos = this.ffWhiteSpace(tokens, currentPos);
@@ -276,6 +280,18 @@ class NdfTokenizer {
         }
         else if (tokens[position].type == Constants.IdentifierType) {
             const [str, newPosition] = this.parseUntilEol(tokens, position);
+            // Look ahead to see if identifier or object definition
+            const lookaheadPos = this.ffWhiteSpace(tokens, newPosition);
+            if (tokens[lookaheadPos].value == Constants.ObjectDelimeter.start) {
+                let [objectChildren, newLAPosition] = this.parseObjectBody(tokens, lookaheadPos);
+                let newObject = new types_1.ParserObject();
+                newObject.name = str;
+                newObject.children.push(...objectChildren);
+                return [
+                    newObject,
+                    newLAPosition + 1
+                ];
+            }
             return [
                 str,
                 newPosition
