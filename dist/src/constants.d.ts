@@ -15,6 +15,7 @@ export declare const ExportToken = "export";
 export declare const ObjectToken = "Object";
 export declare const MapToken = "MAP";
 export declare const TypeDefinitionDelimeter = "is";
+export declare const RgbaDelimeter = "RGBA";
 export declare const IgnoredTypes: string[];
 export declare const ValueTypes: string[];
 export declare const AccessLevels: string[];

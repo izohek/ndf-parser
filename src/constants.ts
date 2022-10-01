@@ -18,6 +18,7 @@ export const ExportToken = "export"
 export const ObjectToken = "Object"
 export const MapToken = "MAP"
 export const TypeDefinitionDelimeter = "is"
+export const RgbaDelimeter = "RGBA"
 
 // Parser Behavior
 export const IgnoredTypes = [

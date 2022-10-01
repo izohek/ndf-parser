@@ -6,6 +6,9 @@ import { NdfTokenizer, TokenType } from "./NdfTokenizer";
 export class NdfParser {
 
     public  data: string
+    
+    /// Enable debug mode for console logging.
+    public debug: boolean = false
 
     constructor(data: string) {
         this.data = data
@@ -13,6 +16,7 @@ export class NdfParser {
 
     public parse() {
         let tokenizer = new NdfTokenizer()
+        tokenizer.debug = this.debug
         let tokens = tokenizer.tokenize(this.data)
         return [tokens, this.decipherTokens(tokens)]
     }

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ArrayDelimeter = exports.TupleDelimiter = exports.ObjectDelimeter = exports.GuidDelimeter = exports.AccessLevels = exports.ValueTypes = exports.IgnoredTypes = exports.TypeDefinitionDelimeter = exports.MapToken = exports.ObjectToken = exports.ExportToken = exports.ConstantToken = exports.GuidTokenColon = exports.GuidToken = exports.CommaToken = exports.TildeToken = exports.AssignmentToken = exports.NegativeNumberToken = exports.RegularExpressionType = exports.PunctuatorType = exports.NumberLiteralType = exports.StringLiteralType = exports.IdentifierType = exports.LineTerminatorSequence = void 0;
+exports.ArrayDelimeter = exports.TupleDelimiter = exports.ObjectDelimeter = exports.GuidDelimeter = exports.AccessLevels = exports.ValueTypes = exports.IgnoredTypes = exports.RgbaDelimeter = exports.TypeDefinitionDelimeter = exports.MapToken = exports.ObjectToken = exports.ExportToken = exports.ConstantToken = exports.GuidTokenColon = exports.GuidToken = exports.CommaToken = exports.TildeToken = exports.AssignmentToken = exports.NegativeNumberToken = exports.RegularExpressionType = exports.PunctuatorType = exports.NumberLiteralType = exports.StringLiteralType = exports.IdentifierType = exports.LineTerminatorSequence = void 0;
 // Token Type Literals
 exports.LineTerminatorSequence = "LineTerminatorSequence";
 exports.IdentifierType = "IdentifierName";
@@ -20,6 +20,7 @@ exports.ExportToken = "export";
 exports.ObjectToken = "Object";
 exports.MapToken = "MAP";
 exports.TypeDefinitionDelimeter = "is";
+exports.RgbaDelimeter = "RGBA";
 // Parser Behavior
 exports.IgnoredTypes = [
     exports.LineTerminatorSequence,

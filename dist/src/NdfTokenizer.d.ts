@@ -1,5 +1,5 @@
 import { Token } from "js-tokens";
-import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral } from "./types";
+import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue } from "./types";
 export interface TokenType {
     type: string;
     value: any;
@@ -8,6 +8,7 @@ export interface TokenType {
  * Converts an NDF string into a set of logical tokens.
  */
 export declare class NdfTokenizer {
+    debug: boolean;
     /**
      * Tokenize an ndf file into understandable, logical tokens.
      *
@@ -115,6 +116,16 @@ export declare class NdfTokenizer {
      * @returns
      */
     parseEntity(tokens: any, position: number): any[];
+    /**
+     * Parse an NDF RGBA value.
+     *
+     * Example: DispersionRadiusOffColor = RGBA[0,0,0,0]
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseRgbaValue(tokens: any, position: number): [ParserRgbaValue, number];
     /**
      * Fast forward parser through ignored types including white space and comments.
      *

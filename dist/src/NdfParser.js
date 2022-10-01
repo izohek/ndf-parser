@@ -28,10 +28,13 @@ const Constants = __importStar(require("./constants"));
 const NdfTokenizer_1 = require("./NdfTokenizer");
 class NdfParser {
     constructor(data) {
+        /// Enable debug mode for console logging.
+        this.debug = false;
         this.data = data;
     }
     parse() {
         let tokenizer = new NdfTokenizer_1.NdfTokenizer();
+        tokenizer.debug = this.debug;
         let tokens = tokenizer.tokenize(this.data);
         return [tokens, this.decipherTokens(tokens)];
     }

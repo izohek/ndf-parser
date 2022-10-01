@@ -1,5 +1,5 @@
 import jsTokens, { Token } from "js-tokens";
-import { ParserTuple, ParserArray, ParserChildValue, ParserGuid, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral } from "./types"
+import { ParserTuple, ParserArray, ParserChildValue, ParserGuid, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue } from "./types"
 import * as Constants from "./constants"
 
 /// Logical Token
@@ -13,6 +13,9 @@ export interface TokenType {
  */
 export class NdfTokenizer {
 
+    /// Log parsing progress to console
+    public debug = false;
+
     /**
      * Tokenize an ndf file into understandable, logical tokens.
      * 
@@ -23,6 +26,7 @@ export class NdfTokenizer {
      */
     public tokenize(str: string): TokenType[] {
         let tokens = this.santizeTokens(Array.from(jsTokens(str)))
+        if (this.debug) { console.log(tokens) }
         return this.parseTokens(tokens)
     }
     
@@ -123,6 +127,7 @@ export class NdfTokenizer {
 
         if (tokens[currentPos].type == Constants.IdentifierType) {
             obj.name = tokens[currentPos].value
+            if (this.debug) { console.log(obj.name) }
             currentPos += 1
         } else {
             throw new Error("Syntax error: expecting object name")
@@ -327,6 +332,7 @@ export class NdfTokenizer {
             ]
         } else if (tokens[position].type == Constants.IdentifierType) {
             const [str, newPosition] = this.parseEntity(tokens, position)
+            if (this.debug) { console.log("Child ID : ", str)}
             // Look ahead to see if identifier or object definition
             const lookaheadPos = this.ffWhiteSpace(tokens, newPosition)
 
@@ -721,6 +727,10 @@ export class NdfTokenizer {
             Constants.CommaToken
         ]
 
+        if (tokens[currentPos].value == Constants.RgbaDelimeter) {
+            return this.parseRgbaValue(tokens, currentPos)
+        }
+
         while (!terminatingTypes.includes(tokens[currentPos].type) && !terminatingValues.includes(tokens[currentPos].value)) {
             values.push(tokens[currentPos])
             currentPos++
@@ -730,6 +740,39 @@ export class NdfTokenizer {
             values.reduce((prev, next) => prev + next.value, ""),
             currentPos
         ]
+    }
+    
+    /**
+     * Parse an NDF RGBA value.
+     * 
+     * Example: DispersionRadiusOffColor = RGBA[0,0,0,0]
+     * 
+     * @param tokens 
+     * @param position 
+     * @returns 
+     */
+    public parseRgbaValue(tokens: any, position: number): [ParserRgbaValue, number] {
+        let currentPos = position
+        if (tokens[currentPos].value != Constants.RgbaDelimeter) {
+            throw new Error("Invalid RGBA starting value")
+        }
+        currentPos++
+
+        let [arrayString, newPosition] = this.generateArrayString(tokens, currentPos)
+        let parsedArray = this.parseArray(arrayString)
+        if (parsedArray.values.length != 4) {
+            throw new Error("Invalid RGBA value count.")
+        }
+
+        let rgba: ParserRgbaValue = {
+            name: "rgba",
+            r: parsedArray.values[0] as ParserStringLiteral,
+            g: parsedArray.values[1] as ParserStringLiteral,
+            b: parsedArray.values[2] as ParserStringLiteral,
+            a: parsedArray.values[3] as ParserStringLiteral,
+        }
+
+        return [rgba, newPosition]
     }
     
     /**

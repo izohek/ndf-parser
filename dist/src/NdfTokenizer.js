@@ -34,6 +34,10 @@ const Constants = __importStar(require("./constants"));
  * Converts an NDF string into a set of logical tokens.
  */
 class NdfTokenizer {
+    constructor() {
+        /// Log parsing progress to console
+        this.debug = false;
+    }
     /**
      * Tokenize an ndf file into understandable, logical tokens.
      *
@@ -44,6 +48,9 @@ class NdfTokenizer {
      */
     tokenize(str) {
         let tokens = this.santizeTokens(Array.from((0, js_tokens_1.default)(str)));
+        if (this.debug) {
+            console.log(tokens);
+        }
         return this.parseTokens(tokens);
     }
     /**
@@ -131,6 +138,9 @@ class NdfTokenizer {
         const obj = new types_1.ParserObject();
         if (tokens[currentPos].type == Constants.IdentifierType) {
             obj.name = tokens[currentPos].value;
+            if (this.debug) {
+                console.log(obj.name);
+            }
             currentPos += 1;
         }
         else {
@@ -316,6 +326,9 @@ class NdfTokenizer {
         }
         else if (tokens[position].type == Constants.IdentifierType) {
             const [str, newPosition] = this.parseEntity(tokens, position);
+            if (this.debug) {
+                console.log("Child ID : ", str);
+            }
             // Look ahead to see if identifier or object definition
             const lookaheadPos = this.ffWhiteSpace(tokens, newPosition);
             if (tokens[lookaheadPos].value == Constants.ObjectDelimeter.start) {
@@ -665,6 +678,9 @@ class NdfTokenizer {
             Constants.ObjectDelimeter.end,
             Constants.CommaToken
         ];
+        if (tokens[currentPos].value == Constants.RgbaDelimeter) {
+            return this.parseRgbaValue(tokens, currentPos);
+        }
         while (!terminatingTypes.includes(tokens[currentPos].type) && !terminatingValues.includes(tokens[currentPos].value)) {
             values.push(tokens[currentPos]);
             currentPos++;
@@ -673,6 +689,35 @@ class NdfTokenizer {
             values.reduce((prev, next) => prev + next.value, ""),
             currentPos
         ];
+    }
+    /**
+     * Parse an NDF RGBA value.
+     *
+     * Example: DispersionRadiusOffColor = RGBA[0,0,0,0]
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseRgbaValue(tokens, position) {
+        let currentPos = position;
+        if (tokens[currentPos].value != Constants.RgbaDelimeter) {
+            throw new Error("Invalid RGBA starting value");
+        }
+        currentPos++;
+        let [arrayString, newPosition] = this.generateArrayString(tokens, currentPos);
+        let parsedArray = this.parseArray(arrayString);
+        if (parsedArray.values.length != 4) {
+            throw new Error("Invalid RGBA value count.");
+        }
+        let rgba = {
+            name: "rgba",
+            r: parsedArray.values[0],
+            g: parsedArray.values[1],
+            b: parsedArray.values[2],
+            a: parsedArray.values[3],
+        };
+        return [rgba, newPosition];
     }
     /**
      * Fast forward parser through ignored types including white space and comments.
