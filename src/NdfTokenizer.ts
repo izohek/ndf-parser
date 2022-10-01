@@ -268,10 +268,10 @@ export class NdfTokenizer {
         } else if (tokens[position].type == Constants.NumberLiteralType) {
             // Number literal
             // example: ExperienceLevel = 2
-            const value = tokens[position].value
+            const [value, newPosition] = this.parseNumericExpressionValue(tokens, position)
             return [
                 value as ParserStringLiteral,
-                position + 1
+                newPosition
             ]
         } else if (tokens[position].value == Constants.TildeToken) {
             // Tilde path value
@@ -324,7 +324,7 @@ export class NdfTokenizer {
                 newPosition
             ]
         } else if (tokens[position].type == Constants.IdentifierType) {
-            const [str, newPosition] = this.parseUntilEol(tokens, position)
+            const [str, newPosition] = this.parseEntity(tokens, position)
             // Look ahead to see if identifier or object definition
             const lookaheadPos = this.ffWhiteSpace(tokens, newPosition)
 
@@ -422,6 +422,13 @@ export class NdfTokenizer {
                         let [tildeValue, position] = this.parseTildeValue(arrayTokens, i)
                         outArray.values.push(tildeValue)
                         i = position
+
+                        // If the next element is an array end we move the index back one so it triggers 
+                        // the for loop pop on next iteration.  Limitation of parsetilde i think, might want
+                        // to look at it again.
+                        if (arrayTokens[position].value == Constants.ArrayDelimeter.end) {
+                            i--
+                        }
                         break
                     }
                 
@@ -450,7 +457,13 @@ export class NdfTokenizer {
         let currentPos = position
         let value = ""
 
-        while (!delimeter.includes(tokens[currentPos].type) && tokens[currentPos].value != Constants.ObjectDelimeter.end) {
+        const disallowedValues = [
+            Constants.ObjectDelimeter.end,
+            Constants.ArrayDelimeter.end
+        ]
+
+        
+        while (!delimeter.includes(tokens[currentPos].type) && !disallowedValues.includes(tokens[currentPos].value)) {
             value += tokens[currentPos].value
             currentPos += 1
         }
@@ -539,13 +552,17 @@ export class NdfTokenizer {
         
         let valueStack = []
         while (stack.length > 0) {
-
+            currentPos = this.ffWhiteSpace(tokens, currentPos)
             if (tokens[currentPos].value == Constants.TupleDelimiter.end) {
                 let value = valueStack.reduce((prev, cur) => prev + cur.value, "")
                 valueStack = []
                 tuple.push(value)
                 stack.pop()
-            } else if (Constants.ValueTypes.includes(tokens[currentPos].type)) {
+            } else if (Constants.ValueTypes.includes(tokens[currentPos].type) || tokens[currentPos].value == "/" || tokens[currentPos].value == "*") {
+                // TODO: currently this solution strips the whitespace if the value is a numeric expression like "3000.0 * metre"
+                // This happens because the white space is fast-forwarded after every value while the value stack is building
+                // and before it gets reduce and put into the tuple as a single value.
+                // Probably can just do an inner loop here to build the value instead of it happening over many outer loop iterations.
                 valueStack.push(tokens[currentPos])
             } else if (tokens[currentPos].value == Constants.CommaToken) {
                 let value = valueStack.reduce((prev, cur) => prev + cur.value, "")
@@ -634,16 +651,57 @@ export class NdfTokenizer {
     }
 
     /**
+     * Parse an expression leading with a number.  Could be just a number literal or something
+     * like a math equation.
+     * 
+     * @param tokens 
+     * @param position 
+     * @returns 
+     */
+    public parseNumericExpressionValue(tokens: any, position: number): [ParserStringLiteral, number] {
+        let currentPosition = position
+        let value = ""
+        if (tokens[currentPosition].type != Constants.NumberLiteralType) {
+            throw new Error("Numeric expression expected to start with a numeric value.")
+        }
+        
+        value = tokens[currentPosition].value
+        currentPosition++
+        
+        const terminatingValues = [
+            Constants.CommaToken, Constants.ObjectDelimeter.end
+        ]
+        while (tokens[currentPosition].type != Constants.LineTerminatorSequence && !terminatingValues.includes(tokens[currentPosition].value)) {
+            value += tokens[currentPosition].value
+            currentPosition++
+        }
+        
+        return [
+            value,
+            currentPosition
+        ]
+    }
+
+    /**
      * Parse string token until end of the line
      * 
      * @param tokens 
      * @param position 
      * @returns 
      */
-    public parseUntilEol(tokens: any, position: number) {
+    public parseEntity(tokens: any, position: number) {
         let currentPos = position
         let values = []
-        while (tokens[currentPos].type != Constants.LineTerminatorSequence) {
+        let terminatingTypes = [
+            Constants.LineTerminatorSequence,
+        ]
+        let terminatingValues = [
+            Constants.ObjectDelimeter.start,
+            Constants.ObjectDelimeter.end,
+            Constants.CommaToken
+        ]
+
+        while (!terminatingTypes.includes(tokens[currentPos].type) && !terminatingValues.includes(tokens[currentPos].value)) {
             values.push(tokens[currentPos])
             currentPos++
         }

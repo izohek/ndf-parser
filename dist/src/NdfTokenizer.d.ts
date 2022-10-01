@@ -99,13 +99,22 @@ export declare class NdfTokenizer {
      */
     parseExpressionValue(tokens: any, position: number): [ParserStringLiteral, number];
     /**
+     * Parse an expression leading with a number.  Could be just a number literal or something
+     * like a math equation.
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    parseNumericExpressionValue(tokens: any, position: number): [ParserStringLiteral, number];
+    /**
      * Parse string token until end of the line
      *
      * @param tokens
      * @param position
      * @returns
      */
-    parseUntilEol(tokens: any, position: number): any[];
+    parseEntity(tokens: any, position: number): any[];
     /**
      * Fast forward parser through ignored types including white space and comments.
      *
