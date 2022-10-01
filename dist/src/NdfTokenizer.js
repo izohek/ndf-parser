@@ -168,6 +168,9 @@ class NdfTokenizer {
             obj.children.push(...children);
             currentPos = index;
         }
+        else {
+            // Object name only, no body or parens.
+        }
         return [obj, currentPos];
     }
     /**
@@ -334,6 +337,13 @@ class NdfTokenizer {
             const [exprVal, newPosition] = this.parseExpressionValue(tokens, position);
             return [exprVal, newPosition + 1];
         }
+        else if (tokens[position].value == Constants.NegativeNumberToken && tokens[position + 1].type == Constants.NumberLiteralType) {
+            const [value, newPosition] = this.parseNumericExpressionValue(tokens, position + 1);
+            return [
+                Constants.NegativeNumberToken + value,
+                newPosition
+            ];
+        }
         else {
             console.log("Unknown value", tokens[position]);
             throw new Error("Unknown Child Value");
@@ -373,7 +383,7 @@ class NdfTokenizer {
         // Parse tokens representing array
         //
         // parse loop
-        for (let i = 1; i < arrayTokens.length; i++) {
+        for (let i = index; i < arrayTokens.length; i++) {
             // Skip whitespace
             i = this.ffWhiteSpace(arrayTokens, i);
             const token = arrayTokens[i];
@@ -388,6 +398,11 @@ class NdfTokenizer {
                     let [object, newIndex] = this.parseObject(arrayTokens, i);
                     outArray.values.push(object);
                     i = newIndex;
+                    // If the next element is an array end we move the index back one so it triggers 
+                    // the for loop pop on next iteration.  Might wantto look at it again.
+                    if (arrayTokens[i].value == Constants.ArrayDelimeter.end) {
+                        i--;
+                    }
                     break;
                 case Constants.StringLiteralType:
                 case Constants.NumberLiteralType:
@@ -405,8 +420,8 @@ class NdfTokenizer {
                         if (arrayTokens[position].value == Constants.ArrayDelimeter.end) {
                             i--;
                         }
-                        break;
                     }
+                    break;
                 default:
                     break;
             }
@@ -508,9 +523,11 @@ class NdfTokenizer {
         while (stack.length > 0) {
             currentPos = this.ffWhiteSpace(tokens, currentPos);
             if (tokens[currentPos].value == Constants.TupleDelimiter.end) {
-                let value = valueStack.reduce((prev, cur) => prev + cur.value, "");
-                valueStack = [];
-                tuple.push(value);
+                if (valueStack.length > 0) {
+                    let value = valueStack.reduce((prev, cur) => prev + cur.value, "");
+                    valueStack = [];
+                    tuple.push(value);
+                }
                 stack.pop();
             }
             else if (Constants.ValueTypes.includes(tokens[currentPos].type) || tokens[currentPos].value == "/" || tokens[currentPos].value == "*") {
@@ -544,12 +561,19 @@ class NdfTokenizer {
                             }
                         }
                     }
+                    currentPos++;
                 }
                 else {
                     let tildeResults = this.parseTildeValue(tokens, currentPos, [Constants.LineTerminatorSequence, Constants.CommaToken]);
                     tuple.push(tildeResults[0]);
                     currentPos = tildeResults[1];
                 }
+            }
+            else if (tokens[currentPos].value == Constants.ArrayDelimeter.start) {
+                let [arrayString, newPosition] = this.generateArrayString(tokens, currentPos);
+                let parsedArray = this.parseArray(arrayString);
+                tuple.push(parsedArray);
+                currentPos = newPosition - 2;
             }
             else {
                 console.log(tokens[currentPos].value, tokens[currentPos].type);
@@ -665,6 +689,29 @@ class NdfTokenizer {
             currentPos += 1;
         }
         return currentPos;
+    }
+    generateArrayString(tokens, position) {
+        if (tokens[position].value != Constants.ArrayDelimeter.start) {
+            throw new Error("Array string tokens must start with array start delimeter.");
+        }
+        let arrayValue = "";
+        arrayValue += tokens[position].value;
+        let stack = [tokens[position].value];
+        let currentPos = position + 1;
+        while (stack.length > 0) {
+            arrayValue += tokens[currentPos].value;
+            switch (tokens[currentPos].value) {
+                case Constants.ArrayDelimeter.start:
+                    stack.push(tokens[currentPos].value);
+                    break;
+                case Constants.ArrayDelimeter.end:
+                    stack.pop();
+                    break;
+            }
+            currentPos += 1;
+        }
+        currentPos += 1;
+        return [arrayValue, currentPos];
     }
 }
 exports.NdfTokenizer = NdfTokenizer;

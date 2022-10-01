@@ -125,4 +125,5 @@ export declare class NdfTokenizer {
      * @returns new parser position
      */
     ffWhiteSpace(tokens: any, position: number): number;
+    generateArrayString(tokens: any, position: number): [string, number];
 }

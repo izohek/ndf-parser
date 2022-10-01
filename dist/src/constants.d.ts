@@ -4,6 +4,7 @@ export declare const StringLiteralType = "StringLiteral";
 export declare const NumberLiteralType = "NumericLiteral";
 export declare const PunctuatorType = "Punctuator";
 export declare const RegularExpressionType = "RegularExpressionLiteral";
+export declare const NegativeNumberToken = "-";
 export declare const AssignmentToken = "=";
 export declare const TildeToken = "~";
 export declare const CommaToken = ",";

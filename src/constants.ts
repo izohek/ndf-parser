@@ -7,6 +7,7 @@ export const PunctuatorType = "Punctuator"
 export const RegularExpressionType = "RegularExpressionLiteral"
 
 // Character and string literals
+export const NegativeNumberToken = "-"
 export const AssignmentToken = '='
 export const TildeToken = '~'
 export const CommaToken = ','
