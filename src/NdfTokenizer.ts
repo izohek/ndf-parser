@@ -1,5 +1,5 @@
 import jsTokens, { Token } from "js-tokens";
-import { ParserTuple, ParserArray, ParserChildValue, ParserGuid, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue } from "./types"
+import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue, ParserTildeLiteral } from "./types"
 import * as Constants from "./constants"
 
 /// Logical Token
@@ -261,7 +261,10 @@ export class NdfTokenizer {
             currentPos += 1
 
             return [
-                guidStr as ParserGuid,
+                {
+                    value: guidStr,
+                    ndf: 'guid'
+                },
                 currentPos
             ]
         } else if (tokens[position].type == Constants.StringLiteralType) {
@@ -269,25 +272,17 @@ export class NdfTokenizer {
             // example: DeckName = 'SJEUHLLSUW'
             const value = tokens[position].value
             return [
-                value as ParserStringLiteral,
+                { value: value, ndf: 'string' },
                 position + 1
             ]
         } else if (tokens[position].type == Constants.NumberLiteralType) {
             // Number literal
             // example: ExperienceLevel = 2
-            const [value, newPosition] = this.parseNumericExpressionValue(tokens, position)
-            return [
-                value as ParserStringLiteral,
-                newPosition
-            ]
+            return this.parseNumericExpressionValue(tokens, position)
         } else if (tokens[position].value == Constants.TildeToken) {
             // Tilde path value
             // example: Transport = ~/Descriptor_Unit_M113A1G_RFA
-            let [value, currentPos] = this.parseTildeValue(tokens, position)
-            return [
-                value as ParserStringLiteral,
-                currentPos
-            ]
+            return this.parseTildeValue(tokens, position)
         } else if (tokens[position].value == Constants.ArrayDelimeter.start) {
             // Arrays
             // DeckCombatGroupList =
@@ -325,11 +320,7 @@ export class NdfTokenizer {
             // example: DivisionIds = MAP [
             //   (Descriptor_Deck_Division_RDA_7_Panzer_multi, 9),
             // ]  
-            const [map, newPosition] = this.parseMap(tokens, position)
-            return [
-                map,
-                newPosition
-            ]
+            return this.parseMap(tokens, position)
         } else if (tokens[position].type == Constants.IdentifierType) {
             const [str, newPosition] = this.parseEntity(tokens, position)
             if (this.debug) { console.log("Child ID : ", str)}
@@ -339,7 +330,7 @@ export class NdfTokenizer {
             if (tokens[lookaheadPos].value == Constants.ObjectDelimeter.start) {
                 let [objectChildren, newLAPosition] = this.parseObjectBody(tokens, lookaheadPos) 
                 let newObject = new ParserObject()
-                newObject.name = str
+                newObject.name = (str.ndf === 'string') ? (str as ParserStringLiteral).value : ''
                 newObject.children.push(...objectChildren)
                 return [
                     newObject,
@@ -357,7 +348,7 @@ export class NdfTokenizer {
         } else if (tokens[position].value == Constants.NegativeNumberToken && tokens[position+1].type == Constants.NumberLiteralType) {
             const [value, newPosition] = this.parseNumericExpressionValue(tokens, position + 1)
             return [
-                Constants.NegativeNumberToken + value,
+                { value: Constants.NegativeNumberToken + value.value, ndf: 'string' },
                 newPosition
             ]
         } else {
@@ -430,7 +421,10 @@ export class NdfTokenizer {
 
                 case Constants.StringLiteralType:
                 case Constants.NumberLiteralType:
-                    outArray.values.push(arrayTokens[i].value)
+                    outArray.values.push({
+                        value: arrayTokens[i].value,
+                        ndf: 'string'
+                    })
                     break
                 
                 // Parse: Path/tilde leading value
@@ -470,7 +464,7 @@ export class NdfTokenizer {
      * @param position 
      * @returns [parsed value, new parser position]
      */
-    public parseTildeValue(tokens: any, position: number, delimeter = [Constants.LineTerminatorSequence]): [string, number] {
+    public parseTildeValue(tokens: any, position: number, delimeter = [Constants.LineTerminatorSequence]): [ParserTildeLiteral, number] {
         let currentPos = position
         let value = ""
 
@@ -489,7 +483,7 @@ export class NdfTokenizer {
             value = value.slice(0, -1)
         }
 
-        return [value, currentPos]
+        return [{ value: value, ndf: 'tilde' }, currentPos]
     }
 
     /**
@@ -501,7 +495,10 @@ export class NdfTokenizer {
      */
     public parseMap(tokens: any, position: number): [ParserMap, number] {
         let currentPos = position
-        let mapValue: ParserMap[] = []
+        let mapValue: ParserMap = {
+            value: [],
+            ndf: 'map'
+        }
 
         if (tokens[currentPos].value != Constants.MapToken) {
             throw new Error("Expected 'MAP' starting token.")
@@ -525,7 +522,7 @@ export class NdfTokenizer {
                 // Parse tuple
                 if (tokens[currentPos].value == Constants.TupleDelimiter.start) {
                     let [tuple, newPos] = this.parseTuple(tokens, currentPos)
-                    mapValue.push(tuple)
+                    mapValue.value.push(tuple)
                     currentPos = newPos
                 } else {
                     console.log(tokens[currentPos], mapValue)
@@ -558,7 +555,7 @@ export class NdfTokenizer {
     public parseTuple(tokens: any, position: number): [ParserTuple, number] {
         let currentPos = position
         let stack = []
-        let tuple = []
+        let tuple: ParserChildValue[] = []
 
         if (tokens[currentPos].value != Constants.TupleDelimiter.start) {
             throw new Error("Expecting token start delimeter")
@@ -574,7 +571,10 @@ export class NdfTokenizer {
                 if (valueStack.length > 0 ) {
                     let value = valueStack.reduce((prev, cur) => prev + cur.value, "")
                     valueStack = []
-                    tuple.push(value)
+                    tuple.push({
+                        value: value,
+                        ndf: 'string'
+                    })
                 }
                 stack.pop()
             } else if (Constants.ValueTypes.includes(tokens[currentPos].type) || tokens[currentPos].value == "/" || tokens[currentPos].value == "*") {
@@ -599,7 +599,10 @@ export class NdfTokenizer {
                         for (let t = 0; t < newRegTkn.length; t++) {
                             newTupleValue += newRegTkn[t]
                             if (newTupleValue) {
-                                tuple.push(newTupleValue.trim())
+                                tuple.push({
+                                    value: newTupleValue.trim(),
+                                    ndf: 'string'
+                                })
                                 newTupleValue = ""
                             }
 
@@ -634,7 +637,7 @@ export class NdfTokenizer {
             }
         }
 
-        return [tuple, currentPos]
+        return [{ value: tuple, ndf: 'tuple' }, currentPos]
     }
 
     /**
@@ -671,7 +674,7 @@ export class NdfTokenizer {
         }
 
         return [
-            value,
+            { value: value, ndf: 'string' },
             currentPosition
         ]
     }
@@ -703,7 +706,7 @@ export class NdfTokenizer {
         }
         
         return [
-            value,
+            { value: value, ndf: 'string' },
             currentPosition
         ]
     }
@@ -715,7 +718,7 @@ export class NdfTokenizer {
      * @param position 
      * @returns 
      */
-    public parseEntity(tokens: any, position: number) {
+    public parseEntity(tokens: any, position: number): [ParserRgbaValue | ParserStringLiteral, number] {
         let currentPos = position
         let values = []
         let terminatingTypes = [
@@ -737,7 +740,7 @@ export class NdfTokenizer {
         }
 
         return [
-            values.reduce((prev, next) => prev + next.value, ""),
+            { value: values.reduce((prev, next) => prev + next.value, ""), ndf: 'string' },
             currentPos
         ]
     }
@@ -764,12 +767,18 @@ export class NdfTokenizer {
             throw new Error("Invalid RGBA value count.")
         }
 
+        const r = (parsedArray.values[0].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
+        const g = (parsedArray.values[1].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
+        const b = (parsedArray.values[2].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
+        const a = (parsedArray.values[3].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
+
         let rgba: ParserRgbaValue = {
             name: "rgba",
-            r: parsedArray.values[0] as ParserStringLiteral,
-            g: parsedArray.values[1] as ParserStringLiteral,
-            b: parsedArray.values[2] as ParserStringLiteral,
-            a: parsedArray.values[3] as ParserStringLiteral,
+            r: r,
+            g: g,
+            b: b,
+            a: a,
+            ndf: 'rgba'
         }
 
         return [rgba, newPosition]

@@ -1,5 +1,5 @@
 import { Token } from "js-tokens";
-import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue } from "./types";
+import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue, ParserTildeLiteral } from "./types";
 export interface TokenType {
     type: string;
     value: any;
@@ -75,7 +75,7 @@ export declare class NdfTokenizer {
      * @param position
      * @returns [parsed value, new parser position]
      */
-    parseTildeValue(tokens: any, position: number, delimeter?: string[]): [string, number];
+    parseTildeValue(tokens: any, position: number, delimeter?: string[]): [ParserTildeLiteral, number];
     /**
      * Parse an NDF MAP
      *
@@ -115,7 +115,7 @@ export declare class NdfTokenizer {
      * @param position
      * @returns
      */
-    parseEntity(tokens: any, position: number): any[];
+    parseEntity(tokens: any, position: number): [ParserRgbaValue | ParserStringLiteral, number];
     /**
      * Parse an NDF RGBA value.
      *

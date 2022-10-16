@@ -1,6 +1,5 @@
-import { tokenize } from "../src/index"
 import { readFileSync } from "fs"
-
+import { NdfParser } from "../src/NdfParser"
 
 test('tokenizer-testing', () => {
 
@@ -11,5 +10,6 @@ test('tokenizer-testing', () => {
         console.log(err)
     }
 
-    const tokens = tokenize(fileData)
+    const parser = new NdfParser(fileData)
+    const results = parser.parse()
 })

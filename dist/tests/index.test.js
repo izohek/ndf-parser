@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const index_1 = require("../src/index");
 const fs_1 = require("fs");
+const NdfParser_1 = require("../src/NdfParser");
 test('tokenizer-testing', () => {
     let fileData = "";
     try {
@@ -10,5 +10,6 @@ test('tokenizer-testing', () => {
     catch (err) {
         console.log(err);
     }
-    const tokens = (0, index_1.tokenize)(fileData);
+    const parser = new NdfParser_1.NdfParser(fileData);
+    const results = parser.parse();
 });

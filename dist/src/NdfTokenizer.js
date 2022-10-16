@@ -254,7 +254,10 @@ class NdfTokenizer {
             guidStr += tokens[currentPos].value;
             currentPos += 1;
             return [
-                guidStr,
+                {
+                    value: guidStr,
+                    ndf: 'guid'
+                },
                 currentPos
             ];
         }
@@ -263,27 +266,19 @@ class NdfTokenizer {
             // example: DeckName = 'SJEUHLLSUW'
             const value = tokens[position].value;
             return [
-                value,
+                { value: value, ndf: 'string' },
                 position + 1
             ];
         }
         else if (tokens[position].type == Constants.NumberLiteralType) {
             // Number literal
             // example: ExperienceLevel = 2
-            const [value, newPosition] = this.parseNumericExpressionValue(tokens, position);
-            return [
-                value,
-                newPosition
-            ];
+            return this.parseNumericExpressionValue(tokens, position);
         }
         else if (tokens[position].value == Constants.TildeToken) {
             // Tilde path value
             // example: Transport = ~/Descriptor_Unit_M113A1G_RFA
-            let [value, currentPos] = this.parseTildeValue(tokens, position);
-            return [
-                value,
-                currentPos
-            ];
+            return this.parseTildeValue(tokens, position);
         }
         else if (tokens[position].value == Constants.ArrayDelimeter.start) {
             // Arrays
@@ -318,11 +313,7 @@ class NdfTokenizer {
             // example: DivisionIds = MAP [
             //   (Descriptor_Deck_Division_RDA_7_Panzer_multi, 9),
             // ]  
-            const [map, newPosition] = this.parseMap(tokens, position);
-            return [
-                map,
-                newPosition
-            ];
+            return this.parseMap(tokens, position);
         }
         else if (tokens[position].type == Constants.IdentifierType) {
             const [str, newPosition] = this.parseEntity(tokens, position);
@@ -334,7 +325,7 @@ class NdfTokenizer {
             if (tokens[lookaheadPos].value == Constants.ObjectDelimeter.start) {
                 let [objectChildren, newLAPosition] = this.parseObjectBody(tokens, lookaheadPos);
                 let newObject = new types_1.ParserObject();
-                newObject.name = str;
+                newObject.name = (str.ndf === 'string') ? str.value : '';
                 newObject.children.push(...objectChildren);
                 return [
                     newObject,
@@ -353,7 +344,7 @@ class NdfTokenizer {
         else if (tokens[position].value == Constants.NegativeNumberToken && tokens[position + 1].type == Constants.NumberLiteralType) {
             const [value, newPosition] = this.parseNumericExpressionValue(tokens, position + 1);
             return [
-                Constants.NegativeNumberToken + value,
+                { value: Constants.NegativeNumberToken + value.value, ndf: 'string' },
                 newPosition
             ];
         }
@@ -419,7 +410,10 @@ class NdfTokenizer {
                     break;
                 case Constants.StringLiteralType:
                 case Constants.NumberLiteralType:
-                    outArray.values.push(arrayTokens[i].value);
+                    outArray.values.push({
+                        value: arrayTokens[i].value,
+                        ndf: 'string'
+                    });
                     break;
                 // Parse: Path/tilde leading value
                 case Constants.PunctuatorType:
@@ -466,7 +460,7 @@ class NdfTokenizer {
         if (value.endsWith(Constants.CommaToken)) {
             value = value.slice(0, -1);
         }
-        return [value, currentPos];
+        return [{ value: value, ndf: 'tilde' }, currentPos];
     }
     /**
      * Parse an NDF MAP
@@ -477,7 +471,10 @@ class NdfTokenizer {
      */
     parseMap(tokens, position) {
         let currentPos = position;
-        let mapValue = [];
+        let mapValue = {
+            value: [],
+            ndf: 'map'
+        };
         if (tokens[currentPos].value != Constants.MapToken) {
             throw new Error("Expected 'MAP' starting token.");
         }
@@ -497,7 +494,7 @@ class NdfTokenizer {
                 // Parse tuple
                 if (tokens[currentPos].value == Constants.TupleDelimiter.start) {
                     let [tuple, newPos] = this.parseTuple(tokens, currentPos);
-                    mapValue.push(tuple);
+                    mapValue.value.push(tuple);
                     currentPos = newPos;
                 }
                 else {
@@ -539,7 +536,10 @@ class NdfTokenizer {
                 if (valueStack.length > 0) {
                     let value = valueStack.reduce((prev, cur) => prev + cur.value, "");
                     valueStack = [];
-                    tuple.push(value);
+                    tuple.push({
+                        value: value,
+                        ndf: 'string'
+                    });
                 }
                 stack.pop();
             }
@@ -566,7 +566,10 @@ class NdfTokenizer {
                         for (let t = 0; t < newRegTkn.length; t++) {
                             newTupleValue += newRegTkn[t];
                             if (newTupleValue) {
-                                tuple.push(newTupleValue.trim());
+                                tuple.push({
+                                    value: newTupleValue.trim(),
+                                    ndf: 'string'
+                                });
                                 newTupleValue = "";
                             }
                             if (t > 0) {
@@ -598,7 +601,7 @@ class NdfTokenizer {
                 throw new Error("Unbound tuple object missing ending delimeter");
             }
         }
-        return [tuple, currentPos];
+        return [{ value: tuple, ndf: 'tuple' }, currentPos];
     }
     /**
      * Parse a (probable) math expression usually when assigned as a child value.
@@ -628,7 +631,7 @@ class NdfTokenizer {
             currentPosition++;
         }
         return [
-            value,
+            { value: value, ndf: 'string' },
             currentPosition
         ];
     }
@@ -656,7 +659,7 @@ class NdfTokenizer {
             currentPosition++;
         }
         return [
-            value,
+            { value: value, ndf: 'string' },
             currentPosition
         ];
     }
@@ -686,7 +689,7 @@ class NdfTokenizer {
             currentPos++;
         }
         return [
-            values.reduce((prev, next) => prev + next.value, ""),
+            { value: values.reduce((prev, next) => prev + next.value, ""), ndf: 'string' },
             currentPos
         ];
     }
@@ -710,12 +713,17 @@ class NdfTokenizer {
         if (parsedArray.values.length != 4) {
             throw new Error("Invalid RGBA value count.");
         }
+        const r = (parsedArray.values[0].ndf === 'string') ? parsedArray.values[0].value : '';
+        const g = (parsedArray.values[1].ndf === 'string') ? parsedArray.values[0].value : '';
+        const b = (parsedArray.values[2].ndf === 'string') ? parsedArray.values[0].value : '';
+        const a = (parsedArray.values[3].ndf === 'string') ? parsedArray.values[0].value : '';
         let rgba = {
             name: "rgba",
-            r: parsedArray.values[0],
-            g: parsedArray.values[1],
-            b: parsedArray.values[2],
-            a: parsedArray.values[3],
+            r: r,
+            g: g,
+            b: b,
+            a: a,
+            ndf: 'rgba'
         };
         return [rgba, newPosition];
     }
