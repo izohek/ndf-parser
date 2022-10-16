@@ -17,4 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.NdfParser = void 0;
 var NdfParser_1 = require("./NdfParser");
 Object.defineProperty(exports, "NdfParser", { enumerable: true, get: function () { return NdfParser_1.NdfParser; } });
-__exportStar(require("./ParseInspector"), exports);
+__exportStar(require("./NdfInspector"), exports);

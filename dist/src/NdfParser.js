@@ -53,7 +53,8 @@ class NdfParser {
                         name: token.value.name,
                         type: token.value.type,
                         accessLevel: accessLevel,
-                        attributes: []
+                        attributes: [],
+                        ndf: 'object-parser'
                     };
                     accessLevel = "";
                     object.attributes = this.decipherAttributes(token.value.children);
@@ -63,7 +64,8 @@ class NdfParser {
                     object = {
                         name: token.value.name,
                         type: Constants.ConstantToken,
-                        value: token.value.children[0].value
+                        value: token.value.children[0].value,
+                        ndf: 'constant'
                     };
                     deciphered.push(object);
                     break;
@@ -81,7 +83,8 @@ class NdfParser {
         for (let token of tokens) {
             attributes.push({
                 name: token.name,
-                value: token.value
+                value: token.value,
+                ndf: 'attribute'
             });
         }
         return attributes;

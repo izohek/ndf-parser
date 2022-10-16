@@ -108,15 +108,18 @@ export interface NdfObject {
     type: string;
     accessLevel: string;
     attributes: NdfAttribute[];
+    ndf: 'object-parser';
 }
 export interface NdfConstant {
     name: string;
     type: string;
     value: string;
+    ndf: 'constant';
 }
 export interface NdfAttribute {
     name: string;
     value: NdfAttributeType;
+    ndf: 'attribute';
 }
 export declare type NdfAttributeType = NdfArray | NdfLiteral | NdfEntityPath;
 export declare type NdfLiteral = string | number;

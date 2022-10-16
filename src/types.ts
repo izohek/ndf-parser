@@ -129,18 +129,21 @@ export interface NdfObject {
     name: string
     type: string
     accessLevel: string
-    attributes: NdfAttribute[]
+    attributes: NdfAttribute[],
+    ndf: 'object-parser'
 }
 
 export interface NdfConstant {
     name: string
     type: string
-    value: string
+    value: string,
+    ndf: 'constant'
 }
 
 export interface NdfAttribute {
     name: string
-    value: NdfAttributeType
+    value: NdfAttributeType,
+    ndf: 'attribute'
 }
 
 export type NdfAttributeType = NdfArray | NdfLiteral | NdfEntityPath
