@@ -3,6 +3,7 @@ import { ParserArray, ParserChildValue, ParserGuid, ParserObject, ParserObjectCh
 import * as Constants from "./constants"
 
 export { NdfParser } from "./NdfParser"
+export * from "./ParseInspector";
 
 export function parseNdf(str: string) {
     const tokens = tokenize(str)

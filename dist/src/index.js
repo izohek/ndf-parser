@@ -22,6 +22,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -32,6 +35,7 @@ const types_1 = require("./types");
 const Constants = __importStar(require("./constants"));
 var NdfParser_1 = require("./NdfParser");
 Object.defineProperty(exports, "NdfParser", { enumerable: true, get: function () { return NdfParser_1.NdfParser; } });
+__exportStar(require("./ParseInspector"), exports);
 function parseNdf(str) {
     const tokens = tokenize(str);
     const grouped = groupTokens(tokens);
