@@ -91,7 +91,7 @@ function getObjectNdfValue(object) {
     if (object.ndf) {
         return object.ndf;
     }
-    else if (object.value.ndf) {
+    else if (object.value && object.value.ndf) {
         return object.value.ndf;
     }
     else {
