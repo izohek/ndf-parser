@@ -30,6 +30,7 @@ export const IgnoredTypes = [
 export const ValueTypes = [
     IdentifierType,
     "NumericLiteral",
+    StringLiteralType,
     ""
 ]
 

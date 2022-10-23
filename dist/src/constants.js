@@ -30,6 +30,7 @@ exports.IgnoredTypes = [
 exports.ValueTypes = [
     exports.IdentifierType,
     "NumericLiteral",
+    exports.StringLiteralType,
     ""
 ];
 exports.AccessLevels = [

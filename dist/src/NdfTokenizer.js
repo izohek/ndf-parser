@@ -207,7 +207,7 @@ class NdfTokenizer {
             let name = tokens[currentPos].value;
             currentPos += 1;
             currentPos = this.ffWhiteSpace(tokens, currentPos);
-            if (tokens[currentPos].value != Constants.AssignmentToken) {
+            if (![Constants.AssignmentToken, Constants.TypeDefinitionDelimeter].includes(tokens[currentPos].value)) {
                 console.log(tokens[currentPos], currentPos);
                 throw new Error("Syntax error: expecting object child assignment");
             }
@@ -415,7 +415,7 @@ class NdfTokenizer {
                         ndf: 'string'
                     });
                     break;
-                // Parse: Path/tilde leading value
+                // Parse: Path/tilde leading value or negative number
                 case Constants.PunctuatorType:
                     if (token.value == Constants.TildeToken) {
                         let [tildeValue, position] = this.parseTildeValue(arrayTokens, i);
@@ -429,6 +429,8 @@ class NdfTokenizer {
                         }
                     }
                     else if (token.value == Constants.NegativeNumberToken) {
+                        // Punctuators can also indicate a negative number as the '-' sign is treated
+                        // as a punctuator by the jstoken library.
                         const [numericValue, pos] = this.parseNumericExpressionValue(arrayTokens, i + 1);
                         numericValue.value = Constants.NegativeNumberToken + numericValue.value;
                         outArray.values.push(numericValue);
@@ -596,6 +598,14 @@ class NdfTokenizer {
                 let parsedArray = this.parseArray(arrayString);
                 tuple.push(parsedArray);
                 currentPos = newPosition - 2;
+            }
+            else if (tokens[currentPos].value == Constants.NegativeNumberToken) {
+                // Parse negative number.
+                // jstokens splits the '-' from the number so we have to combine manually.
+                const [numericValue, pos] = this.parseNumericExpressionValue(tokens, currentPos + 1);
+                numericValue.value = Constants.NegativeNumberToken + numericValue.value;
+                tuple.push(numericValue);
+                currentPos = pos - 1;
             }
             else {
                 console.log(tokens[currentPos].value, tokens[currentPos].type);
