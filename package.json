@@ -1,5 +1,5 @@
 {
-  "name": "ndf-parser",
+  "name": "@izohek/ndf-parser",
   "version": "0.0.1",
   "description": "NDF file parser",
   "main": "dist/src/index.js",
@@ -11,8 +11,12 @@
     "lint": "npx eslint src/* tests/*",
     "test": "jest"
   },
-  "author": "izohek",
+  "author": "izohek <izohek@gmail.com>",
   "license": "MIT",
+  "bug": {
+    "url": "https://github.com/izohek/ndf-parser/issues"
+  },
+  "homepage": "https://github.com/izohek/ndf-parser#readme",
   "devDependencies": {
     "@types/jest": "^28.1.8",
     "@typescript-eslint/eslint-plugin": "^5.35.1",
