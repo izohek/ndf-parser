@@ -55,7 +55,7 @@ export interface ParserTildeLiteral extends ParserNdfType {
  * `DispersionRadiusOffColor            = RGBA[0,0,0,0]`
  */
 export interface ParserRgbaValue extends ParserNdfType {
-    name: "rgba";
+    name: 'rgba';
     r: number | string;
     g: number | string;
     b: number | string;
@@ -124,6 +124,6 @@ export interface NdfAttribute {
 export declare type NdfAttributeType = NdfArray | NdfLiteral | NdfEntityPath;
 export declare type NdfLiteral = string | number;
 export declare type NdfEntityPath = string;
-export declare type NdfArray = {
+export interface NdfArray {
     values: [NdfObject];
-};
+}

@@ -13,8 +13,8 @@ exports.ParserArray = exports.ParserObject = void 0;
  */
 class ParserObject {
     constructor() {
-        this.name = "";
-        this.type = "";
+        this.name = '';
+        this.type = '';
         this.children = [];
         this.ndf = 'object';
     }

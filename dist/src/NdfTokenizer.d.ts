@@ -1,5 +1,5 @@
-import { Token } from "js-tokens";
-import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue, ParserTildeLiteral } from "./types";
+import { Token } from 'js-tokens';
+import { ParserTuple, ParserArray, ParserChildValue, ParserMap, ParserObject, ParserObjectChild, ParserStringLiteral, ParserRgbaValue, ParserTildeLiteral } from './types';
 export interface TokenType {
     type: string;
     value: any;

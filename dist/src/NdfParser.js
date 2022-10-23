@@ -33,14 +33,14 @@ class NdfParser {
         this.data = data;
     }
     parse() {
-        let tokenizer = new NdfTokenizer_1.NdfTokenizer();
+        const tokenizer = new NdfTokenizer_1.NdfTokenizer();
         tokenizer.debug = this.debug;
-        let tokens = tokenizer.tokenize(this.data);
+        const tokens = tokenizer.tokenize(this.data);
         return [tokens, this.decipherTokens(tokens)];
     }
     decipherTokens(tokens) {
-        let deciphered = [];
-        let accessLevel = "";
+        const deciphered = [];
+        let accessLevel = '';
         let object = null;
         for (let i = 0; i < tokens.length; i++) {
             const token = tokens[i];
@@ -52,11 +52,11 @@ class NdfParser {
                     object = {
                         name: token.value.name,
                         type: token.value.type,
-                        accessLevel: accessLevel,
+                        accessLevel,
                         attributes: [],
                         ndf: 'object-parser'
                     };
-                    accessLevel = "";
+                    accessLevel = '';
                     object.attributes = this.decipherAttributes(token.value.children);
                     deciphered.push(object);
                     break;
@@ -79,8 +79,8 @@ class NdfParser {
         if (tokens.length < 1) {
             return [];
         }
-        let attributes = [];
-        for (let token of tokens) {
+        const attributes = [];
+        for (const token of tokens) {
             attributes.push({
                 name: token.name,
                 value: token.value,

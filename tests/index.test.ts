@@ -1,9 +1,8 @@
-import { readFileSync } from "fs"
-import { NdfParser } from "../src/NdfParser"
+import { readFileSync } from 'fs'
+import { NdfParser } from '../src/NdfParser'
 
 test('tokenizer-testing', () => {
-
-    let fileData = ""
+    let fileData = ''
     try {
         fileData = readFileSync('./test-data/Packs.ndf', 'utf8')
     } catch (err) {
@@ -12,4 +11,6 @@ test('tokenizer-testing', () => {
 
     const parser = new NdfParser(fileData)
     const results = parser.parse()
+
+    expect(results.length).toBe(2)
 })

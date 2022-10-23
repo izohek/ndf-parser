@@ -33,7 +33,7 @@ export declare function getObjectAttributesOrChildren(object: any): any;
  * @param object
  * @returns
  */
-export declare function getObjectNdfValue(object: any): any;
+export declare function getObjectNdfValue(object: any): string;
 export declare const RecursableTypes: string[];
 /**
  * Can the object be recursed?

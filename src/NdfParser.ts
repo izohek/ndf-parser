@@ -1,29 +1,28 @@
-import { NdfToken, NdfAttribute } from "./types"
-import * as Constants from "./constants"
-import { NdfTokenizer, TokenType } from "./NdfTokenizer";
+import { NdfToken, NdfAttribute, NdfConstant, NdfObject } from './types'
+import * as Constants from './constants'
+import { NdfTokenizer, TokenType } from './NdfTokenizer'
 
 export class NdfParser {
+    public data: string
 
-    public  data: string
-    
     /// Enable debug mode for console logging.
     public debug: boolean = false
 
-    constructor(data: string) {
+    constructor (data: string) {
         this.data = data
     }
 
-    public parse() {
-        let tokenizer = new NdfTokenizer()
+    public parse (): [TokenType[], Array<NdfObject | NdfConstant>] {
+        const tokenizer = new NdfTokenizer()
         tokenizer.debug = this.debug
-        let tokens = tokenizer.tokenize(this.data)
+        const tokens = tokenizer.tokenize(this.data)
         return [tokens, this.decipherTokens(tokens)]
     }
 
-    public decipherTokens(tokens: TokenType[]) {
-        let deciphered = []
+    public decipherTokens (tokens: TokenType[]): Array<NdfObject | NdfConstant> {
+        const deciphered = []
 
-        let accessLevel = ""
+        let accessLevel = ''
         let object: NdfToken | null = null
 
         for (let i = 0; i < tokens.length; i++) {
@@ -33,24 +32,24 @@ export class NdfParser {
                 case Constants.IdentifierType:
                     accessLevel = Constants.ExportToken
                     break
-                
+
                 case Constants.ObjectToken:
                     object = {
                         name: token.value.name,
                         type: token.value.type,
-                        accessLevel: accessLevel,
+                        accessLevel,
                         attributes: [],
                         ndf: 'object-parser'
                     }
 
-                    accessLevel = ""
+                    accessLevel = ''
 
                     object.attributes = this.decipherAttributes(token.value.children)
 
                     deciphered.push(object)
 
                     break
-                
+
                 case Constants.ConstantToken:
                     object = {
                         name: token.value.name,
@@ -62,7 +61,7 @@ export class NdfParser {
                     deciphered.push(object)
 
                     break
-                
+
                 default:
                     break
             }
@@ -71,14 +70,14 @@ export class NdfParser {
         return deciphered
     }
 
-    public decipherAttributes(tokens: [{name: string, value: any}]) {
-        if ( tokens.length < 1 ) {
+    public decipherAttributes (tokens: [{name: string, value: any}]): NdfAttribute[] {
+        if (tokens.length < 1) {
             return []
         }
 
-        let attributes: NdfAttribute[] = []
+        const attributes: NdfAttribute[] = []
 
-        for(let token of tokens) {
+        for (const token of tokens) {
             attributes.push({
                 name: token.name,
                 value: token.value,

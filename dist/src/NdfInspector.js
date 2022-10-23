@@ -37,16 +37,17 @@ exports.search = search;
  * @returns
  */
 function findAttribute(object, name, recurse = true) {
+    var _a, _b;
     const children = getObjectAttributesOrChildren(object);
     const found = children.filter((a) => a.name === name);
-    if (found && found.length > 0) {
+    if (((_a = found === null || found === void 0 ? void 0 : found.length) !== null && _a !== void 0 ? _a : -1) > 0) {
         return found;
     }
     if (recurse) {
         for (const attribute of children) {
             if (isRecursableValue(getObjectNdfValue(attribute))) {
                 const recurseFound = findAttribute(attribute, name, recurse);
-                if (recurseFound && recurseFound.length > 0) {
+                if (((_b = recurseFound === null || recurseFound === void 0 ? void 0 : recurseFound.length) !== null && _b !== void 0 ? _b : -1) > 0) {
                     return recurseFound;
                 }
             }
@@ -66,10 +67,10 @@ function getObjectAttributesOrChildren(object) {
     if (Object.keys(object).includes('attributes')) {
         return object.attributes;
     }
-    else if (object.value) {
+    else if (object.value != null) {
         return [object.value];
     }
-    else if (object.values) {
+    else if (object.values != null) {
         return object.values;
     }
     else if (object.children !== undefined) {
@@ -88,10 +89,11 @@ exports.getObjectAttributesOrChildren = getObjectAttributesOrChildren;
  * @returns
  */
 function getObjectNdfValue(object) {
-    if (object.ndf) {
+    var _a;
+    if (object.ndf != null) {
         return object.ndf;
     }
-    else if (object.value && object.value.ndf) {
+    else if (((_a = object.value) === null || _a === void 0 ? void 0 : _a.ndf) != null) {
         return object.value.ndf;
     }
     else {

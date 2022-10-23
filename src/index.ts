@@ -1,2 +1,2 @@
-export { NdfParser } from "./NdfParser"
-export * from "./NdfInspector";
+export { NdfParser } from './NdfParser'
+export * from './NdfInspector'
