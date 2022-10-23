@@ -782,9 +782,9 @@ export class NdfTokenizer {
         }
 
         const r = (parsedArray.values[0].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
-        const g = (parsedArray.values[1].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
-        const b = (parsedArray.values[2].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
-        const a = (parsedArray.values[3].ndf === 'string') ? (parsedArray.values[0] as ParserStringLiteral).value : ''
+        const g = (parsedArray.values[1].ndf === 'string') ? (parsedArray.values[1] as ParserStringLiteral).value : ''
+        const b = (parsedArray.values[2].ndf === 'string') ? (parsedArray.values[2] as ParserStringLiteral).value : ''
+        const a = (parsedArray.values[3].ndf === 'string') ? (parsedArray.values[3] as ParserStringLiteral).value : ''
 
         let rgba: ParserRgbaValue = {
             name: "rgba",

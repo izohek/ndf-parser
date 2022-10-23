@@ -730,9 +730,9 @@ class NdfTokenizer {
             throw new Error("Invalid RGBA value count.");
         }
         const r = (parsedArray.values[0].ndf === 'string') ? parsedArray.values[0].value : '';
-        const g = (parsedArray.values[1].ndf === 'string') ? parsedArray.values[0].value : '';
-        const b = (parsedArray.values[2].ndf === 'string') ? parsedArray.values[0].value : '';
-        const a = (parsedArray.values[3].ndf === 'string') ? parsedArray.values[0].value : '';
+        const g = (parsedArray.values[1].ndf === 'string') ? parsedArray.values[1].value : '';
+        const b = (parsedArray.values[2].ndf === 'string') ? parsedArray.values[2].value : '';
+        const a = (parsedArray.values[3].ndf === 'string') ? parsedArray.values[3].value : '';
         let rgba = {
             name: "rgba",
             r: r,
