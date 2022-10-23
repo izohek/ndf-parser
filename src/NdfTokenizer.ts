@@ -440,6 +440,11 @@ export class NdfTokenizer {
                         if (arrayTokens[position].value == Constants.ArrayDelimeter.end) {
                             i--
                         }
+                    } else if (token.value == Constants.NegativeNumberToken) {
+                        const [numericValue, pos] = this.parseNumericExpressionValue(arrayTokens, i+1)
+                        numericValue.value = Constants.NegativeNumberToken + numericValue.value
+                        outArray.values.push(numericValue)
+                        i = pos
                     }
                     break
                 
