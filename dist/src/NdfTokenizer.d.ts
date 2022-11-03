@@ -136,5 +136,13 @@ export declare class NdfTokenizer {
      * @returns new parser position
      */
     ffWhiteSpace(tokens: any, position: number): number;
+    /**
+     * Rewind the parser position through ignored types including white space and comments.
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    rewindWhiteSpace(tokens: any, position: number): number;
     generateArrayString(tokens: any, position: number): [string, number];
 }

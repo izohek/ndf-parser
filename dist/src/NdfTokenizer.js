@@ -540,6 +540,7 @@ class NdfTokenizer {
         currentPos++;
         let valueStack = [];
         while (stack.length > 0) {
+            const ffLookBehindIndex = currentPos;
             currentPos = this.ffWhiteSpace(tokens, currentPos);
             if (tokens[currentPos].value === Constants.TupleDelimiter.end) {
                 if (valueStack.length > 0) {
@@ -610,6 +611,17 @@ class NdfTokenizer {
                 numericValue.value = Constants.NegativeNumberToken + numericValue.value;
                 tuple.push(numericValue);
                 currentPos = pos - 1;
+            }
+            else if (tokens[currentPos].value === Constants.ObjectDelimeter.start && valueStack.length === 1 && valueStack[0].type === Constants.IdentifierType) {
+                // Parse object instance
+                // We have to go backwards since the name of the object is stored in the valueStack
+                // We rewind whitespace until we hit the name and then parse the full object.
+                // Clear-up value stack so it does't get double-added at the end.
+                const rewindIndex = this.rewindWhiteSpace(tokens, ffLookBehindIndex - 1);
+                const [object, newPosition] = this.parseObject(tokens, rewindIndex);
+                tuple.push(object);
+                currentPos = newPosition;
+                valueStack = [];
             }
             else {
                 console.log(tokens[currentPos].value, tokens[currentPos].type);
@@ -760,6 +772,20 @@ class NdfTokenizer {
         let currentPos = position;
         while (Constants.IgnoredTypes.includes(tokens[currentPos].type) && currentPos < tokens.length) {
             currentPos += 1;
+        }
+        return currentPos;
+    }
+    /**
+     * Rewind the parser position through ignored types including white space and comments.
+     *
+     * @param tokens
+     * @param position
+     * @returns
+     */
+    rewindWhiteSpace(tokens, position) {
+        let currentPos = position;
+        while (Constants.IgnoredTypes.includes(tokens[currentPos].type) && currentPos > -1) {
+            currentPos -= 1;
         }
         return currentPos;
     }
