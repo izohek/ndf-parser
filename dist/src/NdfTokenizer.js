@@ -62,6 +62,21 @@ class NdfTokenizer {
     santizeTokens(tokens) {
         const sanitizedTokens = [];
         for (let i = 0; i < tokens.length; i++) {
+            if (tokens[i].type === Constants.IdentifierType) {
+                /// Combine into string hack
+                /// Takes form of {identifier}{/}{identifier} and merges into a single identifier
+                const next = tokens[i + 1].type === Constants.PunctuatorType && tokens[i + 1].value === '/';
+                const nextNext = tokens[i + 2].type === Constants.IdentifierType;
+                if (next && nextNext) {
+                    const womboCombo = {
+                        type: Constants.IdentifierType,
+                        value: tokens[i].value + tokens[i + 1].value + tokens[i + 2].value
+                    };
+                    i += 2;
+                    sanitizedTokens.push(womboCombo);
+                    continue;
+                }
+            }
             if (tokens[i].type === Constants.RegularExpressionType) {
                 if (tokens[i].value.endsWith(Constants.ObjectDelimeter.end + '' + Constants.CommaToken)) {
                     const newTokens = [
@@ -121,7 +136,7 @@ class NdfTokenizer {
                 });
             }
             else {
-                console.log('Unknown root element', token.type, token.value);
+                console.log('Unknown root element', i, token.type, token.value);
             }
         }
         return Array.from(filteredTokens);
@@ -166,11 +181,26 @@ class NdfTokenizer {
                 // Parse object type name
                 // example: Descriptor_Unit_2K12_KUB_DDR is TEntityDescriptor
                 obj.type = tokens[currentPos].value;
-                currentPos += 1;
-                currentPos = this.ffWhiteSpace(tokens, currentPos);
-                const [children, index] = this.parseObjectBody(tokens, currentPos);
-                obj.children.push(...children);
-                currentPos = index;
+                if (obj.type === Constants.MapToken) {
+                    // Map defined using 'is' syntax
+                    // example: MatrixCostName_DivTest_US is MAP
+                    currentPos = this.ffWhiteSpace(tokens, currentPos);
+                    let [map, newPosition] = this.parseMap(tokens, currentPos);
+                    currentPos = newPosition;
+                    obj.children.push({
+                        name: 'map',
+                        value: map
+                    });
+                    return [obj, currentPos];
+                }
+                else {
+                    // Object
+                    currentPos += 1;
+                    currentPos = this.ffWhiteSpace(tokens, currentPos);
+                    const [children, index] = this.parseObjectBody(tokens, currentPos);
+                    obj.children.push(...children);
+                    currentPos = index;
+                }
             }
         }
         else if (tokens[currentPos].value === Constants.ObjectDelimeter.start) {
@@ -498,6 +528,10 @@ class NdfTokenizer {
         while (stack.length > 0) {
             if (tokens[currentPos].value === Constants.ArrayDelimeter.end) {
                 stack.pop();
+                // If stack's empty, we're done
+                if (stack.length < 1) {
+                    break;
+                }
             }
             else {
                 // Parse tuple
@@ -514,6 +548,10 @@ class NdfTokenizer {
             currentPos++;
             currentPos = this.ffWhiteSpace(tokens, currentPos);
             if (currentPos >= tokens.length) {
+                if (stack.length < 1) {
+                    // If stack's empty and we're at the end of file, we're done
+                    break;
+                }
                 throw new Error('Unbound MAP object missing ending delimeter');
             }
         }
@@ -770,7 +808,7 @@ class NdfTokenizer {
      */
     ffWhiteSpace(tokens, position) {
         let currentPos = position;
-        while (Constants.IgnoredTypes.includes(tokens[currentPos].type) && currentPos < tokens.length) {
+        while (currentPos < tokens.length && Constants.IgnoredTypes.includes(tokens[currentPos].type)) {
             currentPos += 1;
         }
         return currentPos;
