@@ -530,6 +530,7 @@ class NdfTokenizer {
                 stack.pop();
                 // If stack's empty, we're done
                 if (stack.length < 1) {
+                    currentPos += 1;
                     break;
                 }
             }

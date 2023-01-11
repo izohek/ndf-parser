@@ -556,7 +556,10 @@ export class NdfTokenizer {
             if (tokens[currentPos].value === Constants.ArrayDelimeter.end) {
                 stack.pop()
                 // If stack's empty, we're done
-                if (stack.length < 1) { break }
+                if (stack.length < 1) { 
+                    currentPos += 1
+                    break 
+                }
             } else {
                 // Parse tuple
                 if (tokens[currentPos].value === Constants.TupleDelimiter.start) {
