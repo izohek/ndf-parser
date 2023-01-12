@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npx tsc",
     "lint": "npx eslint src/* tests/*",
-    "test": "jest"
+    "test": "npm run build && jest"
   },
   "author": "izohek <izohek@gmail.com>",
   "license": "MIT",

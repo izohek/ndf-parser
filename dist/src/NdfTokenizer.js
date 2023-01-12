@@ -137,6 +137,7 @@ class NdfTokenizer {
             }
             else {
                 console.log('Unknown root element', i, token.type, token.value);
+                throw new Error('Unknown root element');
             }
         }
         return Array.from(filteredTokens);

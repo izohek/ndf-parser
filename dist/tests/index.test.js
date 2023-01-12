@@ -14,3 +14,22 @@ test('tokenizer-testing', () => {
     const results = parser.parse();
     expect(results.length).toBe(2);
 });
+/**
+ * Test all ndf files in ./test-data folder
+ */
+test('parse-common-ndfs', () => {
+    let files = (0, fs_1.readdirSync)('./test-data')
+        .filter((f) => f.endsWith('.ndf')); // only test .ndf files;
+    for (const file of files) {
+        try {
+            const fileData = (0, fs_1.readFileSync)('./test-data/' + file, 'utf8');
+            const parser = new NdfParser_1.NdfParser(fileData);
+            const results = parser.parse();
+            expect(results.length).toBe(2);
+        }
+        catch (err) {
+            console.log("Failed to parse ", file);
+            expect(err).toBeNull();
+        }
+    }
+});
