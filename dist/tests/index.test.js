@@ -18,7 +18,7 @@ test('tokenizer-testing', () => {
  * Test all ndf files in ./test-data folder
  */
 test('parse-common-ndfs', () => {
-    let files = (0, fs_1.readdirSync)('./test-data')
+    const files = (0, fs_1.readdirSync)('./test-data')
         .filter((f) => f.endsWith('.ndf')); // only test .ndf files;
     for (const file of files) {
         try {
@@ -28,7 +28,7 @@ test('parse-common-ndfs', () => {
             expect(results.length).toBe(2);
         }
         catch (err) {
-            console.log("Failed to parse ", file);
+            console.log('Failed to parse ', file);
             expect(err).toBeNull();
         }
     }

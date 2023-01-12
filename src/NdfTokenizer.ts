@@ -41,13 +41,13 @@ export class NdfTokenizer {
             if (tokens[i].type === Constants.IdentifierType) {
                 /// Combine into string hack
                 /// Takes form of {identifier}{/}{identifier} and merges into a single identifier
-                const next = tokens[i+1].type === Constants.PunctuatorType && tokens[i+1].value === '/';
-                const nextNext = tokens[i+2].type === Constants.IdentifierType;
+                const next = tokens[i + 1].type === Constants.PunctuatorType && tokens[i + 1].value === '/'
+                const nextNext = tokens[i + 2].type === Constants.IdentifierType
 
                 if (next && nextNext) {
                     const womboCombo: Token = {
                         type: Constants.IdentifierType,
-                        value: tokens[i].value + tokens[i+1].value + tokens[i+2].value
+                        value: tokens[i].value + tokens[i + 1].value + tokens[i + 2].value
                     }
 
                     i += 2
@@ -176,9 +176,9 @@ export class NdfTokenizer {
                     // Map defined using 'is' syntax
                     // example: MatrixCostName_DivTest_US is MAP
                     currentPos = this.ffWhiteSpace(tokens, currentPos)
-                    let [map, newPosition] = this.parseMap(tokens, currentPos)
+                    const [map, newPosition] = this.parseMap(tokens, currentPos)
                     currentPos = newPosition
-                    
+
                     obj.children.push({
                         name: 'map',
                         value: map
@@ -189,12 +189,11 @@ export class NdfTokenizer {
                     // Object
                     currentPos += 1
                     currentPos = this.ffWhiteSpace(tokens, currentPos)
-    
+
                     const [children, index] = this.parseObjectBody(tokens, currentPos)
                     obj.children.push(...children)
                     currentPos = index
                 }
-
             }
         } else if (tokens[currentPos].value === Constants.ObjectDelimeter.start) {
             const [children, index] = this.parseObjectBody(tokens, currentPos)
@@ -557,9 +556,9 @@ export class NdfTokenizer {
             if (tokens[currentPos].value === Constants.ArrayDelimeter.end) {
                 stack.pop()
                 // If stack's empty, we're done
-                if (stack.length < 1) { 
+                if (stack.length < 1) {
                     currentPos += 1
-                    break 
+                    break
                 }
             } else {
                 // Parse tuple
@@ -577,7 +576,7 @@ export class NdfTokenizer {
             currentPos = this.ffWhiteSpace(tokens, currentPos)
 
             if (currentPos >= tokens.length) {
-                if (stack.length < 1) { 
+                if (stack.length < 1) {
                     // If stack's empty and we're at the end of file, we're done
                     break
                 }
@@ -869,12 +868,12 @@ export class NdfTokenizer {
 
     /**
      * Rewind the parser position through ignored types including white space and comments.
-     * 
-     * @param tokens 
-     * @param position 
-     * @returns 
+     *
+     * @param tokens
+     * @param position
+     * @returns
      */
-    public rewindWhiteSpace(tokens: any, position: number) : number {
+    public rewindWhiteSpace (tokens: any, position: number): number {
         let currentPos = position
         while (Constants.IgnoredTypes.includes(tokens[currentPos].type) && currentPos > -1) {
             currentPos -= 1

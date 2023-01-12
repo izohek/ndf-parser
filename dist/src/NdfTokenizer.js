@@ -186,7 +186,7 @@ class NdfTokenizer {
                     // Map defined using 'is' syntax
                     // example: MatrixCostName_DivTest_US is MAP
                     currentPos = this.ffWhiteSpace(tokens, currentPos);
-                    let [map, newPosition] = this.parseMap(tokens, currentPos);
+                    const [map, newPosition] = this.parseMap(tokens, currentPos);
                     currentPos = newPosition;
                     obj.children.push({
                         name: 'map',
