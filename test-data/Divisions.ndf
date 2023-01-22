@@ -1,9 +1,10 @@
 // Ne pas éditer, ce fichier est auto-généré !
 
 
-export Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{beaeddc6-2819-4025-b72f-9448e16b39ec}
+    CfgName = 'FR_11e_Para_multi'
     DivisionName = 'PPYRYDDJRK'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -17,7 +18,6 @@ export Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'PPYRYDDJRK'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_AML_60_FR, 3),
@@ -26,7 +26,7 @@ export Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_ATteam_Milan_2_para_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_DCA_53T2_20mm_Para_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_ERC_90_Sagaie_FR, 2),
-        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Gazelle_20mm_FR, 2),
+        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Gazelle_20mm_FR, 3),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Gazelle_20mm_reco_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Gazelle_HOT_2_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Gazelle_HOT_FR, 1),
@@ -34,6 +34,9 @@ export Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Gazelle_reco_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Gendarmerie_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Groupe_AT_para_FR, 2),
+        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_HMGteam_AANF1_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_HMGteam_AANF1_para_FR, 2),
+        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_HMGteam_M2HB_para_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Howz_M101_105mm_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Jaguar_ATGM_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Jaguar_HE_FR, 1),
@@ -61,7 +64,7 @@ export Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Rifles_Aero_CMD_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Rifles_Aero_FR, 3),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_SAS_FR, 2),
-        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Scout_para_FR, 3),
+        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_Scout_para_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VBL_MILAN_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VBL_PC_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VBL_Reco_FR, 2),
@@ -71,7 +74,7 @@ export Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VLRA_Mortier81_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VLRA_supply_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VLTT_P4_MILAN_para_FR, 2),
-        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VLTT_P4_PC_FR, 2),
+        (~/Descriptor_Deck_Pack_TOE_FR_11e_Para_multi_VLTT_P4_PC_FR, 1),
     ]
     MaxActivationPoints = 50
     CostMatrix = MatrixCostName_FR_11e_Para_multi
@@ -81,9 +84,10 @@ export Descriptor_Deck_Division_FR_11e_Para_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "FR"
 )
-export Descriptor_Deck_Division_FR_5e_Blindee_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_FR_5e_Blindee_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{3eea10f1-c482-46f2-a747-f49879749d82}
+    CfgName = 'FR_5e_Blindee_multi'
     DivisionName = 'MVUBDSQMBB'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -97,7 +101,6 @@ export Descriptor_Deck_Division_FR_5e_Blindee_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'MVUBDSQMBB'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_AMX_10_HOT_FR, 2),
@@ -115,7 +118,7 @@ export Descriptor_Deck_Division_FR_5e_Blindee_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_ATteam_Milan_1_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_ATteam_Milan_2_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Alouette_III_reco_FR, 1),
-        (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Chasseurs_CMD_FR, 2),
+        (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Chasseurs_CMD_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Chasseurs_FR, 3),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Commandos_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Escorte_FR, 1),
@@ -123,6 +126,8 @@ export Descriptor_Deck_Division_FR_5e_Blindee_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Gazelle_HOT_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Gendarmerie_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Groupe_AT_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_HMGteam_AANF1_FR, 2),
+        (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_HMGteam_M2HB_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Jaguar_ATGM_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Jaguar_HE_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Jaguar_SEAD_FR, 1),
@@ -135,7 +140,7 @@ export Descriptor_Deck_Division_FR_5e_Blindee_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Puma_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Reserviste_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Rifles_APILAS_FR, 1),
-        (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Rifles_CMD_FR, 3),
+        (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Rifles_CMD_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Rifles_FR, 6),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Roland_2_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_FR_5e_Blindee_multi_Roland_3_FR, 1),
@@ -162,65 +167,119 @@ export Descriptor_Deck_Division_FR_5e_Blindee_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_armored"
     CountryId = "FR"
 )
-export Descriptor_Deck_Division_RDA_11MSD_solo is TDeckDivisionDescriptor
+Descriptor_Deck_Division_NATO_Garnison_Berlin_multi is TDeckDivisionDescriptor
 (
-    DescriptorId = GUID:{b09825ee-0d71-415a-aeac-f28b83072739}
-    DivisionName = 'UZVIKCAMBV'
+    DescriptorId = GUID:{9ab11079-b134-4ec3-beba-48cf4e885757}
+    CfgName = 'NATO_Garnison_Berlin_multi'
+    DivisionName = 'EYKCGOHKBG'
     DivisionNickname = ''
     DivisionDescription = ''
     DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{20fe37c0-f050-46b2-a952-e704cd0f585d}
+    DivisionNationalite = ENationalite/Allied
+    DivisionTags = ['DEFAULT', 'UK', 'Allied', 'infantryReg', 'DC_PWR2']
+    UncensoredHintGUID = GUID:{f9325a45-e75f-4e40-99a1-4e8578603d16}
     TypeHintTitleToken = ''
     TypeHintBodyToken = ''
     TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
+    DescriptionHintTitleToken = 'EYKCGOHKBG'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_81mm_mortar_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_AML_60_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_AMX_13_90mm_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_AMX_30_B_CMD_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_AMX_30_B_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_ATteam_Milan_1_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_ATteam_Milan_2_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Alouette_III_reco_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_BGS_RFA, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Bedford_MJ_4t_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_DCA_53T2_20mm_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_DCA_Javelin_LML_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Engineer_CMD_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Engineers_CMD_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Engineers_Dragon_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Engineers_Flash_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Engineers_TA_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_F117_Nighthawk_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_FV4201_Chieftain_CMD_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_FV4201_Chieftain_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_FV432_Rarden_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_FV721_Fox_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Ferret_Mk2_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Gazelle_SNEB_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Gendarmerie_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_GreenBerets_MP5_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Gun_Group_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_HMGteam_AANF1_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_HMGteam_M2HB_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_HMGteam_M60_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_HMGteam_MAG_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Harrier_CLU_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Harrier_HE1_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Harrier_RKT2_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Harrier_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Howz_M198_155mm_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_LandRover_CMD_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_LandRover_MILAN_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_LandRover_WOMBAT_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_LightRifles_CMD_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_LightRifles_RCL_US, 3),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Lynx_AH_Mk7_I_TOW_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M1025_Humvee_CMD_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M1025_Humvee_TOW_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M106A2_HOWZ_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M109A2_HOWZ_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M125_HOWZ_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M163_PIVADS_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M1IP_Abrams_CMD_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M1IP_Abrams_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M35_supply_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M577_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M728_CEV_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_M901A1_ITW_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_MANPAD_Javelin_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_MANPAD_Mistral_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_MANPAD_Stinger_C_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_MP_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Mirage_IV_FR, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Mirage_IV_SEAD_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Mortier_MORT61_120mm_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_RCL_L6_Wombat_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_RMP_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Reserve_Polizei_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Rifles_AT_UK, 3),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Rifles_CMD_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Rifles_CMD_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Rifles_FR, 3),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Rifles_RAF_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Sapeurs_CMD_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Sapeurs_Flam_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Scout_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Scout_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Scout_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_Sonderwagen_4_recon_RFA, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_TRM_2000_20mm_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_TRM_2000_supply_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_VAB_CMD_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_VAB_Mortar_81_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_VLTT_P4_MILAN_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_NATO_Garnison_Berlin_multi_VLTT_P4_PC_FR, 1),
     ]
     MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
+    CostMatrix = MatrixCostName_NATO_Garnison_Berlin_multi
+    EmblemTexture     = "Texture_Division_Emblem_Berlin_Command"
+    StrategicLabelColor     = "Orange"
     PortraitTexture   = "Texture_Division_Portrait_default"
     TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
+    CountryId = "UK"
 )
-export Descriptor_Deck_Division_RDA_4MSD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{745beef0-62d6-46d3-8d78-383e26c97194}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{eaa006c4-1326-463f-9a3e-33201e59f707}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_RDA_4_MSD_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_RDA_4_MSD_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{97b5d7d2-0a51-461e-b97e-617dd6892858}
+    CfgName = 'RDA_4_MSD_multi'
     DivisionName = 'XPXHEQABVZ'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -234,7 +293,6 @@ export Descriptor_Deck_Division_RDA_4_MSD_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'XPXHEQABVZ'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_2K12_KUB_DDR, 2),
@@ -263,9 +321,14 @@ export Descriptor_Deck_Division_RDA_4_MSD_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Fallschirmjager_FlaseFlag_Demo_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Fallschirmjager_HMG_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Fallschirmjager_Metys_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_HMGteam_AGS17_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_HMGteam_PKM_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_HMGteam_PKM_FJ_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Howz_D20_152mm_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Howz_D30_122mm_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_HvyScout_DDR, 1),
-        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_MANPAD_Strela_2M_DDR, 5),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_MANPAD_Igla_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_MANPAD_Strela_2M_DDR, 4),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_MFRW_RM70_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_MTLB_Strela10_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_MTLB_supply_DDR, 2),
@@ -284,9 +347,10 @@ export Descriptor_Deck_Division_RDA_4_MSD_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_24P_s8_AT_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_2_reco_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8TB_DDR, 1),
-        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8TV_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8TV_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8TV_PodGatling_DDR, 1),
-        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8TV_s57_32_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8TV_UPK_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8TV_s57_32_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_8_supply_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mi_9_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Mortier_PM43_120mm_DDR, 3),
@@ -303,7 +367,7 @@ export Descriptor_Deck_Division_RDA_4_MSD_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Su_22_clu_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_Su_22_nplm_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_T55AM2B_DDR, 1),
-        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_T55AM2_CMD_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_T55AM2_CMD_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_T55AM2_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_T55A_CMD_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_4_MSD_multi_T55A_DDR, 1),
@@ -320,37 +384,10 @@ export Descriptor_Deck_Division_RDA_4_MSD_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "DDR"
 )
-export Descriptor_Deck_Division_RDA_7PzD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{bff44c3a-b9c5-4a9a-b722-9a6c98942f2c}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{43e4cd38-e1be-44dc-83f6-6e9ca668bb30}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_RDA_7_Panzer_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_RDA_7_Panzer_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{81abdbb9-422f-47b0-a073-013c920c04fb}
+    CfgName = 'RDA_7_Panzer_multi'
     DivisionName = 'NIZAYXAMPN'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -364,7 +401,6 @@ export Descriptor_Deck_Division_RDA_7_Panzer_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'NIZAYXAMPN'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_2K12_KUB_DDR, 2),
@@ -380,11 +416,15 @@ export Descriptor_Deck_Division_RDA_7_Panzer_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_BRM_1_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_BTR_50_CMD_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_BTR_60_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_DCA_ZU_23_2_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Engineers_CMD_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Engineers_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Engineers_Flam_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_HMGteam_AGS17_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_HMGteam_PKM_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_HvyScout_DDR, 1),
-        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MANPAD_Strela_2M_DDR, 5),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MANPAD_Igla_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MANPAD_Strela_2M_DDR, 4),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MFRW_RM70_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MTLB_Strela10_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MTLB_supply_DDR, 2),
@@ -399,10 +439,11 @@ export Descriptor_Deck_Division_RDA_7_Panzer_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Mi_24P_s8_AT_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Mi_2_reco_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Mi_8TV_DDR, 2),
-        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Mi_8TV_s57_32_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Mi_8TV_UPK_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Mi_8TV_s57_32_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_Mortier_PM43_120mm_DDR, 3),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MotRifles_BTR_DDR, 1),
-        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MotRifles_CMD_DDR, 4),
+        (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MotRifles_CMD_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MotRifles_DDR, 4),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MotRifles_HMG_DDR, 4),
         (~/Descriptor_Deck_Pack_TOE_RDA_7_Panzer_multi_MotSchutzen_DDR, 1),
@@ -435,9 +476,10 @@ export Descriptor_Deck_Division_RDA_7_Panzer_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_armored"
     CountryId = "DDR"
 )
-export Descriptor_Deck_Division_RDA_KdA_Bezirk_Erfurt_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_RDA_KdA_Bezirk_Erfurt_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{bd44546a-1cab-43a2-b38e-a44595ac1968}
+    CfgName = 'RDA_KdA_Bezirk_Erfurt_multi'
     DivisionName = 'OVYVCMLGYY'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -451,7 +493,6 @@ export Descriptor_Deck_Division_RDA_KdA_Bezirk_Erfurt_multi is TDeckDivisionDesc
     DescriptionHintTitleToken = 'OVYVCMLGYY'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_2S7M_Malka_SOV, 2),
@@ -471,10 +512,13 @@ export Descriptor_Deck_Division_RDA_KdA_Bezirk_Erfurt_multi is TDeckDivisionDesc
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_Engineers_CMD_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_Engineers_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_Engineers_Flam_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_HMGteam_AGS17_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_HMGteam_NSV_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_HMGteam_PKM_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_Howz_D20_152mm_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_Howz_D30_122mm_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_Howz_M46_130mm_DDR, 2),
-        (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_KdA_CMD_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_KdA_CMD_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_KdA_DDR, 3),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_MANPAD_Strela_2M_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_MFRW_RM70_DDR, 1),
@@ -517,7 +561,7 @@ export Descriptor_Deck_Division_RDA_KdA_Bezirk_Erfurt_multi is TDeckDivisionDesc
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_T62M1_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_T62M_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_T813_DDR, 1),
-        (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_UAZ_469_CMD_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_UAZ_469_CMD_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_UAZ_469_Fagot_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_UAZ_469_SPG9_DDR, 1),
         (~/Descriptor_Deck_Pack_TOE_RDA_KdA_Bezirk_Erfurt_multi_Ural_4320_DDR, 1),
@@ -533,37 +577,10 @@ export Descriptor_Deck_Division_RDA_KdA_Bezirk_Erfurt_multi is TDeckDivisionDesc
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "DDR"
 )
-export Descriptor_Deck_Division_RDA_MBDIII_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{a1581958-0b79-4b73-9f3c-8903eea5ab68}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{f9749983-e13e-4742-a415-267c28729d63}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_RFA_2_PzGrenadier_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_RFA_2_PzGrenadier_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{15fa50e1-7534-4f5c-ae1c-afd4098c6ce2}
+    CfgName = 'RFA_2_PzGrenadier_multi'
     DivisionName = 'XKYVHEFNED'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -577,7 +594,6 @@ export Descriptor_Deck_Division_RFA_2_PzGrenadier_multi is TDeckDivisionDescript
     DescriptionHintTitleToken = 'XKYVHEFNED'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_ATteam_Milan_1_RFA, 1),
@@ -609,17 +625,21 @@ export Descriptor_Deck_Division_RFA_2_PzGrenadier_multi is TDeckDivisionDescript
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_G91_R3_Gina_NPL_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_G91_R3_Gina_RKT_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Gepard_1A2_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_HMGteam_MG3_FJ_RFA, 1),
+        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_HMGteam_MG3_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Harrier_UK, 1),
-        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Iltis_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Iltis_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Jager_Aufk_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Jager_CMD_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Jager_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Jaguar_1_RFA, 1),
+        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Jaguar_2_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Lars_2_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Leopard_1A1_CMD_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Leopard_1A1_RFA, 3),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Leopard_1A5_CMD_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Leopard_1A5_RFA, 2),
-        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Leopard_2A3_CMD_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Leopard_2A3_CMD_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Leopard_2A3_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Luchs_A1_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_M109A3G_HOWZ_RFA, 2),
@@ -636,7 +656,7 @@ export Descriptor_Deck_Division_RFA_2_PzGrenadier_multi is TDeckDivisionDescript
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Panzergrenadier_CMD_RFA, 4),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Panzergrenadier_IFV_RFA, 6),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_PzGrenadier_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Scout_BEL, 4),
+        (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Scout_BEL, 3),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Scout_RFA, 3),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_Security_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_2_PzGrenadier_multi_TPZ_Fuchs_CMD_RFA, 1),
@@ -657,9 +677,10 @@ export Descriptor_Deck_Division_RFA_2_PzGrenadier_multi is TDeckDivisionDescript
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "RFA"
 )
-export Descriptor_Deck_Division_RFA_5_Panzer_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_RFA_5_Panzer_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{ec8b43f9-6e9b-40de-8167-304ef4370747}
+    CfgName = 'RFA_5_Panzer_multi'
     DivisionName = 'WOEQADLOKM'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -673,7 +694,6 @@ export Descriptor_Deck_Division_RFA_5_Panzer_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'WOEQADLOKM'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_AH64_Apache_emp2_US, 2),
@@ -698,9 +718,11 @@ export Descriptor_Deck_Division_RFA_5_Panzer_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Feldgendarmerie_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Fernspaher_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Gepard_1A2_RFA, 2),
-        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Iltis_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_HMGteam_MG3_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Howz_M101_105mm_RFA, 1),
+        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Iltis_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Jager_Aufk_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Jager_CMD_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Jager_CMD_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Jager_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Jaguar_1_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Jaguar_2_RFA, 1),
@@ -725,7 +747,7 @@ export Descriptor_Deck_Division_RFA_5_Panzer_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Marder_Roland_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Mortier_Tampella_120mm_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Panzergrenadier_APC_RFA, 3),
-        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Panzergrenadier_CMD_RFA, 4),
+        (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Panzergrenadier_CMD_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Panzergrenadier_IFV_RFA, 6),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_PzGrenadier_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_5_Panzer_multi_Scout_RFA, 3),
@@ -745,9 +767,10 @@ export Descriptor_Deck_Division_RFA_5_Panzer_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_armored"
     CountryId = "RFA"
 )
-export Descriptor_Deck_Division_RFA_TerrKdo_Sud_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_RFA_TerrKdo_Sud_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{a461f564-2c09-471b-9a6b-2c134dd87802}
+    CfgName = 'RFA_TerrKdo_Sud_multi'
     DivisionName = 'BIHXAJRCJA'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -761,7 +784,6 @@ export Descriptor_Deck_Division_RFA_TerrKdo_Sud_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'BIHXAJRCJA'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_AMX_10_RC_FR, 1),
@@ -779,7 +801,8 @@ export Descriptor_Deck_Division_RFA_TerrKdo_Sud_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Engineers_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Engineers_Reserve_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_F104G_Starfighter_HE_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_F111F_Aardvark_LGB2_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_F111F_Aardvark_LGB2_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_F16E_AGM_US, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_F4F_Phantom_II_AA_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_F4F_Phantom_II_AT_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_F4F_Phantom_II_HE1_RFA, 1),
@@ -787,25 +810,27 @@ export Descriptor_Deck_Division_RFA_TerrKdo_Sud_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_FH70_155mm_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Fallschirm_B1_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Feldgendarmerie_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Gazelle_20mm_FR, 1),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Gazelle_20mm_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Gazelle_20mm_reco_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Gazelle_HOT_2_FR, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Gazelle_HOT_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Gazelle_reco_FR, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_GreenBerets_CMD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_GreenBerets_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_HMGteam_MG3_RFA, 3),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_HS30_Panzermorser_120mm_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_HeimatschutzJager_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Howz_M101_105mm_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Iltis_MILAN_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Iltis_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Iltis_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Jager_Aufk_RFA, 3),
-        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Jager_CMD_RFA, 3),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Jager_CMD_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Jager_RFA, 4),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_KanJagdPanzer_RFA, 1),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_M110A2_HOWZ_US, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_M113_GreenArcher_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_M48A2C_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_M48A2GA2_CMD_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_M48A2GA2_CMD_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_M48A2GA2_RFA, 3),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_M577_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_MANPAD_Redeye_RFA, 2),
@@ -820,6 +845,7 @@ export Descriptor_Deck_Division_RFA_TerrKdo_Sud_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Scout_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Security_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_UH1D_Supply_RFA, 1),
+        (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_Unimog_S_404_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_RFA_TerrKdo_Sud_multi_VLTT_P4_MILAN_FR, 1),
     ]
     MaxActivationPoints = 50
@@ -830,177 +856,10 @@ export Descriptor_Deck_Division_RFA_TerrKdo_Sud_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "RFA"
 )
-export Descriptor_Deck_Division_SOV_11GTkD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{fd40abbe-26c5-49e4-9bc6-fb75c88a82ac}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{983d410d-d08f-4994-a7ac-8e9d21942903}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_1GTA_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{0cf10d82-fee7-4dd7-bb4a-4240b374f279}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{a353ce4d-94d1-4c6b-a58b-f7dd5230b7a0}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_20GMRD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{474ea3f0-2388-4ae8-8145-f98bc38a4b31}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{8a3f6b11-8beb-4b4b-8cce-e229cd9b5910}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_27GMRD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{c4e983d5-b2e3-4df0-9b77-23813fcc94ee}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{5974bfb2-7d6c-4174-99fc-857bec295b38}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_308ArtBr_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{81bac9d6-7bdd-4869-9cbd-e9449c7baf20}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{d5dc3fc2-f0e7-49a3-b1cc-37edbdc2efd3}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_35GvDSHB_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{2f12deda-2290-4c93-95f4-a572dff66f3a}
-    DivisionName = 'QBSDOMYDBX'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{38e0979e-cd2f-4d6b-97c1-2ea72cfb8e6e}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'QBSDOMYDBX'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision1"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{7076e442-e50d-4f50-8b1d-7e8c2ad404e3}
+    CfgName = 'SOV_35_AirAslt_Brig_multi'
     DivisionName = 'PFEYNGDKVR'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1014,7 +873,6 @@ export Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescri
     DescriptionHintTitleToken = 'PFEYNGDKVR'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_2S9_Nona_SOV, 2),
@@ -1024,6 +882,7 @@ export Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescri
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_Atteam_Konkurs_VDV_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_BM21V_GradV_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_BMD_1_CMD_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_BMD_1_Reostat_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_BRDM_2_CMD_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_BRDM_2_Konkurs_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_BRDM_2_SOV, 2),
@@ -1036,6 +895,9 @@ export Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescri
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_Engineers_Flam_VDV_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_Engineers_VDV_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_GAZ_66B_ZU_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_HMGteam_AGS17_VDV_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_HMGteam_NSV_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_HMGteam_PKM_VDV_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_Howz_D30_122mm_VDV_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_HvyScout_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_Ka_50_AA_SOV, 1),
@@ -1045,6 +907,7 @@ export Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescri
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_MiG_23ML_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_MiG_25BM_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_MiG_25RBF_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_MiG_27K_LGB_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_MiG_27M_bombe_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_MiG_27M_napalm_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_MiG_27M_rkt_SOV, 1),
@@ -1075,7 +938,7 @@ export Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescri
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_T64BV_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_T64B_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_UAZ_469_AGL_VDV_SOV, 1),
-        (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_UAZ_469_CMD_VDV_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_UAZ_469_CMD_VDV_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_UAZ_469_Konkurs_VDV_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_UAZ_469_SPG9_VDV_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_35_AirAslt_Brig_multi_UAZ_469_supply_VDV_SOV, 2),
@@ -1094,65 +957,10 @@ export Descriptor_Deck_Division_SOV_35_AirAslt_Brig_multi is TDeckDivisionDescri
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "SOV"
 )
-export Descriptor_Deck_Division_SOV_390ArtBr_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{a73457cc-518d-4bbb-a84b-e65e1e0f8881}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{07174bbf-ca70-4187-833a-686eb14d63f5}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_39GMRD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{bcd773f9-ac51-4ee0-b1ac-a0c5917383d7}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{7810176e-9dcc-48c3-8676-8bb7f391a229}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_39_Gds_Rifle_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_SOV_39_Gds_Rifle_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{b8baa312-d7a5-4e10-a32a-ac72a9dd15f2}
+    CfgName = 'SOV_39_Gds_Rifle_multi'
     DivisionName = 'QBSDOMYDBX'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1166,7 +974,6 @@ export Descriptor_Deck_Division_SOV_39_Gds_Rifle_multi is TDeckDivisionDescripto
     DescriptionHintTitleToken = 'QBSDOMYDBX'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_2K12_KUB_SOV, 2),
@@ -1186,8 +993,11 @@ export Descriptor_Deck_Division_SOV_39_Gds_Rifle_multi is TDeckDivisionDescripto
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Engineers_CMD_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Engineers_Flam_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Engineers_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Engineers_Scout_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_FireSupport_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Grenzer_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_HMGteam_AGS17_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_HMGteam_PKM_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Howz_D20_152mm_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Howz_D30_122mm_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_HvyScout_SOV, 1),
@@ -1198,6 +1008,8 @@ export Descriptor_Deck_Division_SOV_39_Gds_Rifle_multi is TDeckDivisionDescripto
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_MTLB_supply_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_MiG_23MF_DDR, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_MiG_23P_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_MiG_27K_LGB_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Mi_24K_reco_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Mi_24VP_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Mi_24V_AA_SOV, 3),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_Mi_24V_AT_SOV, 3),
@@ -1229,7 +1041,7 @@ export Descriptor_Deck_Division_SOV_39_Gds_Rifle_multi is TDeckDivisionDescripto
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T62MV_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T62M_CMD_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T62M_SOV, 1),
-        (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T80BV_CMD_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T80BV_CMD_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T80BV_SOV, 4),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T80B_CMD_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_39_Gds_Rifle_multi_T80B_SOV, 1),
@@ -1246,65 +1058,10 @@ export Descriptor_Deck_Division_SOV_39_Gds_Rifle_multi is TDeckDivisionDescripto
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "SOV"
 )
-export Descriptor_Deck_Division_SOV_57GMRD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{16cd5ce0-8e54-43e6-b42f-f7f428b8ada8}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{244c8abc-781a-4af2-b18a-71bc492e3c69}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_79GTkD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{3870239d-265d-4d9c-8db1-27f355ba378a}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{81fc8c98-5389-4ab2-9b4f-ff7262ee4972}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_79_Gds_Tank_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_SOV_79_Gds_Tank_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{52703924-4dca-4647-b0d5-376d8410b4a8}
+    CfgName = 'SOV_79_Gds_Tank_multi'
     DivisionName = 'ABQKCQLERY'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1318,7 +1075,6 @@ export Descriptor_Deck_Division_SOV_79_Gds_Tank_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'ABQKCQLERY'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_2K12_KUB_SOV, 2),
@@ -1335,6 +1091,9 @@ export Descriptor_Deck_Division_SOV_79_Gds_Tank_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Engineers_CMD_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Engineers_Flam_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Engineers_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Engineers_Scout_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_HMGteam_AGS17_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_HMGteam_PKM_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Howz_D30_122mm_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_HvyScout_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MANPAD_Igla_SOV, 5),
@@ -1344,7 +1103,7 @@ export Descriptor_Deck_Division_SOV_79_Gds_Tank_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MiG_23ML_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MiG_23P_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MiG_27M_sead_SOV, 1),
-        (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MiG_31M_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MiG_31M_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Mi_24P_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Mi_24V_AA_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Mi_24V_AT_SOV, 1),
@@ -1355,7 +1114,7 @@ export Descriptor_Deck_Division_SOV_79_Gds_Tank_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Mi_8TV_s80_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_Mortier_2S12_120mm_SOV, 3),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MotRifles_BTR_SOV, 1),
-        (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MotRifles_CMD_SOV, 4),
+        (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MotRifles_CMD_SOV, 2),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MotRifles_HMG_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MotRifles_Metis_SOV, 1),
         (~/Descriptor_Deck_Pack_TOE_SOV_79_Gds_Tank_multi_MotRifles_SOV, 4),
@@ -1391,93 +1150,10 @@ export Descriptor_Deck_Division_SOV_79_Gds_Tank_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_armored"
     CountryId = "SOV"
 )
-export Descriptor_Deck_Division_SOV_8GA_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{86ce956f-7014-4add-a288-f5cee367a392}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{eec29048-c757-4b22-b3a5-a06e43f03eff}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_9TkD_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{03580d44-74b2-41dd-ad79-b741eed3c8c1}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{34253941-0793-4880-8d2e-5402b77304a3}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_SOV_WGF_solo is TDeckDivisionDescriptor
-(
-    DescriptorId = GUID:{255cac74-83bf-41ba-bd06-f44cccf9ad0c}
-    DivisionName = 'UZVIKCAMBV'
-    DivisionNickname = ''
-    DivisionDescription = ''
-    DivisionPowerClassification = 'DC_PWR2'
-    DivisionNationalite = ENationalite/Axis
-    DivisionTags = ['DEFAULT', 'SOV', 'Axis', 'infantryReg', 'DC_PWR2']
-    UncensoredHintGUID = GUID:{ae076cbe-43be-4291-b7e8-6fb2f457b5e8}
-    TypeHintTitleToken = ''
-    TypeHintBodyToken = ''
-    TypeHintExtendedToken = ''
-    DescriptionHintTitleToken = 'UZVIKCAMBV'
-    DescriptionHintBodyToken = ''
-    DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
-    PackList = MAP
-    [
-    ]
-    MaxActivationPoints = 50
-    CostMatrix = MatrixCostName_SOV_39_Gds_Rifle_multi
-    EmblemTexture     = "Texture_Division_Emblem_39th_gmsd"
-    StrategicLabelColor     = "SovDivision2"
-    PortraitTexture   = "Texture_Division_Portrait_default"
-    TypeTexture       = "Texture_Division_Type_infantryReg"
-    CountryId = "SOV"
-)
-export Descriptor_Deck_Division_UK_1st_Armoured_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_UK_1st_Armoured_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{5dff6faa-211f-4743-b3ef-9737d350978f}
+    CfgName = 'UK_1st_Armoured_multi'
     DivisionName = 'YPUIEGDPJD'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1491,12 +1167,12 @@ export Descriptor_Deck_Division_UK_1st_Armoured_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'YPUIEGDPJD'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_81mm_mortar_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_ATteam_Milan_1_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_ATteam_Milan_2_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_ATteam_Milan_2_para_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Bedford_MJ_4t_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_CH47D_Chinook_supply_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Challenger_1_Mk1_CMD_UK, 2),
@@ -1522,20 +1198,25 @@ export Descriptor_Deck_Division_UK_1st_Armoured_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Gazelle_SNEB_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Gazelle_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Gun_Group_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_HMGteam_MAG_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Harrier_CLU_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Harrier_HE2_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Jaguar_HE2_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Jaguar_RKT_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_LRRP_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_LandRover_CMD_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_LandRover_MILAN_Para_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Lynx_AH_Mk1_TOW_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Lynx_AH_Mk7_I_TOW_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_M109A2_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_M113_GreenArcher_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_MANPAD_Javelin_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Paratroopers_CMD_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Paratroopers_MILAN_TA_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Paratroopers_TA_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_RMP_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Rifles_AT_UK, 4),
-        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Rifles_CMD_UK, 3),
+        (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Rifles_CMD_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Rifles_UK, 5),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Scout_AT_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_1st_Armoured_multi_Scout_UK, 1),
@@ -1553,9 +1234,10 @@ export Descriptor_Deck_Division_UK_1st_Armoured_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_armored"
     CountryId = "UK"
 )
-export Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{e27fa0f1-53f1-472c-8380-cad2de5b77fb}
+    CfgName = 'UK_2nd_Infantry_multi'
     DivisionName = 'RSIUYDSXND'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1569,7 +1251,6 @@ export Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'RSIUYDSXND'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_81mm_mortar_UK, 3),
@@ -1580,11 +1261,12 @@ export Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Airmobile_MILAN_UK, 3),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Airmobile_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Bedford_MJ_4t_UK, 2),
-        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_CH47D_Chinook_supply_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_CH47D_Chinook_supply_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Challenger_1_Mk1_CMD_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Challenger_1_Mk1_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_DCA_Javelin_LML_UK, 2),
-        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_DCA_Rapier_UK, 3),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_DCA_Rapier_FSA_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_DCA_Rapier_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Engineers_CMD_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Engineers_TA_UK, 3),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Engineers_UK, 1),
@@ -1595,6 +1277,7 @@ export Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Gazelle_SNEB_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Gazelle_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Gun_Group_TA_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_HMGteam_MAG_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Harrier_HE1_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Harrier_RKT1_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Harrier_RKT2_UK, 1),
@@ -1603,12 +1286,12 @@ export Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Howz_L118_105mm_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Iltis_MILAN_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Jager_Aufk_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Jager_CMD_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Jager_CMD_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Jager_RFA, 3),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Jaguar_CLU_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Jaguar_HE1_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Jaguar_HE2_UK, 1),
-        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_LandRover_CMD_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_LandRover_CMD_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_LandRover_MILAN_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Lynx_AH_Mk1_TOW_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Lynx_AH_Mk7_I_TOW_UK, 3),
@@ -1619,15 +1302,17 @@ export Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_MANPAD_Blowpipe_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_MANPAD_Javelin_UK, 3),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Mortier_Tampella_120mm_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Puma_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_RCL_L6_Wombat_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_RMP_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Rifles_CMD_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Rifles_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_SAS_UK, 1),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Saxon_CMD_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Scout_Airmobile_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Scout_TA_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Scout_UK, 2),
-        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Territorial_CMD_UK, 2),
+        (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Territorial_CMD_UK, 1),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Territorial_UK, 4),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Tornado_ADV_HE_UK, 2),
         (~/Descriptor_Deck_Pack_TOE_UK_2nd_Infantry_multi_Tracked_Rapier_UK, 1),
@@ -1640,9 +1325,10 @@ export Descriptor_Deck_Division_UK_2nd_Infantry_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "UK"
 )
-export Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{462b0cc2-0952-47d9-baf9-ad3af39c68a9}
+    CfgName = 'US_3rd_Arm_multi'
     DivisionName = 'RSEACNWCQI'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1656,7 +1342,6 @@ export Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'RSEACNWCQI'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_A10_Thunderbolt_II_ATGM_US, 2),
@@ -1665,7 +1350,7 @@ export Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AH1S_Cobra_US, 3),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AH64_Apache_US, 4),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AH64_Apache_emp1_US, 4),
-        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AH64_Apache_emp2_US, 4),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AH64_Apache_emp2_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_ATteam_ITOW_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_ATteam_TOW2_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_AeroRifles_US, 1),
@@ -1683,12 +1368,14 @@ export Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_F4E_Phantom_II_napalm_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_F4_Wild_Weasel_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_HEMTT, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_HMGteam_M2HB_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_HMGteam_M60_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_LRRP_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M106A2_HOWZ_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M109A2_HOWZ_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M113A1_TOW_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M113A2_supply_US, 2),
-        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M151_MUTT_CMD_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M151_MUTT_CMD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M163_PIVADS_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M1A1HA_Abrams_CMD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M1A1HA_Abrams_US, 4),
@@ -1696,6 +1383,7 @@ export Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M1A1_Abrams_US, 6),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M270_MLRS_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M270_MLRS_cluster_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M2A2_Bradley_Leader_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M35_supply_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M3A1_Bradley_CFV_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_M48_Chaparral_MIM72F_US, 2),
@@ -1712,8 +1400,9 @@ export Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_OH58D_Combat_Scout_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_OH58D_Kiowa_Warrior_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_OH58_CS_US, 2),
-        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Rifles_CMD_US, 4),
-        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Rifles_US, 3),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Rifles_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Rifles_half_AT4_US, 3),
+        (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Rifles_half_CMD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Rifles_half_Dragon_US, 3),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Rifles_half_LAW_US, 3),
         (~/Descriptor_Deck_Pack_TOE_US_3rd_Arm_multi_Scout_US, 2),
@@ -1728,9 +1417,10 @@ export Descriptor_Deck_Division_US_3rd_Arm_multi is TDeckDivisionDescriptor
     TypeTexture       = "Texture_Division_Type_armored"
     CountryId = "US"
 )
-export Descriptor_Deck_Division_US_82nd_Airborne_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_US_82nd_Airborne_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{27ac92b1-73ed-4c9c-80d3-9044aa08c38f}
+    CfgName = 'US_82nd_Airborne_multi'
     DivisionName = 'TATZFZUVYM'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1744,10 +1434,9 @@ export Descriptor_Deck_Division_US_82nd_Airborne_multi is TDeckDivisionDescripto
     DescriptionHintTitleToken = 'TATZFZUVYM'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
-        (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_A10_Thunderbolt_II_Rkt_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_A10_Thunderbolt_II_Rkt_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_AH1F_ATAS_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_AH1F_Cobra_US, 4),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_AH1F_HeavyHog_US, 1),
@@ -1776,11 +1465,15 @@ export Descriptor_Deck_Division_US_82nd_Airborne_multi is TDeckDivisionDescripto
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F111F_Aardvark_CBU_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F111F_Aardvark_napalm_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F15C_Eagle_AA_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F16C_LGB_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F16E_AGM_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F16E_HE_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F16E_SEAD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F16E_napalm_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_F4E_Phantom_II_AA_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_HMGteam_M2HB_AB_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_HMGteam_M60_AB_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_HMGteam_Mk19_AB_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_Howz_M102_105mm_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_LRRP_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_82nd_Airborne_multi_M1025_Humvee_AGL_US, 2),
@@ -1811,9 +1504,10 @@ export Descriptor_Deck_Division_US_82nd_Airborne_multi is TDeckDivisionDescripto
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "US"
 )
-export Descriptor_Deck_Division_US_8th_Inf_multi is TDeckDivisionDescriptor
+Descriptor_Deck_Division_US_8th_Inf_multi is TDeckDivisionDescriptor
 (
     DescriptorId = GUID:{f483cb5b-aaf9-4e87-9bc1-05644a246a0c}
+    CfgName = 'US_8th_Inf_multi'
     DivisionName = 'ECGMWQOEZA'
     DivisionNickname = ''
     DivisionDescription = ''
@@ -1827,7 +1521,6 @@ export Descriptor_Deck_Division_US_8th_Inf_multi is TDeckDivisionDescriptor
     DescriptionHintTitleToken = 'ECGMWQOEZA'
     DescriptionHintBodyToken = ''
     DescriptionHintExtendedToken = ''
-    AvailableForPlay = True
     PackList = MAP
     [
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_A10_Thunderbolt_II_ATGM_US, 2),
@@ -1841,7 +1534,6 @@ export Descriptor_Deck_Division_US_8th_Inf_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Alpha_Jet_A_he_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Alpha_Jet_A_nplm_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_DCA_I_Hawk_US, 2),
-        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_EF111_Raven, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Engineer_CMD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Engineers_Dragon_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Engineers_Flash_US, 1),
@@ -1850,10 +1542,13 @@ export Descriptor_Deck_Division_US_8th_Inf_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_F111F_Aardvark_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_F16E_AA_US, 3),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_F16E_CBU_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_F4_Wild_Weasel_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_HEMTT, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_HMGteam_M2HB_US, 1),
+        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_HMGteam_M60_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_HeimatschutzJager_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Jager_Aufk_RFA, 1),
-        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Jager_CMD_RFA, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Jager_CMD_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_Jager_RFA, 2),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_KanJagdPanzer_RFA, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_LRRP_US, 2),
@@ -1863,10 +1558,10 @@ export Descriptor_Deck_Division_US_8th_Inf_multi is TDeckDivisionDescriptor
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M113A1_TOW_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M113A2_supply_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M125_HOWZ_US, 2),
-        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M151_MUTT_CMD_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M151_MUTT_CMD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M163_PIVADS_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M1A1_Abrams_US, 3),
-        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M1_Abrams_CMD_US, 2),
+        (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M1_Abrams_CMD_US, 1),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M1_Abrams_US, 4),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M270_MLRS_US, 2),
         (~/Descriptor_Deck_Pack_TOE_US_8th_Inf_multi_M35_supply_US, 2),
@@ -1906,4 +1601,127 @@ export Descriptor_Deck_Division_US_8th_Inf_multi is TDeckDivisionDescriptor
     PortraitTexture   = "Texture_Division_Portrait_default"
     TypeTexture       = "Texture_Division_Type_infantryReg"
     CountryId = "US"
+)
+Descriptor_Deck_Division_WP_Unternehmen_Zentrum_multi is TDeckDivisionDescriptor
+(
+    DescriptorId = GUID:{4d41c309-2758-4f06-8995-2a3d07e56474}
+    CfgName = 'WP_Unternehmen_Zentrum_multi'
+    DivisionName = 'SWKTJJKLTP'
+    DivisionNickname = ''
+    DivisionDescription = ''
+    DivisionPowerClassification = 'DC_PWR2'
+    DivisionNationalite = ENationalite/Axis
+    DivisionTags = ['DEFAULT', 'DDR', 'Axis', 'infantryReg', 'DC_PWR2']
+    UncensoredHintGUID = GUID:{92c84a4e-cbbb-48b2-a6cf-6ef189dadec4}
+    TypeHintTitleToken = ''
+    TypeHintBodyToken = ''
+    TypeHintExtendedToken = ''
+    DescriptionHintTitleToken = 'SWKTJJKLTP'
+    DescriptionHintBodyToken = ''
+    DescriptionHintExtendedToken = ''
+    PackList = MAP
+    [
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_2K12_KUB_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_2S1_Gvozdika_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_AT_T12_Rapira_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_AT_ZiS2_57mm_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_ATteam_Fagot_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_ATteam_Fagot_FJ_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_ATteam_Konkurs_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_ATteam_RCL_SPG9_FJ_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BM21_Grad_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BM27_Uragan_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BMP_1_CMD_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BRDM_2_CMD_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BRDM_2_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BRDM_2_Konkurs_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BRDM_Malyu_P_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BRM_1_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_BTR_50_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Buk_9K37M_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Engineers_AGI_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Engineers_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Engineers_CMD_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Engineers_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Engineers_Flam_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Engineers_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Fallschirmjager_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Fallschirmjager_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Fallschirmjager_Metys_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Grenzer_DDR, 4),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Grenzer_Mot_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_HMGteam_AGS17_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_HMGteam_NSV_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_HMGteam_PKM_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_HMGteam_PKM_FJ_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Howz_D20_152mm_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Howz_D30_122mm_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Howz_M46_130mm_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Howz_ZiS3_76mm_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_HvyScout_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_KdA_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_KdA_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MANPAD_Igla_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MANPAD_Strela_2M_DDR, 3),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MANPAD_Strela_2M_FJ_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MFRW_RM70_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MTLB_Strela10_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MTLB_supply_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MiG_21bis_HE_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MiG_23ML_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_24D_AA_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_24VP_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_26_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_8K_CMD_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_8TV_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_8TV_PodGatling_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_8TV_s57_32_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mi_8_supply_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mortier_2S12_120mm_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Mortier_PM43_120mm_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_BTR_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_BTR_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_CMD_DDR, 4),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_CMD_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_DDR, 4),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_HMG_DDR, 4),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_HMG_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_Metis_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotRifles_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_MotSchutzen_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Scout_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Su_17M4_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Su_22_AT_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Su_22_RKT_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Su_22_UPK_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Su_22_clu_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Su_22_nplm_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T34_85M_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T55AM2_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T55AM2_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T55A_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T55A_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T64BV_CMD_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T64BV_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T80B_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_T813_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_TOS1_Buratino_SOV, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_UAZ_469_CMD_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_UAZ_469_SPG9_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Ural_4320_SOV, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Volkspolizei_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Volkspolizei_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Wachregiment_CMD_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Wachregiment_DDR, 2),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_Wachregiment_SMG_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_ZSU_23_Shilka_DDR, 1),
+        (~/Descriptor_Deck_Pack_TOE_WP_Unternehmen_Zentrum_multi_ZSU_23_Shilka_SOV, 1),
+    ]
+    MaxActivationPoints = 50
+    CostMatrix = MatrixCostName_WP_Unternehmen_Zentrum_multi
+    EmblemTexture     = "Texture_Division_Emblem_WP_Unternehmen_Stoss"
+    StrategicLabelColor     = "BlancEquipe"
+    PortraitTexture   = "Texture_Division_Portrait_default"
+    TypeTexture       = "Texture_Division_Type_infantryReg"
+    CountryId = "DDR"
 )
