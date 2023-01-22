@@ -1,6 +1,6 @@
 {
   "name": "@izohek/ndf-parser",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "NDF file parser",
   "main": "dist/src/index.js",
   "files": [
