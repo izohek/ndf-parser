@@ -794,8 +794,7 @@ export class NdfTokenizer {
             Constants.ObjectDelimeter.end,
             Constants.CommaToken
         ]
-
-        if (tokens[currentPos].value === Constants.RgbaDelimeter) {
+        if (tokens[currentPos].value.toLowerCase() === Constants.RgbaDelimeter.toLowerCase()) {
             return this.parseRgbaValue(tokens, currentPos)
         }
 
@@ -821,7 +820,7 @@ export class NdfTokenizer {
      */
     public parseRgbaValue (tokens: any, position: number): [ParserRgbaValue, number] {
         let currentPos = position
-        if (tokens[currentPos].value !== Constants.RgbaDelimeter) {
+        if (tokens[currentPos].value.toLowerCase() !== Constants.RgbaDelimeter.toLowerCase()) {
             throw new Error('Invalid RGBA starting value')
         }
         currentPos++
