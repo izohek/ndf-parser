@@ -1,10 +1,10 @@
 import { readFileSync } from 'fs'
 import { NdfParser } from '../src/NdfParser'
-var glob = require('glob');
+const glob = require('glob')
 
 describe('parse common ndfs', () => {
     // grab all ndf files
-    let files: string[] = glob.sync('./test-data/war-yes/**/*.ndf', {})
+    const files: string[] = glob.sync('./test-data/war-yes/**/*.ndf', {})
 
     describe.each(
         files
@@ -14,7 +14,7 @@ describe('parse common ndfs', () => {
                 const fileData = readFileSync(file, 'utf8')
                 const parser = new NdfParser(fileData)
                 const results = parser.parse()
-    
+
                 expect(results.length).toBe(2)
             } catch (err) {
                 console.log('Failed to parse ', file)
