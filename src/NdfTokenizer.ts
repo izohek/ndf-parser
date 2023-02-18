@@ -185,6 +185,16 @@ export class NdfTokenizer {
                     })
 
                     return [obj, currentPos]
+                } else if (obj.type === Constants.ArrayDelimeter.start) {
+                    const [arrayString, newPosition] = this.generateArrayString(tokens, currentPos)
+                    const parsedArray = this.parseArray(arrayString)
+
+                    obj.children.push({
+                        name: "array",
+                        value: parsedArray
+                    });
+                    obj.type = 'array';
+                    currentPos = newPosition
                 } else {
                     // Object
                     currentPos += 1
