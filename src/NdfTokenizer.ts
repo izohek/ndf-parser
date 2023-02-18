@@ -346,7 +346,7 @@ export class NdfTokenizer {
                 this.parseArray(arrayValue),
                 currentPos
             ]
-        } else if (tokens[position].value === Constants.MapToken) {
+        } else if (tokens[position].value.toUpperCase() === Constants.MapToken) {
             // Maps
             // example: DivisionIds = MAP [
             //   (Descriptor_Deck_Division_RDA_7_Panzer_multi, 9),
@@ -537,7 +537,7 @@ export class NdfTokenizer {
             ndf: 'map'
         }
 
-        if (tokens[currentPos].value !== Constants.MapToken) {
+        if (tokens[currentPos].value.toUpperCase() !== Constants.MapToken) {
             throw new Error("Expected 'MAP' starting token.")
         }
 
