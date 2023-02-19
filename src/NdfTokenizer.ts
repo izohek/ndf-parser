@@ -350,8 +350,6 @@ export class NdfTokenizer {
                 currentPos += 1
             }
 
-            currentPos += 1
-
             return [
                 this.parseArray(arrayValue),
                 currentPos
