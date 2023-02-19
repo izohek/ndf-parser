@@ -42,7 +42,7 @@ export class NdfTokenizer {
                 /// Combine into string hack
                 /// Takes form of {identifier}{/}{identifier} and merges into a single identifier
                 const next = tokens[i + 1].type === Constants.PunctuatorType && tokens[i + 1].value === '/'
-                const nextNext = tokens[i + 2].type === Constants.IdentifierType
+                const nextNext = (tokens[i + 2]?.type ?? null) === Constants.IdentifierType
 
                 if (next && nextNext) {
                     const womboCombo: Token = {
