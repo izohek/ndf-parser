@@ -488,7 +488,7 @@ export class NdfTokenizer {
                         const [numericValue, pos] = this.parseNumericExpressionValue(arrayTokens, i + 1)
                         numericValue.value = Constants.NegativeNumberToken + numericValue.value
                         outArray.values.push(numericValue)
-                        i = pos
+                        i = pos - 1
                     }
                     break
 
@@ -773,7 +773,7 @@ export class NdfTokenizer {
         currentPosition++
 
         const terminatingValues = [
-            Constants.CommaToken, Constants.ObjectDelimeter.end
+            Constants.CommaToken, Constants.ObjectDelimeter.end, Constants.ArrayDelimeter.end
         ]
         while (tokens[currentPosition].type !== Constants.LineTerminatorSequence && !terminatingValues.includes(tokens[currentPosition].value)) {
             value += tokens[currentPosition].value as string
