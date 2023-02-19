@@ -1,0 +1,21 @@
+//-------------------------------------------------------------------------
+//----------------------------- STRATEGY ----------------------------------
+//-------------------------------------------------------------------------
+export ChallengeAirborneAssault_Front is TIAGeneralStrategy
+(
+    StrategyName = "AirFrontAI"
+    FirstGenerator = Gen_Choose_Strategy
+    ConstantesMap = MAP[
+        ("ForceTacticalMoveAndAttack", TEugBBoolean(Value = true)),
+    ]
+    AuthorizedCorridorList = [2,3]
+    ShouldUseTaggedCorridorsForTouchDown = true
+    AllowToByPassNbMacroActionAllowedToProduceSimultaneous = true
+    TransitionList =
+    [
+        Gen_Transition_StartToPhaseCommand,
+        Gen_Transition_StartToGeneric,
+        Gen_Transition_DeployToCommandPhase,
+        Gen_Transition_CommandPhaseToLastHope,
+    ]
+)

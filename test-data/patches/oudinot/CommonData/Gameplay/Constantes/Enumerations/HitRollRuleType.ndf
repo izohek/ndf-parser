@@ -1,0 +1,31 @@
+// Fichier écrit à la main
+
+//Correspondance : RollRuleEnums.h
+ERoll is TBaseClass
+(
+    Hit     is 0
+    Pierce  is 1
+    Critic  is 2
+)
+
+//Correspondance : RollRuleEnums.h
+//Doit être synchro avec BonusWeaponHitValueEffectExporter.py
+EBaseHitValueModifier is TBaseClass
+(
+    Base            is 0
+    Idling          is 1
+    Moving          is 2
+    Targeted        is 3
+    SuccessfulShots is 4
+    Length          is 5
+)
+
+//Correspondance : RollRuleEnums.h
+EDiceHitModifier is TBaseClass
+(
+    Precision        is 0
+    DistanceToTarget is 1
+    SuccesiveShots   is 2
+    Suppress         is 3
+    Length           is 4
+)

@@ -1,0 +1,33 @@
+MapGameModeContext is TBaseClass
+(
+    Tactic        is 0
+    Strategic     is 1
+    Showroom      is 2
+)
+
+DefaultValues is TBaseClass
+(
+    private MapInfoPath                 is 'MapInfo.IA'
+
+    private HauteurMer                  is 0
+
+    private MaxAltitude                 is 100000.0
+
+    // extra values
+    private CellSize                is 655360
+    private MapDirectoryBase        is 'GameData:/Map/Scenario/'
+    private DatasMapDirectoryBase   is 'DatasMap:\Output\'
+
+    private NbCaseHighPerCaseLow    is 2
+
+    WorldList is
+    [
+        $/M3D/Scene/DefaultWorld,
+        $/M3D/Scene/WorldImposteur,
+        $/M3D/Scene/WorldImposteurNoLighting,
+        $/M3D/Scene/WorldInterface2D,
+        $/M3D/Scene/World_SparseDBRTex,
+    ]
+
+    private SkyMapHighAltitudeColor is float4[0.007, 0.008, 0.007, 1.0]
+)

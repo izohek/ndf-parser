@@ -1,0 +1,15 @@
+
+videoSubtitleDico is TVideoSubtitlesDico
+(
+    ShowSubtitles = $/GameplayOption/ShowSubtitles
+    FileName = 'Assets/Videos/Tutorial/VideoSubtitleDico.dic'
+)
+
+VideoSubtitleParagraphStyle is TParagraphStyleRTTI
+(
+    Alignment         = UIText_Center
+    VerticalAlignment = UIText_Bottom
+    InterLine         = 0
+    LineWidth         = 0
+    Balanced          = true
+)

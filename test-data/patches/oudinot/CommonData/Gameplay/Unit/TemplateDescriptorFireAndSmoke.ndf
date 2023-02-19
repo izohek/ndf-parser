@@ -1,0 +1,89 @@
+export template Template_DescriptorFire_Depiction
+[
+    Radius,
+    Density,
+    FX = $/GFX/GameFx/fx_binder_fire,
+] is TTimelyDepictionReceiverFactory
+(
+    DepictionTemplate = TDepictionTemplate
+    (
+        Scaler = CommonIdentityScaler
+        Selector = OnlyHighDepictionSelector
+        DepictionAlternatives = [
+            DepictionDescriptor_LOD_High(
+                MeshDescriptor = ~/Modele_Rien
+            ),
+        ]
+
+        Operators = [ TCosmeticWhenInWorldOperatorDesc( Happening = ["fx_fire"] ) ]
+
+        Actions = MAP
+        [
+            (
+                ["fx_fire"],
+                TCompositeHappening
+                (
+                    SubHappenings =
+                    [
+                        TSequencingActionHappening
+                        (
+                            ActionDescriptor = TActionCall
+                            (
+                                Action = <FX>
+                                NamedParams =
+                                MAP[
+                                    ('parRadiusPhysical', <Radius> * ~/RatioDeLaTailleDuFeu),
+                                    ('parDensityFire', <Density>)
+                                ]
+                            )
+                        ),
+                        SoundHappening_Incendie
+                        (
+                        ),
+                    ]
+                )
+            )
+        ]
+    )
+)
+
+export template Template_DescriptorSmoke_Depiction
+[
+  Radius,
+  Height,
+  Density,
+] is TTimelyDepictionReceiverFactory
+(
+    DepictionTemplate = TDepictionTemplate
+    (
+        Scaler = CommonIdentityScaler
+        Selector = OnlyHighDepictionSelector
+        DepictionAlternatives = [
+            DepictionDescriptor_LOD_High(
+                MeshDescriptor = ~/Modele_Rien
+            ),
+        ]
+
+        Operators = [ TCosmeticWhenInWorldOperatorDesc( Happening = ["fx_smoke"] ) ]
+
+        Actions = MAP
+        [
+            (
+                ["fx_smoke"],
+                TSequencingActionHappening
+                (
+                    ActionDescriptor = TActionCall
+                    (
+                        Action = $/GFX/GameFx/fx_binder_smoke_screen
+                        NamedParams = MAP
+                        [
+                            ('Radius', <Radius>),
+                            ('Height', <Height>),
+                            ('Density', <Density>)
+                        ]
+                    )
+                )
+            ),
+        ]
+    )
+)

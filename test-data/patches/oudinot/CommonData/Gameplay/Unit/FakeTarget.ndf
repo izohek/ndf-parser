@@ -1,0 +1,73 @@
+template Template_Unit_FakeTarget
+[
+    DescriptorId = GUID:{00000000-0000-0000-0000-000000000000},
+    ClassNameForDebug = 'UndefinedFakeTarget',
+]  is TEntityDescriptor
+(
+    DescriptorId         = <DescriptorId>
+    ClassNameForDebug    = <ClassNameForDebug>
+    ModulesDescriptors =
+    [
+        TFlagsModuleDescriptor
+        (
+            InitialFlagSet =
+            [
+                Flag_FakeTarget,
+                Flag_FakeTargetInGeoDB,
+                Flag_Blessable,
+                Flag_Target,
+                Flag_Detectable,
+                Flag_CannotBeShootReflex
+            ]
+        ),
+        TPositionModuleDescriptor
+        (
+            InGeoDb        = True
+            StickToGround  = True
+            Radius         = ((50) * Metre)
+            RelativeScanningPosition = DecalageParDefautDuPointDeVision
+            PorteurMustBeVisible = true
+            HasNearlyNullBBox = true
+        ),
+        TVisibilityModuleDescriptor
+        (
+            AutoRevealType = EAutoRevealType/AutoRevealAllies
+        ),
+        $/GFX/Everything/ScannerConfigurationDescriptor,
+        $/GFX/Everything/ScannerModuleDescriptor,
+        TLinkTeamModuleDescriptor
+        (
+        ),
+        TPackSignauxModuleDescriptor
+        (
+        ),
+        TTagsModuleDescriptor
+        (
+            TagSet = [
+                "AllUnits",
+            ]
+        ),
+        TTargetDataModuleDescriptor
+        (
+        ),
+        TCameraShowroomModuleDescriptor
+        (
+            Token = 'Vehicle'
+            SpawnType = EShowroomSpawnType/Vehicle
+        ),
+    ]
+)
+
+
+Tactic_Descriptor_Unit_FakeTargetInGeoDB is Template_Unit_FakeTarget
+(
+    DescriptorId         = GUID:{00000000-0000-0000-0000-000006000000}
+    ClassNameForDebug    = 'FakeTargetInGeoDB'
+)
+
+
+export Descriptor_Unit_FakeTargetForShowRoom is Template_Unit_FakeTarget
+(
+    DescriptorId         = GUID:{00000000-0000-0000-0000-000006100000}
+    ClassNameForDebug    = 'FakeTargetForShowRoom'
+)

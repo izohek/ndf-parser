@@ -1,0 +1,29 @@
+template TUIResourceTextureWithUsefulnessMask
+[
+   FileName : string,
+   CivMask  : int,
+   TypeMask : int,
+   MountingPoint : string = "GameData"
+]
+is TUIResourceTexture
+(
+   FileName = <MountingPoint> + ":/" + <FileName>
+   UsefulnessMask = <CivMask> + <TypeMask>
+   AsynchronousTextureSourceCarac = $/M3D/Divers/TSC_AnimationUnitIcone_Asynchrone
+   ContentType = ContentType_Texture_UI_Common
+)
+
+template TUIResourceTextureWithUsefulnessMaskModded
+[
+   FileName : string,
+   TypeMask : int,
+   CivMask : int, // unused, remplace par CivMask/Modding, garde pour eviter aux moddeurs de retirer ces variables
+   MountingPoint : string = "GameData" // unused, remplace par "Mod", garde pour eviter aux moddeurs de retirer ces variables
+]
+is TUIResourceTextureWithUsefulnessMask
+(
+   FileName = "AssetsModding/" + <FileName>
+   MountingPoint = "Mod"
+   CivMask = CivMask/Modding
+   TypeMask = <TypeMask>
+)

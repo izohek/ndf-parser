@@ -1,0 +1,57 @@
+//------------------------------------------------------------------------------
+//******************************************************************************
+//------------------------------------------------------------------------------
+// Contient les templates nécessaires pour créer les constantes
+// permettant de paramétrer la grille et la taille des cases de la grille
+// à la fois pour l'IA et le LevelBuild.
+// Permet de rajouter des nouvelles fonctionnalités sans avoir à modifier
+// tous les fichiers GameData:/System/GridConstants.ndf
+//------------------------------------------------------------------------------
+//******************************************************************************
+//------------------------------------------------------------------------------
+// Paramètres :
+// - RefSize : taille de référence du LevelBuild.
+// - RefSubdivisionCount (entier) : nombre de subdivisions nécessaires de la case de référence pour obtenir
+// la taille des différentes cases de la grille.
+// nb : (GEditor) mieux vaut que RefSubdivisionCount ait pour multiple un nombre pair suffisamment grand
+// car le nombre d'upscale de la taille des cases dépend du nombre de divisions par 2
+// possibles.
+//
+// Remarque : si vous avez besoin de ces infos dans votre transaction, veuillez inclure
+// ce fichier ainsi que le fichier GameData:/System/GridConstants.ndf
+// dans votre transaction. Ne tentez pas d'exporter en glads ces variables
+// pour pouvoir les réutiliser dans une autre transaction car les valeurs
+// seront sans doute inlinées et à moins de forcer le regen de tous les glads,
+// en cas de modification, les transactions dépendantes ne seront pas recalculées.
+// Cela peut amener à des situations étranges ou vous modifiez des valeurs
+// sans que cela ait un quelconque impact.
+//------------------------------------------------------------------------------
+template templateRectGridHelper
+[
+    RefSize             : float,
+    RefSubdivisionCount : int,
+] is TBaseClass
+(
+    // Paramètres
+    RefSize is <RefSize>
+    RefSubdivisionCount is <RefSubdivisionCount>
+
+    // Valeurs dépendantes
+    Size is RefSize div RefSubdivisionCount
+
+    Width is Size
+    Height is Size
+)
+//------------------------------------------------------------------------------
+template templateSquareGridHelper
+[
+    RefSize             : float,
+    RefSubdivisionCount : int,
+] is templateRectGridHelper
+(
+    RefSize = <RefSize>
+    RefSubdivisionCount = <RefSubdivisionCount>
+)
+//------------------------------------------------------------------------------
+//******************************************************************************
+//------------------------------------------------------------------------------

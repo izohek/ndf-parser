@@ -1,0 +1,71 @@
+template Template_GlobalAcknow [ Identifier : string ] is TSoundDescriptor
+(
+    SoundSettings = $/SoundSettings/AcknowHQ_SoundSettings
+    TheSoundStream       = TSoundStream
+    (
+        FileName = 'GameData:/Assets/Sons/Acknows/' + <Identifier> + '.ol'    // ol pour ogg localized
+    )
+)
+
+template Template_UnitAcknow [ Identifier : string ] is TSoundDescriptor
+(
+    SoundSettings = $/SoundSettings/AcknowUnit_SoundSettings
+    TheSoundStream       = TSoundStream
+    (
+        FileName = 'GameData:/Assets/Sons/Acknows/' + <Identifier> + '.ogg'
+    )
+)
+
+template TemplateSoundDescriptor
+[
+    VolumeAsString : string = '1_0',
+    FileName  : string = ''
+] is TSoundDescriptor
+(
+    SoundSettings = $/SoundSettings/HUD_SoundSettings
+    TheSoundStream = TSoundStream
+    (
+        FileName = <FileName>
+    )
+)
+
+template SoundStreamModded
+[
+    FileName : string = '',
+]
+is TSoundStream
+(
+    FileName = "GameData:/Assets/SoundModding/" + <FileName>
+    UsefulnessMask = CivMask/Modding + TypeMask/Common
+)
+
+template Template_GlobalAcknowModded [ Identifier : string ] is TSoundDescriptor
+(
+    SoundSettings = $/SoundSettings/AcknowHQ_SoundSettings
+    TheSoundStream       = SoundStreamModded
+    (
+        FileName = <Identifier>
+    )
+)
+
+template Template_UnitAcknowModded [ Identifier : string ] is TSoundDescriptor
+(
+    SoundSettings = $/SoundSettings/AcknowUnit_SoundSettings
+    TheSoundStream       = SoundStreamModded
+    (
+        FileName = <Identifier>
+    )
+)
+
+template TemplateSoundDescriptorModded
+[
+    VolumeAsString : string = '1_0',
+    FileName  : string = ''
+] is TSoundDescriptor
+(
+    SoundSettings = $/SoundSettings/HUD_SoundSettings
+    TheSoundStream = SoundStreamModded
+    (
+        FileName = <FileName>
+    )
+)

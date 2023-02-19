@@ -1,0 +1,6 @@
+// Synchro avec TargetingModule.h
+ETargetingReason is TBaseClass
+(
+    Aiming is 0
+    Shooting is 1
+)

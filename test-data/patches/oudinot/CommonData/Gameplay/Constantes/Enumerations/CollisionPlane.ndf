@@ -1,0 +1,11 @@
+// Enum ECollisionPlane // a maintenir synchro avec EugIA_Common/CollisionPlane.h
+ECollisionPlane is TBaseClass
+(
+    NoCollision is 0
+    BoatOnWater is 1
+    Ground is 2
+    NearGround is 3
+    LowAltitude is 4
+    HighAltitude is 5
+    ProjectileAltitude is 6
+)

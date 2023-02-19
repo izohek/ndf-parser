@@ -1,0 +1,9 @@
+// Correspond à l'enum WorldFloorLayer (World3D/WorldFloorLayer.h)
+EWorldFloorLayer is TBaseClass
+(
+    None        is 0x00
+    Ground      is 0x01
+    Water       is 0x02
+    Object      is 0x04
+    All         is 0xFF
+)

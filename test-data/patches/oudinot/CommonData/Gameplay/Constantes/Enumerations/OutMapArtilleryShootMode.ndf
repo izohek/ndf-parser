@@ -1,0 +1,11 @@
+// Fichier écrit à la main
+
+//Correspondance : OutMapArtilleryShootMode.h
+// Checker EugIA_Common\NetworkActionInstance.cpp aussi
+EOutMapArtilleryShootMode is TBaseClass
+(
+    Warning         is 0
+    FireForEffect   is 1
+    Barrage         is 2
+    Smoke           is 3
+)

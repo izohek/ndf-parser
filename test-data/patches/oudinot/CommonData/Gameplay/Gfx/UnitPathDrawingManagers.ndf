@@ -1,0 +1,109 @@
+
+
+private DefaultPathColor is RGBA[70, 95, 50, 255] // Gris
+private MovePathColor is RGBA[0, 0, 0, 255] // noir "les GD n'y ont pas encore touché"
+private AttackPathColor is RGBA[128, 10 , 0 , 255] // rouge WARGAME
+private MergePathColor is RGBA[0, 0, 0, 255] // noir "les GD n'y ont pas encore touché"
+private LoadingPathColor is RGBA[0, 0, 0, 255] // noir "les GD n'y ont pas encore touché"
+private SupplyPathColor is RGBA[0, 0, 0, 255] // noir "les GD n'y ont pas encore touché"
+private FollowPathColor is RGBA[0, 0, 0, 255] // noir "les GD n'y ont pas encore touché"
+private QuickMovePathColor is RGBA[0, 0, 0, 255] // noir "les GD n'y ont pas encore touché"
+private RecoPathColor is RGBA[64, 172, 255, 255] // bleu clair
+private GradientLengthDefault is 1000 //40000
+private GradientLengthAvion is 1000 //40000
+
+
+private template TemplateDynamicPathDrawerDescriptorDefault
+[
+    GfxPath,
+    PathStateDescriptor,
+    NearClipOffset = 0,
+    FarClipOffset = 0,
+    HeightOffset = 0,
+]
+is TDynamicPathDrawerDescriptor
+(
+    PathStateDescriptor = <PathStateDescriptor>
+    GfxPath = <GfxPath>
+
+    NearClipOffset = <NearClipOffset>
+    FarClipOffset = <FarClipOffset>
+    HeightOffset = <HeightOffset>
+
+    GrowingDuration = 0.1  //0.35
+    WaitingDuration =  0.5 //1.0
+    FadingOffDuration = 0.1 //0.35
+    Opacity = 0.50 //0.75
+    HelperVisibility = $/GFX/Visibility/HelperVisibility
+)
+
+
+private PathDrawingManager is TPathDrawingManager
+(
+    PathDrawerBank = MAP
+    [
+        // PAUL: fl?e utilis?par les scripts gd en python
+        (
+            'direct_path_order', straightPath
+        )
+    ]
+
+    private straightPath is TemplateDynamicPathDrawerDescriptorDefault
+    (
+        GfxPath = GfxCheminDirectValidationOrdre_PathDescriptor
+        PathStateDescriptor = TPathStateDescriptorStraight
+        (
+            GradientLength = ~/GradientLengthDefault
+        )
+
+        HeightOffset = 0.0
+        NearClipOffset = 2250
+        FarClipOffset = 4000
+    )
+
+
+    private floorToAir is TemplateDynamicPathDrawerDescriptorDefault
+    (
+        GfxPath = GfxCheminDirectValidationOrdreMoveAvion_PathDescriptor
+        PathStateDescriptor = TPathStateDescriptorAutoAirFloor
+        (
+            TakeOffTransition = 100000
+            TransitionAltitudeStartRatio = 0.25
+            GradientLength = ~/GradientLengthAvion
+        )
+
+        NearClipOffset = 2250
+        FarClipOffset = 4000
+    )
+
+    private airToFloor is TemplateDynamicPathDrawerDescriptorDefault
+    (
+        GfxPath = GfxCheminDirectValidationOrdreMoveAvion_PathDescriptor
+        PathStateDescriptor = TPathStateDescriptorAutoAirFloor
+        (
+            TakeOffTransition = 100000
+            TransitionAltitudeStartRatio = 0.25
+            GradientLength = ~/GradientLengthAvion
+        )
+
+        NearClipOffset = 2250
+        FarClipOffset = 1000
+    )
+
+    private curvedPath  is TemplateDynamicPathDrawerDescriptorDefault
+    (
+        GfxPath = GfxCheminDirectValidationOrdreAttack_PathDescriptor
+        PathStateDescriptor = TPathStateDescriptorParabolic
+        (
+            ParabolicCurvature = 0.3
+            GradientLength = ~/GradientLengthDefault
+        )
+
+        NearClipOffset = 2250
+        FarClipOffset = 1500
+        HeightOffset = 1500
+    )
+
+
+)
+

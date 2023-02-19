@@ -1,0 +1,8 @@
+
+// à maintenir synchro avec Engine\Code\Eugen\CPP\EugGame\FeedbackRenderToolbox.h
+FeedbackEffectMode is TBaseClass
+(
+    Solid          is 1// 1<<0 // par default (solide)
+    Hatched        is 2// 1<<1 // barré en diagonale
+    Dotted         is 8// 1<<3 // pointillé
+)

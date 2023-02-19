@@ -1,0 +1,11 @@
+//-----------------------------------------------------------------------------
+// Differents types de provenance des zones du MapSlicing
+//-----------------------------------------------------------------------------
+//Correspondance : MapSlicingENum.h
+//-----------------------------------------------------------------------------
+EMapSlicingZoneSource is TBaseClass
+(
+    LevelBuild is 1
+    SmartOrder is 2
+    Objective is 4
+)

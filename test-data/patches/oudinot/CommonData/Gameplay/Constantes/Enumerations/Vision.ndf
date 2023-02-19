@@ -1,0 +1,40 @@
+// TVisionUnitType
+EVisionUnitType is TBaseClass
+(
+    Undefined            is 0
+    AlwaysOnGround       is 1
+    // Réservé           is 2
+    AntiRadar            is 3
+    AntiArtillery        is 4
+    // Réservé           is 5
+    // Réservé           is 6
+    AlwaysInHighAltitude is 7
+    // Réservé           is 8
+    Building             is 9
+    Deposit              is 10
+    // Réservé           is 11
+    // Réservé           is 12
+)
+
+// TVisionOpticsAltitudeConfig
+EVisionOpticsAltitudeConfig is TBaseClass
+(
+    DontUse                              is 0
+    UseOnRS_TBA                          is 1
+    UseOnRS_TBAWithGroundOpticsLerp      is 2
+)
+
+// TAutoRevealType // A maintenir synchro avec EugIA_Common/TVisibilityModuleDescriptor.h
+EAutoRevealType is TBaseClass
+(
+    NoAutoReveal         is 0
+    AutoRevealOwnUnits   is 1
+    AutoRevealAllies     is 2
+    AutoRevealAll        is 3
+)
+
+EVisionMode is TBaseClass
+(
+    Undefined is 0
+    Classic   is 1
+)

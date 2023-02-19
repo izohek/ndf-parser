@@ -1,0 +1,99 @@
+
+template TUIResourceTexture_Common
+[
+    FileName : string,
+    SynchroneTextureSourceCarac : TTextureSourceCarac_FromFile = nil,
+] is TUIResourceTexture
+(
+    FileName = <FileName>
+    UsefulnessMask = CivMask/Common + TypeMask/Common
+    SynchroneTextureSourceCarac = <SynchroneTextureSourceCarac>
+    ContentType = ContentType_Texture_UI_Common
+)
+
+template TUIResourceTexture_CommonNoGen
+[
+    FileName : string,
+    SynchroneTextureSourceCarac : TTextureSourceCarac_FromFile = nil,
+] is TUIResourceTexture
+(
+    FileName = <FileName>
+    UsefulnessMask = TypeMask/Common
+    SynchroneTextureSourceCarac = <SynchroneTextureSourceCarac>
+    ContentType = ContentType_Texture_UI_Common
+)
+
+template TUIResourceTexture_CommonModded
+[
+    FileName : string
+] is TUIResourceTexture
+(
+    FileName = "Mod:/AssetsModding/" + <FileName>
+    UsefulnessMask = CivMask/Modding + TypeMask/Common
+    ContentType = ContentType_Texture_UI_Common
+)
+
+template TUIResourceTexture_OutGame
+[
+    FileName : string
+] is TUIResourceTexture
+(
+    FileName = <FileName>
+    UsefulnessMask = CivMask/Common + TypeMask/OutGameInterface
+    ContentType = ContentType_Texture_UI_Outgame
+)
+
+template TUIResourceTexture_OutGameModded
+[
+    FileName : string
+] is TUIResourceTexture
+(
+    FileName = "Mod:/AssetsModding/" + <FileName>
+    UsefulnessMask = CivMask/Modding + TypeMask/OutGameInterface
+    ContentType = ContentType_Texture_UI_Outgame
+)
+
+template TUIResourceTexture_InGame
+[
+    FileName : string
+] is TUIResourceTexture
+(
+    FileName = <FileName>
+    UsefulnessMask = CivMask/Common + TypeMask/InGameInterface
+    ContentType = ContentType_Texture_UI_Ingame
+)
+
+template TUIResourceTexture_InGameNoGen
+[
+    FileName : string,
+    SynchroneTextureSourceCarac : TTextureSourceCarac_FromFile = nil
+] is TUIResourceTexture
+(
+    FileName = <FileName>
+    UsefulnessMask = TypeMask/InGameInterface
+    SynchroneTextureSourceCarac = <SynchroneTextureSourceCarac>
+    ContentType = ContentType_Texture_UI_Ingame
+)
+
+template TUIResourceTexture_InGameModded
+[
+    FileName : string
+] is TUIResourceTexture
+(
+    FileName = "Mod:/AssetsModding/" + <FileName>
+    UsefulnessMask = CivMask/Modding + TypeMask/InGameInterface
+    ContentType = ContentType_Texture_UI_Ingame
+)
+
+template TUIResourceTexture_Debug
+[
+    FileName : string,
+    SynchroneTextureSourceCarac : TTextureSourceCarac_FromFile = nil,
+] is TUIResourceTexture
+(
+    FileName = <FileName>
+    UsefulnessMask = CivMask/Common + TypeMask/DebugScreen
+    SynchroneTextureSourceCarac = <SynchroneTextureSourceCarac>
+    ContentType = ContentType_Texture_UI_Common
+)
+

@@ -1,0 +1,33 @@
+BrickEffectSourceDescriptor is TEffectSourceDescriptor
+(
+    DescriptorId                     = GUID:{00effec0-0000-0000-0000-effec0effec0}
+)
+
+BuildingUnderConstructionEffectSourceDescriptor is TEffectSourceDescriptor
+(
+    DescriptorId                     = GUID:{00effec0-0000-0000-0000-effec0effec1}
+)
+
+CommanderEffectSourceDescriptor is TEffectSourceDescriptor
+(
+    DescriptorId                     = GUID:{00effec0-0000-0000-0000-effec0effec6}
+)
+
+HitCriticalEffectSourceDescriptor is TEffectSourceDescriptor
+(
+    DescriptorId                     = GUID:{00effec0-0000-0000-0000-effec0effec2}
+)
+
+TerrainCriticalEffectSourceDescriptor is TEffectSourceDescriptor
+(
+    DescriptorId                     = GUID:{00effec0-0000-0000-0000-effec0effec5}
+)
+
+EffectsConstantes is TEffectsConstantes
+(
+    BrickEffectSourceDescriptor                     = BrickEffectSourceDescriptor
+    BuildingUnderConstructionEffectSourceDescriptor = BuildingUnderConstructionEffectSourceDescriptor
+    CommanderEffectSourceDescriptor                 = CommanderEffectSourceDescriptor
+    HitCriticalEffectSourceDescriptor               = HitCriticalEffectSourceDescriptor
+    TerrainCriticalEffectSourceDescriptor           = TerrainCriticalEffectSourceDescriptor
+)

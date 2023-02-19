@@ -1,0 +1,39 @@
+
+private template template_PropulsionActionHappening
+[
+    Action
+]
+is TIntroduceMobileHappening
+(
+    Anchor = 'fx_fumee_missile'
+    Happening = TSequencingActionHappening
+    (
+        ActionDescriptor = TActionCall( Action = <Action> )
+    )
+)
+
+export template Template_DescriptorMissileBase
+[
+    ProjectileModelFile,
+    Actions,
+]
+is TTimelyDepictionReceiverFactory
+(
+    DepictionTemplate = TDepictionTemplate
+    (
+        Selector = OnlyHighDepictionSelector
+        DepictionAlternatives = [
+            DepictionDescriptor_LOD_High(
+                MeshDescriptor =
+                    TResourceMultiMaterialMesh
+                    (
+                        FileName = <ProjectileModelFile>
+                        UsefulnessMask = CivMask/Common + TypeMask/Common
+                    )
+            ),
+        ]
+        Actions = <Actions>
+
+        Operators = [ TCosmeticMissilePropulsionFXOperatorDescriptor() ]
+    )
+)

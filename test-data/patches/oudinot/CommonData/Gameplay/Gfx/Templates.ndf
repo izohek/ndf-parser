@@ -1,0 +1,36 @@
+template TemplateGfxDescriptorBatiment
+[
+    SceneryDescriptorName,
+] is TTimelyModifyLevelBuildReceiverFactory
+(
+    SymbolName = <SceneryDescriptorName>
+    Descriptor = ~/DefaultUnitLevelBuildViewDescriptor
+)
+//------------------------------------------------------------------------------
+template TemplateGfxDescriptorGhostBatiment
+[
+    SceneryDescriptorName,
+] is TTimelyModifyLevelBuildReceiverFactory
+(
+    SymbolName = <SceneryDescriptorName>
+    Descriptor = ~/GhostUnitLevelBuildViewDescriptor
+)
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// première implémentation statique
+template TResourceMultiMaterialMeshWithLod
+         [
+         FileName     = "",
+         CivMask      = 0,
+         ] is TResourceMultiMaterialMesh
+(
+    FileName = <FileName>
+    UsefulnessMask = <CivMask> + TypeMask/Common // Les TypeMask ne sont utilisés que pour les textures, pas pour les meshs.
+)
+//------------------------------------------------------------------------------
+template TemplateMeshDescriptor [ ModelFile ] is TResourceMultiMaterialMeshWithLod
+(
+    FileName = <ModelFile>
+    CivMask = CivMask/Common
+)

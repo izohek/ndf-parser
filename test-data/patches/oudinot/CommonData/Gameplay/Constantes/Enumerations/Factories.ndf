@@ -1,0 +1,33 @@
+// Enum TDefaultFactories // A maintenir synchro avec EugIA_Common/DefaultFactoryType.h
+ EDefaultFactories is TBaseClass
+(
+    Nothing              is 0
+    UnitFactory          is 1
+    Logistic             is 2
+    Infantry             is 3
+    Planes               is 4
+    Vehicles             is 5
+    Tanks                is 6
+    Recons               is 7
+    Helis                is 8
+    Marine               is 9
+    Support              is 10
+    FOB                  is 11
+    Building             is 12
+    DCA                  is 13
+    Art                  is 14
+    AT                   is 15
+    Defense              is 16
+    UniversalFactory     is 17
+
+    // bidouillage un peu sale, dû au fait que les clés de valeur sont convertis en lowercase pour les exporteurs
+    art is Art
+    infanterie is Infantry
+    support is Support
+    reco is Recons
+    tank is Tanks
+    air is Planes
+    at is AT
+    dca is DCA
+    defense is Defense
+)

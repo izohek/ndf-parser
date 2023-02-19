@@ -1,0 +1,13 @@
+
+UIEditorResources is TUIEditorResources
+(
+    MappingToShowEditor = $/KeyboardOption/Mapping_ShowUIEditor
+    UILayer = $/UserInterface/UILayer_2DInterface_Editor
+    MainComponentDescriptor = ~/EditorMainContainer
+    StyleGuide = ~/CommonStyleGuide
+)
+
+UIEditorManagerHandler is TUIEditorManagerHandler
+(
+    EditorResource = ~/UIEditorResources
+)

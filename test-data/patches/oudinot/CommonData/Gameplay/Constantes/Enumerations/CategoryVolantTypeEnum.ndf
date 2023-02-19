@@ -1,0 +1,10 @@
+// Enum TCategoryVolantTypeEnum
+ECategoryVolantTypeEnum is TBaseClass
+(
+    NotDefined            is 0
+    Chasseur              is 1
+    ChasseurBombardier    is 2
+    Bombardier            is 3
+    TransportPara         is 4
+    Scout                 is 5
+)

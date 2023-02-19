@@ -1,0 +1,19 @@
+export ModelFile_2S5_GiatsintS_SOV is 'GameData:/Assets/3D/Units/URSS/Canon/2S5_GiatsintS/2S5_GiatsintS.Ase2NdfBin'
+
+Modele_2S5_GiatsintS_SOV is TResourceMultiMaterialMeshWithLod
+(
+    FileName = ModelFile_2S5_GiatsintS_SOV
+    CivMask =  CivMask/Common
+)
+
+Modele_2S5_GiatsintS_SOV_MID is TResourceMultiMaterialMeshWithLod
+(
+    FileName = 'GameData:/Assets/3D/Units/URSS/Canon/2S5_GiatsintS/2S5_GiatsintS.Ase2NdfBin'
+    CivMask =  CivMask/Common
+)
+
+Modele_2S5_GiatsintS_SOV_LOW is TResourceMultiMaterialMeshWithLod
+(
+    FileName = 'GameData:/Assets/3D/Units/URSS/Canon/2S5_GiatsintS/2S5_GiatsintS.Ase2NdfBin'
+    CivMask =  CivMask/Common
+)

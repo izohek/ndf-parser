@@ -1,0 +1,55 @@
+
+// NOTE POUR LA DEFINITION DES CHEMINS
+// L'utilisation de GrowingSpeed permet d'obtenir un grandissement constant de la fleche
+// a l'inverse de GrowingDuration donne un grandissement relatif au temps donné.
+// Dans le cas où les deux sont utilisés, GrowingSpeed est prioritaire.
+
+
+//------------------------------------------------------------------------------
+//---- Chemins Direct D'Ordre ----------------------------------------------------
+
+template TemplateGfxCheminDirectValidationOrdrePathDescriptor
+[
+    RenderLayerName,
+] is TGfxDescriptorPath
+(
+    VisibilityRange       = $/GFX/Visibility/AllRanges/Zoom1234
+    Color                 = [107, 120, 66, 50]
+    PlaqueSurLeSol        = false
+    AngularPrecision      = 20
+    RenderLayerSelector = TRenderLayerSelector(RenderLayerName=<RenderLayerName>)
+    Material              = $/M3D/Shader/MaterialBezierLine_BichromeNoShadow
+    Width                 = Standard_DirectPathWidth
+    ArrowLength           = Standard_DirectArrowLength
+    ArrowWidth            = Standard_DirectPathWidth
+    FadeOffDuration       = 0
+    GrowingDuration       = 0
+    SizeMultiplierHelper  = PathAndArrowSizeMultiplierHelper
+    GFxInstanceDirectRenderHandler = ~/directRenderHandler_default
+
+    UseCurvature = true
+    CurvatureRatio =   1 //0.8//0.9//0.7
+    CurvatureCutOffRatio = 1 // 2.1 //1.75
+
+    AutoScaleArrowPathRatio = 0.33
+)
+
+GfxCheminDirectValidationOrdre_PathDescriptor is TemplateGfxCheminDirectValidationOrdrePathDescriptor
+(
+    RenderLayerName = 'Calque_Chemins'
+)
+
+GfxCheminDirectValidationOrdreAttack_PathDescriptor is TemplateGfxCheminDirectValidationOrdrePathDescriptor
+(
+    RenderLayerName = 'Calque_Chemins_Avion'
+)
+
+GfxCheminDirectValidationOrdreMoveAvion_PathDescriptor is TemplateGfxCheminDirectValidationOrdrePathDescriptor
+(
+    RenderLayerName = 'Calque_Chemins_Avion'
+)
+
+GfxCheminDirectValidationOrdreAttackAvion_PathDescriptor is TemplateGfxCheminDirectValidationOrdrePathDescriptor
+(
+    RenderLayerName = 'Calque_Chemins_Avion'
+)

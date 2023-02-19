@@ -1,0 +1,8 @@
+// Enum TGroundDissumulationModifierType
+EGroundDissumulationModifierType is TBaseClass
+(
+    Undefined is 0
+    Ground    is 1
+    Air       is 2
+    Length    is 3
+)

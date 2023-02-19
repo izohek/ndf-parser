@@ -1,0 +1,21 @@
+
+//Dico a maintenir synchro avec LocalisationConstantes.h
+LocalisationConstantes is TBaseClass
+(
+    dico_lang                            is "LANG"
+    dico_input                           is "INPUT"
+    dico_interface_outgame               is "OUTGAME"
+    dico_interface_options               is "OPTIONS"
+    dico_interface_ingame                is "INGAME"
+    dico_interface_dynamique_campaign    is "DYNCMP"
+    dico_trophies                        is "TROPHIES"
+    dico_unites                          is "UNITES"
+    dico_maps                            is "MAPS"
+    dico_tutorial                        is "TUTO"
+    dico_briefing                        is "BRIEFING"
+    dico_effets                          is "EFFETS"
+    dico_ui_editor                       is "UIEDITOR"
+    dico_packs                           is "PACKS"
+    dico_pelotons                        is "PELOTONS"
+    dico_traits                          is "TRAITS"
+)

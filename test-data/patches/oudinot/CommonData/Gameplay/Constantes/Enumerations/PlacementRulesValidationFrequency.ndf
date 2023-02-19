@@ -1,0 +1,11 @@
+// ValidationFrequency // A maintenir synchro avec EugIA_Common/BuildingPlacementModule.h
+EValidation is TBaseClass
+(
+    Never                   is 0x00000000
+    Always                  is 0xFFFFFFFF
+    OnProductionBegin       is 0x00000001
+    DuringProduction        is 0x00000002
+    DuringTransportResource is 0x00000004
+    OnConstructionBegin     is 0x00000008
+    DuringConstruction      is 0x00000010
+)

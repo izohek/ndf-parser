@@ -1,0 +1,14 @@
+// Enum UIGenericList::Axis dans UIGenericList.h
+EUIGenericListAxis is TBaseClass
+(
+    Horizontal is 0
+    Vertical   is 1
+)
+
+//Enum TUIGenericListProperty::BreadthComputationMode // a maintenir synchro avec UIGenericList.h
+EListPropertyComputeBreadthFrom is TBaseClass
+(
+    FrameProperty                     is 0
+    LargestChild                      is 1
+    LargestBetweenFatherAndChildren   is 2
+)

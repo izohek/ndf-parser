@@ -1,0 +1,24 @@
+
+//------------------------------------------------------------------------------
+//---- Constantes --------------------------------------------------------------
+
+private Standard_PathWidth           is 200  //600
+private Standard_ArrowLength         is 100  //600
+private Standard_ArrowWidth          is 200  //1200
+
+private Standard_DirectPathWidth     is 1250//1750
+private Standard_DirectArrowLength   is 2200//1750
+private Standard_DirectArrowWidth    is 3200//4000
+
+private Standard_NarrowPathWidth     is 100  //300
+private Standard_FeedbackPorteeWidth is 200
+
+//------------------------------------------------------------------------------
+//---- Helpers -----------------------------------------------------------------
+
+private PathAndArrowSizeMultiplierHelper is TPathAndArrowSizeMultiplierHelper
+(
+    Camera = $/M3D/Camera/CameraPrincipale
+    LineSizeMultiplierParam = $/M3D/Shader/LineSizeMultiplierParamVector
+)
+

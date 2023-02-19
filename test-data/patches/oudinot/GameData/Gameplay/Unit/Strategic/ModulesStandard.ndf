@@ -1,0 +1,37 @@
+InfluencePositionModuleDescriptor is TInfluencePositionModuleDescriptor()
+ActionPointsReachModuleDescriptor is TActionPointsReachModuleDescriptor()
+IALinkToGroupModuleDescriptor is TIALinkToGroupModuleDescriptor()
+IAMacroOrderModuleDescriptor is TIAMacroOrderModuleDescriptor()
+StrategicDelayedOrderModuleDescriptor is TStrategicDelayedOrderModuleDescriptor()
+StrategicSequenceModuleDescriptor is TStrategicSequenceModuleDescriptor()
+StrategicSupplyableModuleDescriptor is TStrategicSupplyableModuleDescriptor()
+StrategicAerialModuleDescriptor is TStrategicAerialModuleDescriptor()
+
+template StrategicFatigueModuleDescriptor [ InitialFatigue ] is TStrategicFatigueModuleDescriptor
+(
+  MaxFatigue      = ~/StrategicMaxFatiguePerUnit
+  InitialFatigue  = <InitialFatigue>
+)
+
+StrategicSelectionModuleDescriptor is TSelectionModuleDescriptor
+(
+    IsSelectable       = True
+    IsHighlightable    = True
+    HasSelectionShader = False
+    HasHighlightShader = True
+)
+
+PawnPositionModuleDescriptor is TPositionModuleDescriptor
+(
+    UseFollowCam               = False
+    StickToGround              = True
+    InGeoDb                    = True
+    PorteurMustBeVisible       = True
+    ClampInWorld               = False
+    ClampOutMap                = False
+    HasNearlyNullBBox          = False
+    Radius                     = ((0) * Metre)
+    RelativeScanningPosition   = ~/DecalageParDefautDuPointDeVision
+    LowAltitudeFlyingAltitude  = ((0) * Metre)
+    NearGroundFlyingAltitude   = ((0) * Metre)
+)

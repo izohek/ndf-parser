@@ -1,0 +1,11 @@
+// Rajouter une valeur correspondant à votre méthode de calcul de bonus ici et modifier les listes dans technos.xlsm
+// et la liste pour la vérification sur la première ligne dans CheckFirstLineBonusTypeOrEffect
+
+ModifierType_Additionnel is 0
+ModifierType_Multiplicatif is 1
+ModifierType_Pourcentage is 2
+ModifierType_Remplacement is 3
+ModifierType_Booleen is 4
+ModifierType_Tag is 5
+ModifierType_Aucun is 6
+ModifierType_Arrondi is 7

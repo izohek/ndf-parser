@@ -1,0 +1,10 @@
+// TResistanceLocation // A maintenir synchro avec WeaponSystem\ResistanceModule.h
+EResistanceLocation is TBaseClass
+(
+    Front     is 0
+    Sides     is 1
+    Rear      is 2
+    Top       is 3
+
+    Default   is 0
+)

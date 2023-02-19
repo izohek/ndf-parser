@@ -1,0 +1,9 @@
+// A Maintenir synchro avec EnumCondition.h
+
+ConditionName is TBaseClass
+(
+    TagRaisedInUnit     is 0
+    TagNotRaisedInUnit  is 1
+    TagRaisedInTeam     is 2
+    TagNotRaisedInTeam  is 3
+)

@@ -1,0 +1,14 @@
+// Keep this list synchronized with EugIA_Common/EnumTacticalShootingStatus.h
+ETacticalShooting_Inactive              is 0
+ETacticalShooting_Default               is 1
+ETacticalShooting_BlockedLoS            is 2
+ETacticalShooting_BlockedRoE            is 3
+ETacticalShooting_NoWeapon              is 4
+ETacticalShooting_MinimalRange          is 5
+ETacticalShooting_OutOfRange            is 6
+ETacticalShooting_Unseen                is 7
+ETacticalShooting_OutOfTurretConstraint is 8
+ETacticalShooting_Inefficient           is 9
+ETacticalShooting_InvalidPosition       is 10
+ETacticalShooting_InvalidTarget         is 11
+ETacticalShooting_FullAttackInfos       is 12
