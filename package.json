@@ -12,6 +12,7 @@
     "lint": "npx eslint src/* tests/*",
     "pretest": "npm run build",
     "test": "jest ndf-war-yes.test",
+    "pretest-patch": "npm run build",
     "test-patch": "jest"
   },
   "author": "izohek <izohek@gmail.com>",
