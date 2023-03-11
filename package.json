@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
+    "prebuild": "npm run clean",
     "build": "npx tsc",
     "lint": "npx eslint src/* tests/*",
     "pretest": "npm run build",
