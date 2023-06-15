@@ -14,7 +14,7 @@
     "pretest": "npm run build",
     "test": "jest ndf-war-yes.test",
     "pretest-patch": "npm run build",
-    "test-patch": "jest"
+    "test-patch": "jest --bail"
   },
   "author": "izohek <izohek@gmail.com>",
   "license": "MIT",
