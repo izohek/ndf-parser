@@ -1,0 +1,20 @@
+template Character
+[
+    Name : string,
+    Level : int = 1,
+    Weapon : TWeapon = TWeapon()
+]
+is TCharacter
+(
+    Bag is TInventory
+    (
+        MaxItemCount = <Level> * 3
+    )
+    
+    Name = <Name>
+    Level = <Level>
+    HP = <Level> * 100
+    Weapon = <Weapon>
+    Damages = <Weapon>/Damages * (1 + Level div 10)
+    Inventory = Bag
+)

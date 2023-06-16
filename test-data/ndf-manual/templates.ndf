@@ -1,0 +1,5 @@
+// Basic template that does nothing
+template MyTemplate // template name
+[]                  // template parameters
+is TType            // final type of the object created by the template
+()                  // object members

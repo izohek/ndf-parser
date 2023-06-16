@@ -1,0 +1,12 @@
+DataHolder is TDataHolder
+(
+    SomeInt = 456
+    SomeString = "A string"
+    SomeMap = MAP[ 1, 2, 3 ]
+)
+
+DataUser is TDataUser
+(
+    Condition = false
+    DataHolderReference = DataHolder // Here we are taking a reference to the DataHolder object
+)

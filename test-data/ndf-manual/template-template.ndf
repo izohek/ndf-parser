@@ -1,0 +1,10 @@
+template CloneHero
+[
+    Name : string
+]
+is Character
+(
+    Name = <Name>
+    Level = 12
+    Weapon = Axe
+)

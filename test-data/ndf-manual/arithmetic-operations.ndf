@@ -1,0 +1,4 @@
+Pi is 3 + 0.1415954
+PiCube is Pi * Pi * Pi
+X is 35 div 8 // Division is used through the keyword 'div'
+Y is 35 % 8

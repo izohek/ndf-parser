@@ -1,0 +1,7 @@
+ExampleObject is TExampleType
+(
+    innerObject = TOtherType
+    (
+        ValueString = "I am a member of TExampleType"
+    )
+)

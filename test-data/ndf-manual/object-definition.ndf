@@ -1,0 +1,5 @@
+// This will create an instance of TExampleType containing two members
+ExampleObject is TExampleType (
+    MemberInteger = 12
+    MemberString = "something"
+)

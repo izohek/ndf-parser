@@ -1,0 +1,37 @@
+// More elaborated example
+// Suppose there is a TWeapon and TCharacter types existing.
+
+Axe is TWeapon
+(
+    // here would be members describing this weapon
+)
+
+Knife is TWeapon ()
+template Character
+[
+    Name : string, // Name has to be a string
+    Level : int = 1, // Level has a default value of 1
+    Weapon : TWeapon = TWeapon() // Weapon has to be a TWeapon
+]
+is TCharacter
+(
+    Name = <Name> // <Name> refers to the template parameter named 'Name'
+    Level = <Level>
+    HP = <Level> * 100
+    Weapon = <Weapon>
+    Damages = <Weapon>/Damages * (1 + Level div 10)
+)
+
+Hero is Character
+(
+    Name = "Hero"
+    Level = 12
+    Weapon = Axe
+)
+
+Creep is Character
+(
+    Name = "Creep"
+    Weapon = Knife
+    // Level is not specified, default value is used
+)

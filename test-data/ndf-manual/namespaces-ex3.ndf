@@ -1,0 +1,7 @@
+ExampleObject is TExampleType
+(
+InnerExample = _ is TExampleType
+(
+InnerExample = ExampleObject3 is TExampleType()
+)
+)

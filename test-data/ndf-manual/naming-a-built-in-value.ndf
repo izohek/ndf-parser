@@ -1,0 +1,7 @@
+Gravity is -9.81
+Currencies is MAP[
+('EUR', '€'),
+('USD', '$'),
+('GBP', '£')
+]
+Places is ['Antarctica', 'Everest', 'Mars']

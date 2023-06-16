@@ -1,0 +1,10 @@
+Prototype is TThing
+(
+    ValueString = 'I am a prototype object'
+    ValueInt = 666
+)
+
+ObjectFromPrototype is Prototype
+(
+    ValueString = 'I am just me'
+)

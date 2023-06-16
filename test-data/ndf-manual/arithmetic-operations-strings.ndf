@@ -1,0 +1,3 @@
+A is [1, 2] + [3, 4]
+B is MAP[ (1, 'one')] + MAP[ (2, 'two')]
+C is "Hello" + " World!"

@@ -1,0 +1,11 @@
+template CloneHero
+[
+    Name : string
+]
+is Character
+(
+    Name = <Name>
+    Level = 12
+    Weapon = Axe
+    Bag is TInventory ( MaxItemCount = 0 )
+)
