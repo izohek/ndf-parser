@@ -580,8 +580,10 @@ export class NdfTokenizer {
                 }
             }
 
-            currentPos++
-            currentPos = this.ffWhiteSpace(tokens, currentPos)
+            if (tokens[currentPos].value === Constants.CommaToken) {
+                currentPos++
+                currentPos = this.ffWhiteSpace(tokens, currentPos)
+            }
 
             if (currentPos >= tokens.length) {
                 if (stack.length < 1) {

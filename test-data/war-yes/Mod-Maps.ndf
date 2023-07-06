@@ -1,0 +1,29 @@
+export Map is ObjectMap
+(
+    DamageModifierPerFamilyAndResistance =
+    MAP [
+            ("he", MAP [("infanterie",0.6)]),
+            ("fmballe", MAP [("infanterie",0.5)]),
+            ("balledca", MAP [("infanterie",0.5)]),
+    ]
+)
+
+export MapNoComma is ObjectMap
+(
+    DamageModifierPerFamilyAndResistance =
+    MAP [
+            ("he", MAP [("infanterie",0.6)]),
+            ("fmballe", MAP [("infanterie",0.5)]),
+            ("balledca", MAP [("infanterie",0.5)])
+    ]
+)
+
+export MapNoCommaRandoSpaces is ObjectMap
+(
+    DamageModifierPerFamilyAndResistance =
+    MAP [
+            ("he"     , MAP [("infanterie",0.6)  ])   ,   
+            ("fmballe" , MAP [("infanterie",0.5)]   )   ,   
+            ("balledca"    , MAP [("infanterie",0.5)] )       
+    ]
+)
