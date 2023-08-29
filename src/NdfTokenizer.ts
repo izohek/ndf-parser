@@ -195,6 +195,14 @@ export class NdfTokenizer {
                     });
                     obj.type = 'array';
                     currentPos = newPosition
+                } else if (tokens[currentPos].value === Constants.TildeToken) {
+                    const [tildeValue, newPosition] = this.parseTildeValue(tokens, currentPos)
+
+                    obj.children.push({
+                        name: 'namespace',
+                        value: tildeValue
+                    })
+                    currentPos = newPosition
                 } else {
                     // Object
                     currentPos += 1
