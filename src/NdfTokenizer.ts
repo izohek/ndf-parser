@@ -190,10 +190,10 @@ export class NdfTokenizer {
                     const parsedArray = this.parseArray(arrayString)
 
                     obj.children.push({
-                        name: "array",
+                        name: 'array',
                         value: parsedArray
-                    });
-                    obj.type = 'array';
+                    })
+                    obj.type = 'array'
                     currentPos = newPosition
                 } else if (tokens[currentPos].value === Constants.TildeToken) {
                     const [tildeValue, newPosition] = this.parseTildeValue(tokens, currentPos)
