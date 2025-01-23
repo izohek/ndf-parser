@@ -36,7 +36,8 @@ export const ValueTypes = [
 
 export const AccessLevels = [
     'export',
-    'private'
+    'private',
+    'unnamed'
 ]
 
 // Grouped delimeters
