@@ -1,6 +1,142 @@
-// Ne pas éditer, ce fichier est auto-généré !
+// Ne pas éditer, ce fichier est généré par BuildingDescriptorFileWriter_Specific
 
 
+export Descriptor_Unit_FOB_BEL is TEntityDescriptor
+(
+    DescriptorId       = GUID:{3f958f6c-ccf9-49d8-90e1-67efbcc746f1}
+    ClassNameForDebug  = 'Building_FOB_BEL'
+    ModulesDescriptors = [
+        TTypeUnitModuleDescriptor
+        (
+            MotherCountry                    = 'BEL'
+            Coalition                        = ECoalition/Allied
+        ),
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
+        ~/LinkTeamModuleDescriptor,
+        TExperienceModuleDescriptor
+        (
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
+            ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
+        ),
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
+            (
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
+        TVisibilityModuleDescriptor
+        (
+            UnitConcealmentBonus = 1.0
+        ),
+        ~/BuildingScannerConfigurationDescriptor,
+        TReverseScannerWithIdentificationDescriptor
+        (
+            VisibilityRollRule = TModernWarfareVisibilityRollRule
+            (
+                IdentifyBaseProbability     = 1.0
+                TimeBetweenEachIdentifyRoll = 1.0
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
+            )
+        ),
+        ApparenceModel is BuildingApparenceModuleDescriptor
+        (
+            BlackHoleIdentifier = "FOB_BEL"
+            SymbolName = 'FOB_Nato_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_BEL ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
+        ~/IAStratZoneIndexModuleDescriptor,
+        ~/DebugModuleDescriptor,
+        ~/SelectionModuleDescriptor,
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
+        (
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
+        ),
+        ~/EffectApplierModuleDescriptor,
+        TTacticalLabelModuleDescriptor
+        (
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
+                ]
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'BFCFNEMWNZ'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_BEL'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_BEL'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
+    ]
+)
 export Descriptor_Unit_FOB_DDR is TEntityDescriptor
 (
     DescriptorId       = GUID:{77799f4b-f37d-4fa2-87e7-b9d682ac2604}
@@ -9,251 +145,132 @@ export Descriptor_Unit_FOB_DDR is TEntityDescriptor
         TTypeUnitModuleDescriptor
         (
             MotherCountry                    = 'DDR'
-            Nationalite                      = ENationalite/Axis
+            Coalition                        = ECoalition/Axis
         ),
-        TTagsModuleDescriptor
-        (
-            TagSet = [
-                "FOB",
-            ]
-        ),
-        TFlagsModuleDescriptor
-        (
-            InitialFlagSet =
-            [
-                Flag_Batiment,
-                Flag_Detectable,
-                Flag_LdDetectable,
-            ]
-        ),
-            TPositionModuleDescriptor
-            (
-                StickToGround              = True
-                InGeoDb                    = True
-                PorteurMustBeVisible       = True
-                ClampInWorld               = True
-                ClampOutMap                = False
-                RelativeScanningPosition   = ~/DecalageParDefautDuPointDeVision
-                LowAltitudeFlyingAltitude  = ((0) * Metre)
-                NearGroundFlyingAltitude   = ((0) * Metre)
-            ),
-        ~/InflammableModuleDescriptorUnit,
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
         ~/LinkTeamModuleDescriptor,
         TExperienceModuleDescriptor
         (
-            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v2
-            CanWinExperience = False
-            ExperienceGainBySecond = ~/ExperienceGainBySecond
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
             ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
         ),
-            TWargameBuildingModuleDescriptor
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
             (
-                BoundingBoxMin = ~/FOBBoxMin
-                BoundingBoxMax = ~/FOBBoxMax
-            ),
-            TModuleSelector
-            (
-                Default        = TSupplyModuleDescriptor
-                (
-                    SupplyDescriptor   = ~/StandardSupply
-                    SupplyCapacity     = 16000.0
-                    SupplyPriority     = 0
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = ~/CapturableModule
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = TBaseDamageModuleDescriptor
-                (
-                    MaxPhysicalDamages = 10
-                    MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
-                    MaxStunDamages = ~/Building_MaxStunDamages
-                    PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
-                    SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
-                    StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            TModuleSelector
-            (
-                Default        = TDamageModuleDescriptor
-                (
-                    SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
-                    StunDamagesRegen = ~/Building_StunDamagesRegen
-                    BlindageProperties = TBlindageProperties
-                    (
-                        ArmorDescriptorFront = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorSides = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorRear = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorTop = ArmorDescriptor_Batiment_1
-                    )
-                    KillWhenDamagesReachMax = True
-                    HitRollSize = 0.0
-                    HitRollECM = 0.0
-                    AutoOrientation = False
-                    UseTopArmorAgainstFire = False
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            ~/TargetCoordinatorModuleSelector,
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
         TVisibilityModuleDescriptor
         (
-            AutoRevealType       = EAutoRevealType/AutoRevealAllies
             UnitConcealmentBonus = 1.0
-            VisionUnitType       = EVisionUnitType/AlwaysOnGround
-            UnitIsStealth        = False
-            HideFromDebug        = False
         ),
-            TModuleSelector
-            (
-                Default        = TScannerConfigurationDescriptor
-                (
-                    OpticsAltitudeConfig = ~/EVisionOpticsAltitudeConfig/DontUse
-                    DoesNotCountInScannerAbsoluteMaxRange = False
-                    PorteeVisionTBA = ((0.0) * Metre)
-                    PorteeVisionFOW = ((0.0) * Metre)
-                    DetectionTBA = ((10000) * Metre)
-                    PorteeVision = ((10000) * Metre)
-                    PorteeIdentification = 0.0
-                    OpticalStrength = 0.0
-                    OpticalStrengthAltitude = 40
-                    UnitDetectStealthUnit = False
-                    SpecializedDetections = MAP [
-                        ( EVisionUnitType/AlwaysInHighAltitude, 10000.0 * Metre ),
-                    ]
-                    SpecializedOpticalStrengths = MAP [
-                    ]
-                    IgnoreObstacles = MAP []
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
+        ~/BuildingScannerConfigurationDescriptor,
         TReverseScannerWithIdentificationDescriptor
         (
             VisibilityRollRule = TModernWarfareVisibilityRollRule
             (
                 IdentifyBaseProbability     = 1.0
                 TimeBetweenEachIdentifyRoll = 1.0
-                VisibilityRuleDescriptor    = ~/StandardWargameVisibilityRollRule
-                DistanceMultiplierRule      = TModernWarfareDistanceMultiplierRollRuleDescriptor
-                (
-                    MultiplicateurAPorteeMaximale            = DefaultMultiplicateurAPorteeMaximale
-                    MultiplicateurAPorteeMinimale            = DefaultMultiplicateurAPorteeMinimale
-                    Exposant                                 = DefaultExposant
-                    MultiplicateurAPorteeMaximaleEnMouvement = DefaultMultiplicateurAPorteeMaximaleEnMouvement
-                    MultiplicateurAPorteeMinimaleEnMouvement = DefaultMultiplicateurAPorteeMinimaleEnMouvement
-                    ExposantEnMouvement                      = DefaultExposantEnMouvement
-                )
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
             )
         ),
-        ApparenceModel is
-        TModuleSelector
+        ApparenceModel is BuildingApparenceModuleDescriptor
         (
-            Default            = TApparenceModelModuleDescriptor
-            (
-                PickableObject                        = True
-                BlackHoleIdentifier                   = "FOB_DDR"
-                Depiction                             = TTimelyModifyLevelBuildReceiverFactory
-                (
-                    SymbolName                        = 'FOB_Pact_03'
-                )
-            )
-            Selection                              = [ ~/NilDescriptorIfCadavre ]
-        )
-,
-        TCadavreGeneratorModuleDescriptorUnit( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_DDR ),
-            TModuleSelector
-            (
-                Default        = TIAStratModuleDescriptor
-                (
-                    DatabaseId = 0
-                    GameplayBehavior = EGameplayBehavior/Nothing
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
+            BlackHoleIdentifier = "FOB_DDR"
+            SymbolName = 'FOB_Pact_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_DDR ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
         ~/IAStratZoneIndexModuleDescriptor,
         ~/DebugModuleDescriptor,
         ~/SelectionModuleDescriptor,
-            TModuleSelector
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
         (
-            Default        = TStateEngineCompanyModuleDescriptor
-            (
-                InitialStateId = 'CompanyInit'
-                StateEngineUpdateMode = WorldControllerAccess_InWorld
-            )
-            Selection      = [~/NilDescriptorIfCadavre]
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
         ),
-        TStateEngineModuleDescriptor
-        (
-            InitialStateId = 'UnitIdle'
-            StateEngineUpdateMode = WorldControllerAccess_InWorld
-        ),
-            TModuleSelector
-            (
-                Default = TProductionModuleDescriptor
-                (
-                    Factory            = EDefaultFactories/Logistic
-                    ProductionTime     = -1
-                    ProductionRessourcesNeeded = MAP [
-                        (~/Resource_CommandPoints, 250),
-                    ]
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
         ~/EffectApplierModuleDescriptor,
-            TTacticalLabelModuleDescriptor
-            (
-                UnitName                   = 'FOBGER'
-                IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_fob",
-                        "Texture_fob"
-                    ]
-                )
-                DefaultSpecialtyToken      = "tank_A"
-                UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_NATO_Unidentified",
-                        "Texture_NATO_Unidentified"
-                    ]
-                )
-                PositionHeightOffset = 1000.0
-            ),
-        TOrderableModuleDescriptor
+        TTacticalLabelModuleDescriptor
         (
-            UnlockableOrders = ~/Descriptor_OrderAvailability_FOB_DDR
-        ),
-        ~/OrderDisplayModuleDescriptor,
-            ~/GroupableUnitModuleSelector,
-        ~/PackSignauxModuleDescriptor,
-            TUnitUIModuleDescriptor
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
             (
-                UnitRole = 'tank_A'
-                SpecialtiesList = [
-                    'supply',
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
                 ]
-                NameToken = 'FOBGER'
-                InfoPanelConfigurationToken = 'Default'
-                TypeSpecificToken = ''
-                IsAce = False
-                GenerateName = true
-                MenuIconTexture = 'Texture_RTS_H_fob'
-                ButtonTexture = 'Texture_Button_Unit_FOB_DDR'
-                CountryTexture = 'CommonTexture_MotherCountryFlag_DDR'
-                TypeStrategicCount = ETypeStrategicCount/NotCounted
-            ),
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'FOBGER'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_DDR'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_DDR'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
     ]
 )
 export Descriptor_Unit_FOB_FR is TEntityDescriptor
@@ -264,251 +281,404 @@ export Descriptor_Unit_FOB_FR is TEntityDescriptor
         TTypeUnitModuleDescriptor
         (
             MotherCountry                    = 'FR'
-            Nationalite                      = ENationalite/Allied
+            Coalition                        = ECoalition/Allied
         ),
-        TTagsModuleDescriptor
-        (
-            TagSet = [
-                "FOB",
-            ]
-        ),
-        TFlagsModuleDescriptor
-        (
-            InitialFlagSet =
-            [
-                Flag_Batiment,
-                Flag_Detectable,
-                Flag_LdDetectable,
-            ]
-        ),
-            TPositionModuleDescriptor
-            (
-                StickToGround              = True
-                InGeoDb                    = True
-                PorteurMustBeVisible       = True
-                ClampInWorld               = True
-                ClampOutMap                = False
-                RelativeScanningPosition   = ~/DecalageParDefautDuPointDeVision
-                LowAltitudeFlyingAltitude  = ((0) * Metre)
-                NearGroundFlyingAltitude   = ((0) * Metre)
-            ),
-        ~/InflammableModuleDescriptorUnit,
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
         ~/LinkTeamModuleDescriptor,
         TExperienceModuleDescriptor
         (
-            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v2
-            CanWinExperience = False
-            ExperienceGainBySecond = ~/ExperienceGainBySecond
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
             ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
         ),
-            TWargameBuildingModuleDescriptor
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
             (
-                BoundingBoxMin = ~/FOBBoxMin
-                BoundingBoxMax = ~/FOBBoxMax
-            ),
-            TModuleSelector
-            (
-                Default        = TSupplyModuleDescriptor
-                (
-                    SupplyDescriptor   = ~/StandardSupply
-                    SupplyCapacity     = 16000.0
-                    SupplyPriority     = 0
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = ~/CapturableModule
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = TBaseDamageModuleDescriptor
-                (
-                    MaxPhysicalDamages = 10
-                    MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
-                    MaxStunDamages = ~/Building_MaxStunDamages
-                    PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
-                    SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
-                    StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            TModuleSelector
-            (
-                Default        = TDamageModuleDescriptor
-                (
-                    SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
-                    StunDamagesRegen = ~/Building_StunDamagesRegen
-                    BlindageProperties = TBlindageProperties
-                    (
-                        ArmorDescriptorFront = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorSides = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorRear = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorTop = ArmorDescriptor_Batiment_1
-                    )
-                    KillWhenDamagesReachMax = True
-                    HitRollSize = 0.0
-                    HitRollECM = 0.0
-                    AutoOrientation = False
-                    UseTopArmorAgainstFire = False
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            ~/TargetCoordinatorModuleSelector,
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
         TVisibilityModuleDescriptor
         (
-            AutoRevealType       = EAutoRevealType/AutoRevealAllies
             UnitConcealmentBonus = 1.0
-            VisionUnitType       = EVisionUnitType/AlwaysOnGround
-            UnitIsStealth        = False
-            HideFromDebug        = False
         ),
-            TModuleSelector
-            (
-                Default        = TScannerConfigurationDescriptor
-                (
-                    OpticsAltitudeConfig = ~/EVisionOpticsAltitudeConfig/DontUse
-                    DoesNotCountInScannerAbsoluteMaxRange = False
-                    PorteeVisionTBA = ((0.0) * Metre)
-                    PorteeVisionFOW = ((0.0) * Metre)
-                    DetectionTBA = ((10000) * Metre)
-                    PorteeVision = ((10000) * Metre)
-                    PorteeIdentification = 0.0
-                    OpticalStrength = 0.0
-                    OpticalStrengthAltitude = 40
-                    UnitDetectStealthUnit = False
-                    SpecializedDetections = MAP [
-                        ( EVisionUnitType/AlwaysInHighAltitude, 10000.0 * Metre ),
-                    ]
-                    SpecializedOpticalStrengths = MAP [
-                    ]
-                    IgnoreObstacles = MAP []
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
+        ~/BuildingScannerConfigurationDescriptor,
         TReverseScannerWithIdentificationDescriptor
         (
             VisibilityRollRule = TModernWarfareVisibilityRollRule
             (
                 IdentifyBaseProbability     = 1.0
                 TimeBetweenEachIdentifyRoll = 1.0
-                VisibilityRuleDescriptor    = ~/StandardWargameVisibilityRollRule
-                DistanceMultiplierRule      = TModernWarfareDistanceMultiplierRollRuleDescriptor
-                (
-                    MultiplicateurAPorteeMaximale            = DefaultMultiplicateurAPorteeMaximale
-                    MultiplicateurAPorteeMinimale            = DefaultMultiplicateurAPorteeMinimale
-                    Exposant                                 = DefaultExposant
-                    MultiplicateurAPorteeMaximaleEnMouvement = DefaultMultiplicateurAPorteeMaximaleEnMouvement
-                    MultiplicateurAPorteeMinimaleEnMouvement = DefaultMultiplicateurAPorteeMinimaleEnMouvement
-                    ExposantEnMouvement                      = DefaultExposantEnMouvement
-                )
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
             )
         ),
-        ApparenceModel is
-        TModuleSelector
+        ApparenceModel is BuildingApparenceModuleDescriptor
         (
-            Default            = TApparenceModelModuleDescriptor
-            (
-                PickableObject                        = True
-                BlackHoleIdentifier                   = "FOB_FR"
-                Depiction                             = TTimelyModifyLevelBuildReceiverFactory
-                (
-                    SymbolName                        = 'FOB_Nato_03'
-                )
-            )
-            Selection                              = [ ~/NilDescriptorIfCadavre ]
-        )
-,
-        TCadavreGeneratorModuleDescriptorUnit( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_FR ),
-            TModuleSelector
-            (
-                Default        = TIAStratModuleDescriptor
-                (
-                    DatabaseId = 0
-                    GameplayBehavior = EGameplayBehavior/Nothing
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
+            BlackHoleIdentifier = "FOB_FR"
+            SymbolName = 'FOB_Nato_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_FR ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
         ~/IAStratZoneIndexModuleDescriptor,
         ~/DebugModuleDescriptor,
         ~/SelectionModuleDescriptor,
-            TModuleSelector
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
         (
-            Default        = TStateEngineCompanyModuleDescriptor
-            (
-                InitialStateId = 'CompanyInit'
-                StateEngineUpdateMode = WorldControllerAccess_InWorld
-            )
-            Selection      = [~/NilDescriptorIfCadavre]
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
         ),
-        TStateEngineModuleDescriptor
-        (
-            InitialStateId = 'UnitIdle'
-            StateEngineUpdateMode = WorldControllerAccess_InWorld
-        ),
-            TModuleSelector
-            (
-                Default = TProductionModuleDescriptor
-                (
-                    Factory            = EDefaultFactories/Logistic
-                    ProductionTime     = -1
-                    ProductionRessourcesNeeded = MAP [
-                        (~/Resource_CommandPoints, 250),
-                    ]
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
         ~/EffectApplierModuleDescriptor,
-            TTacticalLabelModuleDescriptor
-            (
-                UnitName                   = 'FOBFRA'
-                IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_fob",
-                        "Texture_fob"
-                    ]
-                )
-                DefaultSpecialtyToken      = "tank_A"
-                UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_NATO_Unidentified",
-                        "Texture_NATO_Unidentified"
-                    ]
-                )
-                PositionHeightOffset = 1000.0
-            ),
-        TOrderableModuleDescriptor
+        TTacticalLabelModuleDescriptor
         (
-            UnlockableOrders = ~/Descriptor_OrderAvailability_FOB_FR
-        ),
-        ~/OrderDisplayModuleDescriptor,
-            ~/GroupableUnitModuleSelector,
-        ~/PackSignauxModuleDescriptor,
-            TUnitUIModuleDescriptor
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
             (
-                UnitRole = 'tank_A'
-                SpecialtiesList = [
-                    'supply',
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
                 ]
-                NameToken = 'FOBFRA'
-                InfoPanelConfigurationToken = 'Default'
-                TypeSpecificToken = ''
-                IsAce = False
-                GenerateName = true
-                MenuIconTexture = 'Texture_RTS_H_fob'
-                ButtonTexture = 'Texture_Button_Unit_FOB_FR'
-                CountryTexture = 'CommonTexture_MotherCountryFlag_FR'
-                TypeStrategicCount = ETypeStrategicCount/NotCounted
-            ),
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'FOBFRA'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_FR'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_FR'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
+    ]
+)
+export Descriptor_Unit_FOB_NL is TEntityDescriptor
+(
+    DescriptorId       = GUID:{cedcaa41-8c25-4557-8bd0-c4c8b6796aa5}
+    ClassNameForDebug  = 'Building_FOB_NL'
+    ModulesDescriptors = [
+        TTypeUnitModuleDescriptor
+        (
+            MotherCountry                    = 'NL'
+            Coalition                        = ECoalition/Allied
+        ),
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
+        ~/LinkTeamModuleDescriptor,
+        TExperienceModuleDescriptor
+        (
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
+            ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
+        ),
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
+            (
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
+        TVisibilityModuleDescriptor
+        (
+            UnitConcealmentBonus = 1.0
+        ),
+        ~/BuildingScannerConfigurationDescriptor,
+        TReverseScannerWithIdentificationDescriptor
+        (
+            VisibilityRollRule = TModernWarfareVisibilityRollRule
+            (
+                IdentifyBaseProbability     = 1.0
+                TimeBetweenEachIdentifyRoll = 1.0
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
+            )
+        ),
+        ApparenceModel is BuildingApparenceModuleDescriptor
+        (
+            BlackHoleIdentifier = "FOB_NL"
+            SymbolName = 'FOB_Nato_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_NL ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
+        ~/IAStratZoneIndexModuleDescriptor,
+        ~/DebugModuleDescriptor,
+        ~/SelectionModuleDescriptor,
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
+        (
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
+        ),
+        ~/EffectApplierModuleDescriptor,
+        TTacticalLabelModuleDescriptor
+        (
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
+                ]
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'FOBNL'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_NL'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_NL'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
+    ]
+)
+export Descriptor_Unit_FOB_POL is TEntityDescriptor
+(
+    DescriptorId       = GUID:{a4351253-3f1e-4def-b490-5ad25acaaf0a}
+    ClassNameForDebug  = 'Building_FOB_POL'
+    ModulesDescriptors = [
+        TTypeUnitModuleDescriptor
+        (
+            MotherCountry                    = 'POL'
+            Coalition                        = ECoalition/Axis
+        ),
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
+        ~/LinkTeamModuleDescriptor,
+        TExperienceModuleDescriptor
+        (
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
+            ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
+        ),
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
+            (
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
+        TVisibilityModuleDescriptor
+        (
+            UnitConcealmentBonus = 1.0
+        ),
+        ~/BuildingScannerConfigurationDescriptor,
+        TReverseScannerWithIdentificationDescriptor
+        (
+            VisibilityRollRule = TModernWarfareVisibilityRollRule
+            (
+                IdentifyBaseProbability     = 1.0
+                TimeBetweenEachIdentifyRoll = 1.0
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
+            )
+        ),
+        ApparenceModel is BuildingApparenceModuleDescriptor
+        (
+            BlackHoleIdentifier = "FOB_POL"
+            SymbolName = 'FOB_Pact_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_POL ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
+        ~/IAStratZoneIndexModuleDescriptor,
+        ~/DebugModuleDescriptor,
+        ~/SelectionModuleDescriptor,
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
+        (
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
+        ),
+        ~/EffectApplierModuleDescriptor,
+        TTacticalLabelModuleDescriptor
+        (
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
+                ]
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'WJEPUEYMNL'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_POL'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_POL'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
     ]
 )
 export Descriptor_Unit_FOB_RFA is TEntityDescriptor
@@ -519,251 +689,132 @@ export Descriptor_Unit_FOB_RFA is TEntityDescriptor
         TTypeUnitModuleDescriptor
         (
             MotherCountry                    = 'RFA'
-            Nationalite                      = ENationalite/Allied
+            Coalition                        = ECoalition/Allied
         ),
-        TTagsModuleDescriptor
-        (
-            TagSet = [
-                "FOB",
-            ]
-        ),
-        TFlagsModuleDescriptor
-        (
-            InitialFlagSet =
-            [
-                Flag_Batiment,
-                Flag_Detectable,
-                Flag_LdDetectable,
-            ]
-        ),
-            TPositionModuleDescriptor
-            (
-                StickToGround              = True
-                InGeoDb                    = True
-                PorteurMustBeVisible       = True
-                ClampInWorld               = True
-                ClampOutMap                = False
-                RelativeScanningPosition   = ~/DecalageParDefautDuPointDeVision
-                LowAltitudeFlyingAltitude  = ((0) * Metre)
-                NearGroundFlyingAltitude   = ((0) * Metre)
-            ),
-        ~/InflammableModuleDescriptorUnit,
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
         ~/LinkTeamModuleDescriptor,
         TExperienceModuleDescriptor
         (
-            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v2
-            CanWinExperience = False
-            ExperienceGainBySecond = ~/ExperienceGainBySecond
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
             ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
         ),
-            TWargameBuildingModuleDescriptor
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
             (
-                BoundingBoxMin = ~/FOBBoxMin
-                BoundingBoxMax = ~/FOBBoxMax
-            ),
-            TModuleSelector
-            (
-                Default        = TSupplyModuleDescriptor
-                (
-                    SupplyDescriptor   = ~/StandardSupply
-                    SupplyCapacity     = 16000.0
-                    SupplyPriority     = 0
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = ~/CapturableModule
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = TBaseDamageModuleDescriptor
-                (
-                    MaxPhysicalDamages = 10
-                    MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
-                    MaxStunDamages = ~/Building_MaxStunDamages
-                    PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
-                    SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
-                    StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            TModuleSelector
-            (
-                Default        = TDamageModuleDescriptor
-                (
-                    SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
-                    StunDamagesRegen = ~/Building_StunDamagesRegen
-                    BlindageProperties = TBlindageProperties
-                    (
-                        ArmorDescriptorFront = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorSides = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorRear = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorTop = ArmorDescriptor_Batiment_1
-                    )
-                    KillWhenDamagesReachMax = True
-                    HitRollSize = 0.0
-                    HitRollECM = 0.0
-                    AutoOrientation = False
-                    UseTopArmorAgainstFire = False
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            ~/TargetCoordinatorModuleSelector,
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
         TVisibilityModuleDescriptor
         (
-            AutoRevealType       = EAutoRevealType/AutoRevealAllies
             UnitConcealmentBonus = 1.0
-            VisionUnitType       = EVisionUnitType/AlwaysOnGround
-            UnitIsStealth        = False
-            HideFromDebug        = False
         ),
-            TModuleSelector
-            (
-                Default        = TScannerConfigurationDescriptor
-                (
-                    OpticsAltitudeConfig = ~/EVisionOpticsAltitudeConfig/DontUse
-                    DoesNotCountInScannerAbsoluteMaxRange = False
-                    PorteeVisionTBA = ((0.0) * Metre)
-                    PorteeVisionFOW = ((0.0) * Metre)
-                    DetectionTBA = ((10000) * Metre)
-                    PorteeVision = ((10000) * Metre)
-                    PorteeIdentification = 0.0
-                    OpticalStrength = 0.0
-                    OpticalStrengthAltitude = 40
-                    UnitDetectStealthUnit = False
-                    SpecializedDetections = MAP [
-                        ( EVisionUnitType/AlwaysInHighAltitude, 10000.0 * Metre ),
-                    ]
-                    SpecializedOpticalStrengths = MAP [
-                    ]
-                    IgnoreObstacles = MAP []
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
+        ~/BuildingScannerConfigurationDescriptor,
         TReverseScannerWithIdentificationDescriptor
         (
             VisibilityRollRule = TModernWarfareVisibilityRollRule
             (
                 IdentifyBaseProbability     = 1.0
                 TimeBetweenEachIdentifyRoll = 1.0
-                VisibilityRuleDescriptor    = ~/StandardWargameVisibilityRollRule
-                DistanceMultiplierRule      = TModernWarfareDistanceMultiplierRollRuleDescriptor
-                (
-                    MultiplicateurAPorteeMaximale            = DefaultMultiplicateurAPorteeMaximale
-                    MultiplicateurAPorteeMinimale            = DefaultMultiplicateurAPorteeMinimale
-                    Exposant                                 = DefaultExposant
-                    MultiplicateurAPorteeMaximaleEnMouvement = DefaultMultiplicateurAPorteeMaximaleEnMouvement
-                    MultiplicateurAPorteeMinimaleEnMouvement = DefaultMultiplicateurAPorteeMinimaleEnMouvement
-                    ExposantEnMouvement                      = DefaultExposantEnMouvement
-                )
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
             )
         ),
-        ApparenceModel is
-        TModuleSelector
+        ApparenceModel is BuildingApparenceModuleDescriptor
         (
-            Default            = TApparenceModelModuleDescriptor
-            (
-                PickableObject                        = True
-                BlackHoleIdentifier                   = "FOB_RFA"
-                Depiction                             = TTimelyModifyLevelBuildReceiverFactory
-                (
-                    SymbolName                        = 'FOB_Nato_03'
-                )
-            )
-            Selection                              = [ ~/NilDescriptorIfCadavre ]
-        )
-,
-        TCadavreGeneratorModuleDescriptorUnit( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_RFA ),
-            TModuleSelector
-            (
-                Default        = TIAStratModuleDescriptor
-                (
-                    DatabaseId = 0
-                    GameplayBehavior = EGameplayBehavior/Nothing
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
+            BlackHoleIdentifier = "FOB_RFA"
+            SymbolName = 'FOB_Nato_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_RFA ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
         ~/IAStratZoneIndexModuleDescriptor,
         ~/DebugModuleDescriptor,
         ~/SelectionModuleDescriptor,
-            TModuleSelector
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
         (
-            Default        = TStateEngineCompanyModuleDescriptor
-            (
-                InitialStateId = 'CompanyInit'
-                StateEngineUpdateMode = WorldControllerAccess_InWorld
-            )
-            Selection      = [~/NilDescriptorIfCadavre]
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
         ),
-        TStateEngineModuleDescriptor
-        (
-            InitialStateId = 'UnitIdle'
-            StateEngineUpdateMode = WorldControllerAccess_InWorld
-        ),
-            TModuleSelector
-            (
-                Default = TProductionModuleDescriptor
-                (
-                    Factory            = EDefaultFactories/Logistic
-                    ProductionTime     = -1
-                    ProductionRessourcesNeeded = MAP [
-                        (~/Resource_CommandPoints, 250),
-                    ]
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
         ~/EffectApplierModuleDescriptor,
-            TTacticalLabelModuleDescriptor
-            (
-                UnitName                   = 'FOBGER'
-                IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_fob",
-                        "Texture_fob"
-                    ]
-                )
-                DefaultSpecialtyToken      = "tank_A"
-                UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_NATO_Unidentified",
-                        "Texture_NATO_Unidentified"
-                    ]
-                )
-                PositionHeightOffset = 1000.0
-            ),
-        TOrderableModuleDescriptor
+        TTacticalLabelModuleDescriptor
         (
-            UnlockableOrders = ~/Descriptor_OrderAvailability_FOB_RFA
-        ),
-        ~/OrderDisplayModuleDescriptor,
-            ~/GroupableUnitModuleSelector,
-        ~/PackSignauxModuleDescriptor,
-            TUnitUIModuleDescriptor
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
             (
-                UnitRole = 'tank_A'
-                SpecialtiesList = [
-                    'supply',
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
                 ]
-                NameToken = 'FOBGER'
-                InfoPanelConfigurationToken = 'Default'
-                TypeSpecificToken = ''
-                IsAce = False
-                GenerateName = true
-                MenuIconTexture = 'Texture_RTS_H_fob'
-                ButtonTexture = 'Texture_Button_Unit_FOB_RFA'
-                CountryTexture = 'CommonTexture_MotherCountryFlag_RFA'
-                TypeStrategicCount = ETypeStrategicCount/NotCounted
-            ),
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'FOBGER'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_RFA'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_RFA'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
     ]
 )
 export Descriptor_Unit_FOB_SOV is TEntityDescriptor
@@ -774,251 +825,132 @@ export Descriptor_Unit_FOB_SOV is TEntityDescriptor
         TTypeUnitModuleDescriptor
         (
             MotherCountry                    = 'SOV'
-            Nationalite                      = ENationalite/Axis
+            Coalition                        = ECoalition/Axis
         ),
-        TTagsModuleDescriptor
-        (
-            TagSet = [
-                "FOB",
-            ]
-        ),
-        TFlagsModuleDescriptor
-        (
-            InitialFlagSet =
-            [
-                Flag_Batiment,
-                Flag_Detectable,
-                Flag_LdDetectable,
-            ]
-        ),
-            TPositionModuleDescriptor
-            (
-                StickToGround              = True
-                InGeoDb                    = True
-                PorteurMustBeVisible       = True
-                ClampInWorld               = True
-                ClampOutMap                = False
-                RelativeScanningPosition   = ~/DecalageParDefautDuPointDeVision
-                LowAltitudeFlyingAltitude  = ((0) * Metre)
-                NearGroundFlyingAltitude   = ((0) * Metre)
-            ),
-        ~/InflammableModuleDescriptorUnit,
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
         ~/LinkTeamModuleDescriptor,
         TExperienceModuleDescriptor
         (
-            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v2
-            CanWinExperience = False
-            ExperienceGainBySecond = ~/ExperienceGainBySecond
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
             ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
         ),
-            TWargameBuildingModuleDescriptor
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
             (
-                BoundingBoxMin = ~/FOBBoxMin
-                BoundingBoxMax = ~/FOBBoxMax
-            ),
-            TModuleSelector
-            (
-                Default        = TSupplyModuleDescriptor
-                (
-                    SupplyDescriptor   = ~/StandardSupply
-                    SupplyCapacity     = 16000.0
-                    SupplyPriority     = 0
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = ~/CapturableModule
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = TBaseDamageModuleDescriptor
-                (
-                    MaxPhysicalDamages = 10
-                    MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
-                    MaxStunDamages = ~/Building_MaxStunDamages
-                    PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
-                    SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
-                    StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            TModuleSelector
-            (
-                Default        = TDamageModuleDescriptor
-                (
-                    SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
-                    StunDamagesRegen = ~/Building_StunDamagesRegen
-                    BlindageProperties = TBlindageProperties
-                    (
-                        ArmorDescriptorFront = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorSides = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorRear = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorTop = ArmorDescriptor_Batiment_1
-                    )
-                    KillWhenDamagesReachMax = True
-                    HitRollSize = 0.0
-                    HitRollECM = 0.0
-                    AutoOrientation = False
-                    UseTopArmorAgainstFire = False
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            ~/TargetCoordinatorModuleSelector,
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
         TVisibilityModuleDescriptor
         (
-            AutoRevealType       = EAutoRevealType/AutoRevealAllies
             UnitConcealmentBonus = 1.0
-            VisionUnitType       = EVisionUnitType/AlwaysOnGround
-            UnitIsStealth        = False
-            HideFromDebug        = False
         ),
-            TModuleSelector
-            (
-                Default        = TScannerConfigurationDescriptor
-                (
-                    OpticsAltitudeConfig = ~/EVisionOpticsAltitudeConfig/DontUse
-                    DoesNotCountInScannerAbsoluteMaxRange = False
-                    PorteeVisionTBA = ((0.0) * Metre)
-                    PorteeVisionFOW = ((0.0) * Metre)
-                    DetectionTBA = ((10000) * Metre)
-                    PorteeVision = ((10000) * Metre)
-                    PorteeIdentification = 0.0
-                    OpticalStrength = 0.0
-                    OpticalStrengthAltitude = 40
-                    UnitDetectStealthUnit = False
-                    SpecializedDetections = MAP [
-                        ( EVisionUnitType/AlwaysInHighAltitude, 10000.0 * Metre ),
-                    ]
-                    SpecializedOpticalStrengths = MAP [
-                    ]
-                    IgnoreObstacles = MAP []
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
+        ~/BuildingScannerConfigurationDescriptor,
         TReverseScannerWithIdentificationDescriptor
         (
             VisibilityRollRule = TModernWarfareVisibilityRollRule
             (
                 IdentifyBaseProbability     = 1.0
                 TimeBetweenEachIdentifyRoll = 1.0
-                VisibilityRuleDescriptor    = ~/StandardWargameVisibilityRollRule
-                DistanceMultiplierRule      = TModernWarfareDistanceMultiplierRollRuleDescriptor
-                (
-                    MultiplicateurAPorteeMaximale            = DefaultMultiplicateurAPorteeMaximale
-                    MultiplicateurAPorteeMinimale            = DefaultMultiplicateurAPorteeMinimale
-                    Exposant                                 = DefaultExposant
-                    MultiplicateurAPorteeMaximaleEnMouvement = DefaultMultiplicateurAPorteeMaximaleEnMouvement
-                    MultiplicateurAPorteeMinimaleEnMouvement = DefaultMultiplicateurAPorteeMinimaleEnMouvement
-                    ExposantEnMouvement                      = DefaultExposantEnMouvement
-                )
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
             )
         ),
-        ApparenceModel is
-        TModuleSelector
+        ApparenceModel is BuildingApparenceModuleDescriptor
         (
-            Default            = TApparenceModelModuleDescriptor
-            (
-                PickableObject                        = True
-                BlackHoleIdentifier                   = "FOB_SOV"
-                Depiction                             = TTimelyModifyLevelBuildReceiverFactory
-                (
-                    SymbolName                        = 'FOB_Pact_03'
-                )
-            )
-            Selection                              = [ ~/NilDescriptorIfCadavre ]
-        )
-,
-        TCadavreGeneratorModuleDescriptorUnit( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_SOV ),
-            TModuleSelector
-            (
-                Default        = TIAStratModuleDescriptor
-                (
-                    DatabaseId = 0
-                    GameplayBehavior = EGameplayBehavior/Nothing
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
+            BlackHoleIdentifier = "FOB_SOV"
+            SymbolName = 'FOB_Pact_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_SOV ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
         ~/IAStratZoneIndexModuleDescriptor,
         ~/DebugModuleDescriptor,
         ~/SelectionModuleDescriptor,
-            TModuleSelector
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
         (
-            Default        = TStateEngineCompanyModuleDescriptor
-            (
-                InitialStateId = 'CompanyInit'
-                StateEngineUpdateMode = WorldControllerAccess_InWorld
-            )
-            Selection      = [~/NilDescriptorIfCadavre]
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
         ),
-        TStateEngineModuleDescriptor
-        (
-            InitialStateId = 'UnitIdle'
-            StateEngineUpdateMode = WorldControllerAccess_InWorld
-        ),
-            TModuleSelector
-            (
-                Default = TProductionModuleDescriptor
-                (
-                    Factory            = EDefaultFactories/Logistic
-                    ProductionTime     = -1
-                    ProductionRessourcesNeeded = MAP [
-                        (~/Resource_CommandPoints, 250),
-                    ]
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
         ~/EffectApplierModuleDescriptor,
-            TTacticalLabelModuleDescriptor
-            (
-                UnitName                   = 'FOBSOV'
-                IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_fob",
-                        "Texture_fob"
-                    ]
-                )
-                DefaultSpecialtyToken      = "tank_A"
-                UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_NATO_Unidentified",
-                        "Texture_NATO_Unidentified"
-                    ]
-                )
-                PositionHeightOffset = 1000.0
-            ),
-        TOrderableModuleDescriptor
+        TTacticalLabelModuleDescriptor
         (
-            UnlockableOrders = ~/Descriptor_OrderAvailability_FOB_SOV
-        ),
-        ~/OrderDisplayModuleDescriptor,
-            ~/GroupableUnitModuleSelector,
-        ~/PackSignauxModuleDescriptor,
-            TUnitUIModuleDescriptor
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
             (
-                UnitRole = 'tank_A'
-                SpecialtiesList = [
-                    'supply',
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
                 ]
-                NameToken = 'FOBSOV'
-                InfoPanelConfigurationToken = 'Default'
-                TypeSpecificToken = ''
-                IsAce = False
-                GenerateName = true
-                MenuIconTexture = 'Texture_RTS_H_fob'
-                ButtonTexture = 'Texture_Button_Unit_FOB_SOV'
-                CountryTexture = 'CommonTexture_MotherCountryFlag_SOV'
-                TypeStrategicCount = ETypeStrategicCount/NotCounted
-            ),
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'FOBSOV'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_SOV'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_SOV'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
     ]
 )
 export Descriptor_Unit_FOB_UK is TEntityDescriptor
@@ -1029,251 +961,132 @@ export Descriptor_Unit_FOB_UK is TEntityDescriptor
         TTypeUnitModuleDescriptor
         (
             MotherCountry                    = 'UK'
-            Nationalite                      = ENationalite/Allied
+            Coalition                        = ECoalition/Allied
         ),
-        TTagsModuleDescriptor
-        (
-            TagSet = [
-                "FOB",
-            ]
-        ),
-        TFlagsModuleDescriptor
-        (
-            InitialFlagSet =
-            [
-                Flag_Batiment,
-                Flag_Detectable,
-                Flag_LdDetectable,
-            ]
-        ),
-            TPositionModuleDescriptor
-            (
-                StickToGround              = True
-                InGeoDb                    = True
-                PorteurMustBeVisible       = True
-                ClampInWorld               = True
-                ClampOutMap                = False
-                RelativeScanningPosition   = ~/DecalageParDefautDuPointDeVision
-                LowAltitudeFlyingAltitude  = ((0) * Metre)
-                NearGroundFlyingAltitude   = ((0) * Metre)
-            ),
-        ~/InflammableModuleDescriptorUnit,
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
         ~/LinkTeamModuleDescriptor,
         TExperienceModuleDescriptor
         (
-            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v2
-            CanWinExperience = False
-            ExperienceGainBySecond = ~/ExperienceGainBySecond
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
             ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
         ),
-            TWargameBuildingModuleDescriptor
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
             (
-                BoundingBoxMin = ~/FOBBoxMin
-                BoundingBoxMax = ~/FOBBoxMax
-            ),
-            TModuleSelector
-            (
-                Default        = TSupplyModuleDescriptor
-                (
-                    SupplyDescriptor   = ~/StandardSupply
-                    SupplyCapacity     = 16000.0
-                    SupplyPriority     = 0
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = ~/CapturableModule
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = TBaseDamageModuleDescriptor
-                (
-                    MaxPhysicalDamages = 10
-                    MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
-                    MaxStunDamages = ~/Building_MaxStunDamages
-                    PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
-                    SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
-                    StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            TModuleSelector
-            (
-                Default        = TDamageModuleDescriptor
-                (
-                    SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
-                    StunDamagesRegen = ~/Building_StunDamagesRegen
-                    BlindageProperties = TBlindageProperties
-                    (
-                        ArmorDescriptorFront = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorSides = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorRear = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorTop = ArmorDescriptor_Batiment_1
-                    )
-                    KillWhenDamagesReachMax = True
-                    HitRollSize = 0.0
-                    HitRollECM = 0.0
-                    AutoOrientation = False
-                    UseTopArmorAgainstFire = False
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            ~/TargetCoordinatorModuleSelector,
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
         TVisibilityModuleDescriptor
         (
-            AutoRevealType       = EAutoRevealType/AutoRevealAllies
             UnitConcealmentBonus = 1.0
-            VisionUnitType       = EVisionUnitType/AlwaysOnGround
-            UnitIsStealth        = False
-            HideFromDebug        = False
         ),
-            TModuleSelector
-            (
-                Default        = TScannerConfigurationDescriptor
-                (
-                    OpticsAltitudeConfig = ~/EVisionOpticsAltitudeConfig/DontUse
-                    DoesNotCountInScannerAbsoluteMaxRange = False
-                    PorteeVisionTBA = ((0.0) * Metre)
-                    PorteeVisionFOW = ((0.0) * Metre)
-                    DetectionTBA = ((10000) * Metre)
-                    PorteeVision = ((10000) * Metre)
-                    PorteeIdentification = 0.0
-                    OpticalStrength = 0.0
-                    OpticalStrengthAltitude = 40
-                    UnitDetectStealthUnit = False
-                    SpecializedDetections = MAP [
-                        ( EVisionUnitType/AlwaysInHighAltitude, 10000.0 * Metre ),
-                    ]
-                    SpecializedOpticalStrengths = MAP [
-                    ]
-                    IgnoreObstacles = MAP []
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
+        ~/BuildingScannerConfigurationDescriptor,
         TReverseScannerWithIdentificationDescriptor
         (
             VisibilityRollRule = TModernWarfareVisibilityRollRule
             (
                 IdentifyBaseProbability     = 1.0
                 TimeBetweenEachIdentifyRoll = 1.0
-                VisibilityRuleDescriptor    = ~/StandardWargameVisibilityRollRule
-                DistanceMultiplierRule      = TModernWarfareDistanceMultiplierRollRuleDescriptor
-                (
-                    MultiplicateurAPorteeMaximale            = DefaultMultiplicateurAPorteeMaximale
-                    MultiplicateurAPorteeMinimale            = DefaultMultiplicateurAPorteeMinimale
-                    Exposant                                 = DefaultExposant
-                    MultiplicateurAPorteeMaximaleEnMouvement = DefaultMultiplicateurAPorteeMaximaleEnMouvement
-                    MultiplicateurAPorteeMinimaleEnMouvement = DefaultMultiplicateurAPorteeMinimaleEnMouvement
-                    ExposantEnMouvement                      = DefaultExposantEnMouvement
-                )
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
             )
         ),
-        ApparenceModel is
-        TModuleSelector
+        ApparenceModel is BuildingApparenceModuleDescriptor
         (
-            Default            = TApparenceModelModuleDescriptor
-            (
-                PickableObject                        = True
-                BlackHoleIdentifier                   = "FOB_UK"
-                Depiction                             = TTimelyModifyLevelBuildReceiverFactory
-                (
-                    SymbolName                        = 'FOB_Nato_03'
-                )
-            )
-            Selection                              = [ ~/NilDescriptorIfCadavre ]
-        )
-,
-        TCadavreGeneratorModuleDescriptorUnit( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_UK ),
-            TModuleSelector
-            (
-                Default        = TIAStratModuleDescriptor
-                (
-                    DatabaseId = 0
-                    GameplayBehavior = EGameplayBehavior/Nothing
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
+            BlackHoleIdentifier = "FOB_UK"
+            SymbolName = 'FOB_Nato_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_UK ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
         ~/IAStratZoneIndexModuleDescriptor,
         ~/DebugModuleDescriptor,
         ~/SelectionModuleDescriptor,
-            TModuleSelector
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
         (
-            Default        = TStateEngineCompanyModuleDescriptor
-            (
-                InitialStateId = 'CompanyInit'
-                StateEngineUpdateMode = WorldControllerAccess_InWorld
-            )
-            Selection      = [~/NilDescriptorIfCadavre]
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
         ),
-        TStateEngineModuleDescriptor
-        (
-            InitialStateId = 'UnitIdle'
-            StateEngineUpdateMode = WorldControllerAccess_InWorld
-        ),
-            TModuleSelector
-            (
-                Default = TProductionModuleDescriptor
-                (
-                    Factory            = EDefaultFactories/Logistic
-                    ProductionTime     = -1
-                    ProductionRessourcesNeeded = MAP [
-                        (~/Resource_CommandPoints, 250),
-                    ]
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
         ~/EffectApplierModuleDescriptor,
-            TTacticalLabelModuleDescriptor
-            (
-                UnitName                   = 'FOBUSUK'
-                IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_fob",
-                        "Texture_fob"
-                    ]
-                )
-                DefaultSpecialtyToken      = "tank_A"
-                UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_NATO_Unidentified",
-                        "Texture_NATO_Unidentified"
-                    ]
-                )
-                PositionHeightOffset = 1000.0
-            ),
-        TOrderableModuleDescriptor
+        TTacticalLabelModuleDescriptor
         (
-            UnlockableOrders = ~/Descriptor_OrderAvailability_FOB_UK
-        ),
-        ~/OrderDisplayModuleDescriptor,
-            ~/GroupableUnitModuleSelector,
-        ~/PackSignauxModuleDescriptor,
-            TUnitUIModuleDescriptor
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
             (
-                UnitRole = 'tank_A'
-                SpecialtiesList = [
-                    'supply',
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
                 ]
-                NameToken = 'FOBUSUK'
-                InfoPanelConfigurationToken = 'Default'
-                TypeSpecificToken = ''
-                IsAce = False
-                GenerateName = true
-                MenuIconTexture = 'Texture_RTS_H_fob'
-                ButtonTexture = 'Texture_Button_Unit_FOB_UK'
-                CountryTexture = 'CommonTexture_MotherCountryFlag_UK'
-                TypeStrategicCount = ETypeStrategicCount/NotCounted
-            ),
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'FOBUSUK'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_UK'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_UK'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
     ]
 )
 export Descriptor_Unit_FOB_US is TEntityDescriptor
@@ -1284,250 +1097,131 @@ export Descriptor_Unit_FOB_US is TEntityDescriptor
         TTypeUnitModuleDescriptor
         (
             MotherCountry                    = 'US'
-            Nationalite                      = ENationalite/Allied
+            Coalition                        = ECoalition/Allied
         ),
-        TTagsModuleDescriptor
-        (
-            TagSet = [
-                "FOB",
-            ]
-        ),
-        TFlagsModuleDescriptor
-        (
-            InitialFlagSet =
-            [
-                Flag_Batiment,
-                Flag_Detectable,
-                Flag_LdDetectable,
-            ]
-        ),
-            TPositionModuleDescriptor
-            (
-                StickToGround              = True
-                InGeoDb                    = True
-                PorteurMustBeVisible       = True
-                ClampInWorld               = True
-                ClampOutMap                = False
-                RelativeScanningPosition   = ~/DecalageParDefautDuPointDeVision
-                LowAltitudeFlyingAltitude  = ((0) * Metre)
-                NearGroundFlyingAltitude   = ((0) * Metre)
-            ),
-        ~/InflammableModuleDescriptorUnit,
+        ~/BuildingDescriptorTagsModuleDescriptor,
+        ~/BuildingFlagsModuleDescriptor,
+        ~/BuildingPositionModuleDescriptor,
         ~/LinkTeamModuleDescriptor,
         TExperienceModuleDescriptor
         (
-            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v2
-            CanWinExperience = False
-            ExperienceGainBySecond = ~/ExperienceGainBySecond
+            ExperienceLevelsPackDescriptor = ~/ExperienceLevelsPackDescriptor_XP_pack_simple_v3
             ExperienceMultiplierBonusOnKill = ~/ExperienceMultiplierBonusOnKill
         ),
-            TWargameBuildingModuleDescriptor
+        ~/FOBBuildingModuleDescriptor,
+        TSupplyModuleDescriptor
+        (
+            SupplyDescriptor   = $/GFX/Weapon/StandardSupply
+            SupplyCapacity     = 16000.0
+            SupplyPriority     = 0
+        ),
+        ~/CapturableModuleDescriptor,
+        TBaseDamageModuleDescriptor
+        (
+            MaxPhysicalDamages = 10
+            MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
+            MaxStunDamages = ~/Building_MaxStunDamages
+            PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
+            SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
+            StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
+        ),
+        TDamageModuleDescriptor
+        (
+            SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
+            StunDamagesRegen = ~/Building_StunDamagesRegen
+            BlindageProperties = TBlindageProperties
             (
-                BoundingBoxMin = ~/FOBBoxMin
-                BoundingBoxMax = ~/FOBBoxMax
-            ),
-            TModuleSelector
-            (
-                Default        = TSupplyModuleDescriptor
-                (
-                    SupplyDescriptor   = ~/StandardSupply
-                    SupplyCapacity     = 16000.0
-                    SupplyPriority     = 0
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = ~/CapturableModule
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
-            TModuleSelector
-            (
-                Default        = TBaseDamageModuleDescriptor
-                (
-                    MaxPhysicalDamages = 10
-                    MaxSuppressionDamages = ~/Building_MaxSuppressionDamages
-                    MaxStunDamages = ~/Building_MaxStunDamages
-                    PhysicalDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_degats_phy
-                    SuppressDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_suppression
-                    StunDamageLevelsPack = ~/DamageLevelsPackDescriptor_Default_pack_paliers_stun
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            TModuleSelector
-            (
-                Default        = TDamageModuleDescriptor
-                (
-                    SuppressDamagesRegenRatio = ~/Building_SuppressDamagesRegenRatioList
-                    StunDamagesRegen = ~/Building_StunDamagesRegen
-                    BlindageProperties = TBlindageProperties
-                    (
-                        ArmorDescriptorFront = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorSides = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorRear = ArmorDescriptor_Batiment_1
-                        ArmorDescriptorTop = ArmorDescriptor_Batiment_1
-                    )
-                    KillWhenDamagesReachMax = True
-                    HitRollSize = 0.0
-                    HitRollECM = 0.0
-                    AutoOrientation = False
-                    UseTopArmorAgainstFire = False
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
-            ~/TargetCoordinatorModuleSelector,
+                ResistanceFront = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceSides = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceRear = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ResistanceTop = TResistanceTypeRTTI(Family=ResistanceFamily_batiment Index=1)
+                ExplosiveReactiveArmor = False
+            )
+            KillWhenDamagesReachMax = True
+            HitRollECM = 0.0
+            AutoOrientation = False
+            UseTopArmorAgainstFire = False
+        ),
+        ~/TargetCoordinatorModuleSelector,
         TVisibilityModuleDescriptor
         (
-            AutoRevealType       = EAutoRevealType/AutoRevealAllies
             UnitConcealmentBonus = 1.0
-            VisionUnitType       = EVisionUnitType/AlwaysOnGround
-            UnitIsStealth        = False
-            HideFromDebug        = False
         ),
-            TModuleSelector
-            (
-                Default        = TScannerConfigurationDescriptor
-                (
-                    OpticsAltitudeConfig = ~/EVisionOpticsAltitudeConfig/DontUse
-                    DoesNotCountInScannerAbsoluteMaxRange = False
-                    PorteeVisionTBA = ((0.0) * Metre)
-                    PorteeVisionFOW = ((0.0) * Metre)
-                    DetectionTBA = ((10000) * Metre)
-                    PorteeVision = ((10000) * Metre)
-                    PorteeIdentification = 0.0
-                    OpticalStrength = 0.0
-                    OpticalStrengthAltitude = 40
-                    UnitDetectStealthUnit = False
-                    SpecializedDetections = MAP [
-                        ( EVisionUnitType/AlwaysInHighAltitude, 10000.0 * Metre ),
-                    ]
-                    SpecializedOpticalStrengths = MAP [
-                    ]
-                    IgnoreObstacles = MAP []
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
+        ~/BuildingScannerConfigurationDescriptor,
         TReverseScannerWithIdentificationDescriptor
         (
             VisibilityRollRule = TModernWarfareVisibilityRollRule
             (
                 IdentifyBaseProbability     = 1.0
                 TimeBetweenEachIdentifyRoll = 1.0
-                VisibilityRuleDescriptor    = ~/StandardWargameVisibilityRollRule
-                DistanceMultiplierRule      = TModernWarfareDistanceMultiplierRollRuleDescriptor
-                (
-                    MultiplicateurAPorteeMaximale            = DefaultMultiplicateurAPorteeMaximale
-                    MultiplicateurAPorteeMinimale            = DefaultMultiplicateurAPorteeMinimale
-                    Exposant                                 = DefaultExposant
-                    MultiplicateurAPorteeMaximaleEnMouvement = DefaultMultiplicateurAPorteeMaximaleEnMouvement
-                    MultiplicateurAPorteeMinimaleEnMouvement = DefaultMultiplicateurAPorteeMinimaleEnMouvement
-                    ExposantEnMouvement                      = DefaultExposantEnMouvement
-                )
+                VisibilityRuleDescriptor    = $/GFX/VisionRules/StandardWargameVisibilityRollRule
             )
         ),
-        ApparenceModel is
-        TModuleSelector
+        ApparenceModel is BuildingApparenceModuleDescriptor
         (
-            Default            = TApparenceModelModuleDescriptor
-            (
-                PickableObject                        = True
-                BlackHoleIdentifier                   = "FOB_US"
-                Depiction                             = TTimelyModifyLevelBuildReceiverFactory
-                (
-                    SymbolName                        = 'FOB_Nato_03'
-                )
-            )
-            Selection                              = [ ~/NilDescriptorIfCadavre ]
-        )
-,
-        TCadavreGeneratorModuleDescriptorUnit( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_US ),
-            TModuleSelector
-            (
-                Default        = TIAStratModuleDescriptor
-                (
-                    DatabaseId = 0
-                    GameplayBehavior = EGameplayBehavior/Nothing
-                )
-                Selection      = [~/NilDescriptorIfCadavre]
-            ),
+            BlackHoleIdentifier = "FOB_US"
+            SymbolName = 'FOB_Nato_03'
+        ),
+        TCadavreGeneratorModuleDescriptor( CadavreDescriptor = ~/Descriptor_UnitCadavre_FOB_US ),
+        TIAStratModuleDescriptor
+        (
+            DatabaseId = 0
+            GameplayBehavior = EGameplayBehavior/Nothing
+        ),
         ~/IAStratZoneIndexModuleDescriptor,
         ~/DebugModuleDescriptor,
         ~/SelectionModuleDescriptor,
-            TModuleSelector
+        ~/UnitStateEngineCompanyModuleDescriptor,
+        ~/UnitStateEngineModuleDescriptor,
+        TProductionModuleDescriptor
         (
-            Default        = TStateEngineCompanyModuleDescriptor
-            (
-                InitialStateId = 'CompanyInit'
-                StateEngineUpdateMode = WorldControllerAccess_InWorld
-            )
-            Selection      = [~/NilDescriptorIfCadavre]
+            Factory            = EDefaultFactories/Logistic
+            ProductionTime     = -1
+            ProductionRessourcesNeeded = MAP [
+                ($/GFX/Resources/Resource_CommandPoints, 175),
+            ]
         ),
-        TStateEngineModuleDescriptor
-        (
-            InitialStateId = 'UnitIdle'
-            StateEngineUpdateMode = WorldControllerAccess_InWorld
-        ),
-            TModuleSelector
-            (
-                Default = TProductionModuleDescriptor
-                (
-                    Factory            = EDefaultFactories/Logistic
-                    ProductionTime     = -1
-                    ProductionRessourcesNeeded = MAP [
-                        (~/Resource_CommandPoints, 250),
-                    ]
-                )
-                Selection = [ ~/NilDescriptorIfCadavre ]
-            ),
         ~/EffectApplierModuleDescriptor,
-            TTacticalLabelModuleDescriptor
-            (
-                UnitName                   = 'FOBUSUK'
-                IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_fob",
-                        "Texture_fob"
-                    ]
-                )
-                DefaultSpecialtyToken      = "tank_A"
-                UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
-                (
-                    CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
-                    Alterator = $/GUIOption/IconType
-                    Values =
-                    [
-                        "Texture_RTS_H_NATO_Unidentified",
-                        "Texture_NATO_Unidentified"
-                    ]
-                )
-                PositionHeightOffset = 1000.0
-            ),
-        TOrderableModuleDescriptor
+        TTacticalLabelModuleDescriptor
         (
-            UnlockableOrders = ~/Descriptor_OrderAvailability_FOB_US
-        ),
-        ~/OrderDisplayModuleDescriptor,
-            ~/GroupableUnitModuleSelector,
-        ~/PackSignauxModuleDescriptor,
-            TUnitUIModuleDescriptor
+            IdentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
             (
-                UnitRole = 'tank_A'
-                SpecialtiesList = [
-                    'supply',
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_fob",
+                    "Texture_fob"
                 ]
-                NameToken = 'FOBUSUK'
-                InfoPanelConfigurationToken = 'Default'
-                TypeSpecificToken = ''
-                IsAce = False
-                GenerateName = true
-                MenuIconTexture = 'Texture_RTS_H_fob'
-                ButtonTexture = 'Texture_Button_Unit_FOB_US'
-                CountryTexture = 'CommonTexture_MotherCountryFlag_US'
-                TypeStrategicCount = ETypeStrategicCount/NotCounted
-            ),
+            )
+            UnidentifiedTexture = TBUCKToolAlternativeValues_TUIValueTextureNameFromTEugBMutableInteger
+            (
+                CommandNameTrigger = ~/SpecificCommandName/UpdateGUIFromIconType
+                Alterator = $/GUIOption/IconType
+                Values =
+                [
+                    "Texture_RTS_H_NATO_Unidentified",
+                    "Texture_NATO_Unidentified"
+                ]
+            )
+            PositionHeightOffset = 1000.0
+        ),
+        ~/BuildingOrderConfigModuleDescriptor,
+        ~/OrderDisplayModuleDescriptor,
+        ~/GroupableUnitModuleSelector,
+        ~/PackSignauxModuleDescriptor,
+        TUnitUpkeepModuleDescriptor( UpkeepPercentage = 0.0 ),
+        TUnitUIModuleDescriptor
+        (
+            UnitRole = 'supply'
+            PriceCategory = 'tank_A'
+            NameToken = 'FOBUSUK'
+            InfoPanelConfigurationToken = 'FOB'
+            GenerateName = true
+            MenuIconTexture = 'Texture_RTS_H_fob'
+            ButtonTexture = 'Texture_Button_Unit_FOB_US'
+            CountryTexture = 'CommonTexture_MotherCountryFlag_US'
+            TypeStrategicCount = ETypeStrategicDetailedCount/NotCounted
+        ),
     ]
 )
