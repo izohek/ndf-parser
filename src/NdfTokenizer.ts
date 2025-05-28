@@ -41,16 +41,27 @@ export class NdfTokenizer {
             if (tokens[i].type === Constants.IdentifierType) {
                 /// Combine into string hack
                 /// Takes form of {identifier}{/}{identifier} and merges into a single identifier
-                const next = tokens[i + 1].type === Constants.PunctuatorType && tokens[i + 1].value === '/'
-                const nextNext = (tokens[i + 2]?.type ?? null) === Constants.IdentifierType
+                var next = tokens[i + 1].type === Constants.PunctuatorType && tokens[i + 1].value === '/'
+                var nextNext = (tokens[i + 2]?.type ?? null) === Constants.IdentifierType
 
                 if (next && nextNext) {
-                    const womboCombo: Token = {
+                    var womboCombo: Token = {
                         type: Constants.IdentifierType,
-                        value: tokens[i].value + tokens[i + 1].value + tokens[i + 2].value
+                        value: tokens[i].value
                     }
 
-                    i += 2
+                    do {
+                        womboCombo = {
+                            type: womboCombo.type,
+                            value: womboCombo.value + tokens[i + 1].value + tokens[i + 2].value
+                        }
+
+                        i += 2
+
+                        next = tokens[i + 1].type === Constants.PunctuatorType && tokens[i + 1].value === '/'
+                        nextNext = (tokens[i + 2]?.type ?? null) === Constants.IdentifierType
+                    } while (next && nextNext)
+
                     sanitizedTokens.push(womboCombo)
                     continue
                 }
@@ -208,9 +219,11 @@ export class NdfTokenizer {
                     currentPos += 1
                     currentPos = this.ffWhiteSpace(tokens, currentPos)
 
-                    const [children, index] = this.parseObjectBody(tokens, currentPos)
-                    obj.children.push(...children)
-                    currentPos = index
+                    if (tokens[currentPos].value === Constants.ObjectDelimeter.start) {
+                        const [children, index] = this.parseObjectBody(tokens, currentPos)
+                        obj.children.push(...children)
+                        currentPos = index
+                    }
                 }
             }
         } else if (tokens[currentPos].value === Constants.ObjectDelimeter.start) {
